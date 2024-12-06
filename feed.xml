@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest.github.io/" rel="alternate" type="text/html" /><updated>2024-12-06T10:04:29+00:00</updated><id>https://honest.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Linux操作系统学习笔记</title><link href="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Linux操作系统学习笔记" /><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="linux操作系统学习笔记">linux操作系统学习笔记</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest.github.io/" rel="alternate" type="text/html" /><updated>2024-12-06T10:11:15+00:00</updated><id>https://honest.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Linux操作系统学习笔记</title><link href="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Linux操作系统学习笔记" /><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="linux操作系统学习笔记">linux操作系统学习笔记</h1>
 
 <h1 id="一系统内核kernal介绍"><strong>一、系统内核（kernal）介绍:</strong></h1>
 
@@ -1403,55 +1403,47 @@ Vi  detail.txt          
 
 <p>需要自己设置.config文件然后make u-boot.bin文件。最后下入板中的是uboot.bin + 设备树文件（DTB）。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[Linux系统引导 UBOOT]]></summary></entry><entry><title type="html">Markdown</title><link href="https://honest.github.io/MarkDown/" rel="alternate" type="text/html" title="Markdown" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://honest.github.io/MarkDown</id><content type="html" xml:base="https://honest.github.io/MarkDown/"><![CDATA[<h1 id="markdown"><a id="note">MarkDown</a></h1>
 
-<p>标题： 若干# + 空格</p>
+<p>标题：<code class="language-plaintext highlighter-rouge">若干# + 空格</code></p>
 
-<p>加粗：<code class="language-plaintext highlighter-rouge"> **文本** 、__文本__ 或Ctrl +B </code></p>
+<p>加粗：<code class="language-plaintext highlighter-rouge"> ** 文本** 、</code>__ 文本__<code class="language-plaintext highlighter-rouge">或</code>Ctrl +B `</p>
 
-<p>倾斜：<code class="language-plaintext highlighter-rouge">*文本*、_文本_ 或Ctrl+I</code></p>
+<p>倾斜：<code class="language-plaintext highlighter-rouge">* 文本*</code>、<code class="language-plaintext highlighter-rouge">_ 文本_</code> 或<code class="language-plaintext highlighter-rouge">Ctrl+I</code></p>
 
-<p>加粗+倾斜：<code class="language-plaintext highlighter-rouge">***文本***、___文本___ 或Ctrl+B  Ctrl+I</code></p>
+<p>加粗+倾斜：<code class="language-plaintext highlighter-rouge">*** 文本***、___ 文本___ 或Ctrl+B  Ctrl+I</code></p>
 
 <p>下划线：<code class="language-plaintext highlighter-rouge">&lt;u&gt;文本&lt;/u&gt;或Ctrl+U</code></p>
 
-<p>删除线：<code class="language-plaintext highlighter-rouge">~~文本~~或Ctrl+D</code></p>
+<p>删除线：<code class="language-plaintext highlighter-rouge">~~ 文本~~或Ctrl+D</code></p>
 
-<p>引用：<code class="language-plaintext highlighter-rouge">&gt;文本 或Ctrl+shift+Q</code></p>
+<p>引用：<code class="language-plaintext highlighter-rouge">&gt; 文本 或Ctrl+shift+Q</code></p>
 
-<p>无序列表：<code class="language-plaintext highlighter-rouge">-列表或*列表</code></p>
+<p>无序列表：<code class="language-plaintext highlighter-rouge">- 列表</code>或<code class="language-plaintext highlighter-rouge">* 列表</code></p>
 
 <p>有序列表：<code class="language-plaintext highlighter-rouge">1. 列表</code></p>
 
-<p>代码：``代码<code class="language-plaintext highlighter-rouge">  或Ctrl + </code> `</p>
+<p>代码：<code class="language-plaintext highlighter-rouge">\</code>代码`  或Ctrl + ` `</p>
 
 <p>代码段： ```</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code
-</code></pre></div></div>
-
 <p>分割线 <code class="language-plaintext highlighter-rouge">****</code></p>
 
-<p>数学公式：<code class="language-plaintext highlighter-rouge">Ctrl + Shift +M 或$数学符号$</code></p>
+<p>数学公式：<code class="language-plaintext highlighter-rouge">Ctrl + Shift +M</code> 或 <code class="language-plaintext highlighter-rouge">$数学符号$</code></p>
 
 <p>图片：<code class="language-plaintext highlighter-rouge">![描述]（图片路径）或Ctrl+shift+I</code></p>
 
-<p>链接：
-<code class="language-plaintext highlighter-rouge">[文本](链接网址"悬浮title")</code>
-<code class="language-plaintext highlighter-rouge">&lt;https://www.114512.com&gt;</code>
-亦或</p>
-
+<p>链接：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\`[文本](链接网址"悬浮title")\`
+\`&lt;https://www.114514.com&gt;\`
+</code></pre></div></div>
+<p>亦或</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[链接文本][1]
 [1]:www.1919810.com
 </code></pre></div></div>
-
 <p>再或</p>
-
 <div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">&lt;a id = XXX&gt;&lt;/a&gt;
 </span></code></pre></div></div>
-
 <p><a herf="# note">参见Markdown笔记</a></p>
 
 <p>注释：<code class="language-plaintext highlighter-rouge">[//]:#(注释)</code></p>
 
-<p>目录：[TOC]</p>
-
-<h1 id="快捷键">快捷键</h1>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[MarkDown]]></summary></entry></feed>
+<p>目录：[TOC]</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[MarkDown]]></summary></entry></feed>

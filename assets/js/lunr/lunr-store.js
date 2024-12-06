@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Markdown",
-        "excerpt":"MarkDown   标题： 若干# + 空格   加粗： **文本** 、__文本__ 或Ctrl +B    倾斜：*文本*、_文本_ 或Ctrl+I   加粗+倾斜：***文本***、___文本___ 或Ctrl+B  Ctrl+I   下划线：&lt;u&gt;文本&lt;/u&gt;或Ctrl+U   删除线：~~文本~~或Ctrl+D   引用：&gt;文本 或Ctrl+shift+Q   无序列表：-列表或*列表   有序列表：1. 列表   代码：``代码  或Ctrl +  `   代码段： ```   code   分割线 ****   数学公式：Ctrl + Shift +M 或$数学符号$   图片：![描述]（图片路径）或Ctrl+shift+I   链接： [文本](链接网址\"悬浮title\") &lt;https://www.114512.com&gt; 亦或   [链接文本][1] [1]:www.1919810.com   再或   &lt;a id = XXX&gt;&lt;/a&gt;   参见Markdown笔记   注释：[//]:#(注释)   目录：[TOC]   快捷键  ","categories": [],
+        "excerpt":"MarkDown   标题：若干# + 空格   加粗： ** 文本** 、__ 文本__或Ctrl +B `   倾斜：* 文本*、_ 文本_ 或Ctrl+I   加粗+倾斜：*** 文本***、___ 文本___ 或Ctrl+B  Ctrl+I   下划线：&lt;u&gt;文本&lt;/u&gt;或Ctrl+U   删除线：~~ 文本~~或Ctrl+D   引用：&gt; 文本 或Ctrl+shift+Q   无序列表：- 列表或* 列表   有序列表：1. 列表   代码：\\代码`  或Ctrl + ` `   代码段： ```   分割线 ****   数学公式：Ctrl + Shift +M 或 $数学符号$   图片：![描述]（图片路径）或Ctrl+shift+I   链接：  \\`[文本](链接网址\"悬浮title\")\\` \\`&lt;https://www.114514.com&gt;\\`  亦或  [链接文本][1] [1]:www.1919810.com  再或  &lt;a id = XXX&gt;&lt;/a&gt;  参见Markdown笔记   注释：[//]:#(注释)   目录：[TOC]  ","categories": [],
         "tags": [],
         "url": "/MarkDown/",
         "teaser": null
