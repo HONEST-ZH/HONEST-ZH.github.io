@@ -1,0 +1,672 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="zh-CN" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Cmake学习笔记 - HONEST的个人主页</title>
+<meta name="description" content="Cmake笔记  Cmake介绍  Cmake是一种与平台无关的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。  Cmake说明文档  cmake是什么？cmake的特性和编译原理（cmake原理和cmake编译过程）  【C++】Cmake使用教程（看这一篇就够了）-CSDN博客     不是已经有了makefile去实现编译控制，为什么还需要Cmake?    Maybe:控制编译的对象范围不同？    Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂   Cmake的常用语法  初始化：      添加cmake版本要求, 添加project名称  cmake_minimum_required (VERSION 2.8) project (project_name)   使用变量：  指定头文件搜索路径：  include_directories (test_func test_func1)   编译可执行文件：      直接编译.c文件  add_executable(main main.c testFunc.c)       将目录中的所有源文件存在变量中  aux_source_directory(. SRC_LIST)       编译变量指定的文件  add_executable(main ${SRC_LIST})       设置二进制文件的输出位置：  set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)   添加库文件：   编译源代码归档成动态和静态库。  add_library (libname SHARED/STATIC ${SRC_LIST})   设置最终生成的库的名字  set_target_properties (libname PROPERTIES OUTPUT_NAME &quot;libname &quot;)   设置库的输出路径  set (LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)   链接库和可执行文件：  在路径下查找库并把绝对路径存放在变量中  find_library(LIB_PATH libname HINTS ${PROJECT_SOURCE_DIR}/lib)   链接目标文件和库文件  target_link_libraries (target_file ${LIB_PATH})   添加编译选项：  add_compile_options(-std=c++11 -Wall)    部分编译：  添加编译子目录：  add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])           source_dir 源代码目录      指定一个具有cmakelist和源代码的目录，将其作为编译的子目录           binary_dir 二进制代码目录      指定cmake输出的二进制文件所在的目录           EXCLUDE_FROM_ALL标记      指定将添加的子目录从make all 中移除         添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。      文件操作   file(MAKE_DIRECTORY path/to/directory)add_library (libname SHARED/STATIC ${SRC_LIST})    ">
+
+
+  <meta name="author" content="HONEST">
+  
+  <meta property="article:author" content="HONEST">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="HONEST的个人主页">
+<meta property="og:title" content="Cmake学习笔记">
+<meta property="og:url" content="https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+  <meta property="og:description" content="Cmake笔记  Cmake介绍  Cmake是一种与平台无关的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。  Cmake说明文档  cmake是什么？cmake的特性和编译原理（cmake原理和cmake编译过程）  【C++】Cmake使用教程（看这一篇就够了）-CSDN博客     不是已经有了makefile去实现编译控制，为什么还需要Cmake?    Maybe:控制编译的对象范围不同？    Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂   Cmake的常用语法  初始化：      添加cmake版本要求, 添加project名称  cmake_minimum_required (VERSION 2.8) project (project_name)   使用变量：  指定头文件搜索路径：  include_directories (test_func test_func1)   编译可执行文件：      直接编译.c文件  add_executable(main main.c testFunc.c)       将目录中的所有源文件存在变量中  aux_source_directory(. SRC_LIST)       编译变量指定的文件  add_executable(main ${SRC_LIST})       设置二进制文件的输出位置：  set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)   添加库文件：   编译源代码归档成动态和静态库。  add_library (libname SHARED/STATIC ${SRC_LIST})   设置最终生成的库的名字  set_target_properties (libname PROPERTIES OUTPUT_NAME &quot;libname &quot;)   设置库的输出路径  set (LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)   链接库和可执行文件：  在路径下查找库并把绝对路径存放在变量中  find_library(LIB_PATH libname HINTS ${PROJECT_SOURCE_DIR}/lib)   链接目标文件和库文件  target_link_libraries (target_file ${LIB_PATH})   添加编译选项：  add_compile_options(-std=c++11 -Wall)    部分编译：  添加编译子目录：  add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])           source_dir 源代码目录      指定一个具有cmakelist和源代码的目录，将其作为编译的子目录           binary_dir 二进制代码目录      指定cmake输出的二进制文件所在的目录           EXCLUDE_FROM_ALL标记      指定将添加的子目录从make all 中移除         添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。      文件操作   file(MAKE_DIRECTORY path/to/directory)add_library (libname SHARED/STATIC ${SRC_LIST})    ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-10-17T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HONEST的个人主页 Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">转到内容</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">转到底部</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          HONEST的个人主页
+          <span class="site-subtitle">一切美好开始的地方</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">切换搜索</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cmake学习笔记">
+    <meta itemprop="description" content="Cmake笔记Cmake介绍Cmake是一种与平台无关的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。Cmake说明文档cmake是什么？cmake的特性和编译原理（cmake原理和cmake编译过程）【C++】Cmake使用教程（看这一篇就够了）-CSDN博客  不是已经有了makefile去实现编译控制，为什么还需要Cmake?  Maybe:控制编译的对象范围不同？  Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂Cmake的常用语法初始化：    添加cmake版本要求, 添加project名称cmake_minimum_required (VERSION 2.8)project (project_name)使用变量：指定头文件搜索路径：include_directories (test_func test_func1)编译可执行文件：    直接编译.c文件add_executable(main main.c testFunc.c)    将目录中的所有源文件存在变量中aux_source_directory(. SRC_LIST)    编译变量指定的文件add_executable(main ${SRC_LIST})    设置二进制文件的输出位置：set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)添加库文件： 编译源代码归档成动态和静态库。add_library (libname SHARED/STATIC ${SRC_LIST})设置最终生成的库的名字set_target_properties (libname PROPERTIES OUTPUT_NAME &quot;libname &quot;)设置库的输出路径set (LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)链接库和可执行文件：在路径下查找库并把绝对路径存放在变量中find_library(LIB_PATH libname HINTS ${PROJECT_SOURCE_DIR}/lib)链接目标文件和库文件target_link_libraries (target_file ${LIB_PATH})添加编译选项：add_compile_options(-std=c++11 -Wall) 部分编译：添加编译子目录：add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])      source_dir 源代码目录    指定一个具有cmakelist和源代码的目录，将其作为编译的子目录        binary_dir 二进制代码目录    指定cmake输出的二进制文件所在的目录        EXCLUDE_FROM_ALL标记    指定将添加的子目录从make all 中移除    添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。  文件操作file(MAKE_DIRECTORY path/to/directory)add_library (libname SHARED/STATIC ${SRC_LIST})    ">
+    <meta itemprop="datePublished" content="2024-10-17T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">Cmake学习笔记
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-17T00:00:00+00:00">2024-10-17</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#cmake笔记">Cmake笔记</a><ul><li><a href="#cmake介绍">Cmake介绍</a></li><li><a href="#cmake的常用语法">Cmake的常用语法</a><ul><li><a href="#初始化">初始化：</a></li><li><a href="#使用变量">使用变量：</a></li><li><a href="#编译可执行文件">编译可执行文件：</a></li><li><a href="#添加库文件">添加库文件：</a></li><li><a href="#链接库和可执行文件">链接库和可执行文件：</a></li><li><a href="#添加编译选项">添加编译选项：</a></li><li><a href="#部分编译">部分编译：</a></li><li><a href="#添加编译子目录">添加编译子目录：</a></li></ul></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="cmake笔记">Cmake笔记</h1>
+
+<h2 id="cmake介绍">Cmake介绍</h2>
+
+<p>Cmake是一种<strong>与平台无关</strong>的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。</p>
+
+<p><a href="https://cmake.org/cmake/help/latest/">Cmake说明文档</a></p>
+
+<p><a href="https://www.elecfans.com/d/2186049.html">cmake是什么？cmake的特性和编译原理（cmake原理和cmake编译过程）</a></p>
+
+<p><a href="https://blog.csdn.net/weixin_43717839/article/details/128032486?spm=1001.2101.3001.6650.14&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-128032486-blog-113787870.235%5Ev43%5Epc_blog_bottom_relevance_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-128032486-blog-113787870.235%5Ev43%5Epc_blog_bottom_relevance_base3&amp;utm_relevant_index=22">【C++】Cmake使用教程（看这一篇就够了）-CSDN博客</a></p>
+
+<blockquote>
+  <p>不是已经有了makefile去实现编译控制，为什么还需要Cmake?</p>
+
+  <p>Maybe:控制编译的对象范围不同？</p>
+
+  <p>Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂</p>
+</blockquote>
+
+<h2 id="cmake的常用语法">Cmake的常用语法</h2>
+
+<h3 id="初始化">初始化：</h3>
+
+<p>    添加cmake版本要求, 添加project名称</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span> <span class="p">(</span>VERSION 2.8<span class="p">)</span>
+<span class="nb">project</span> <span class="p">(</span>project_name<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="使用变量">使用变量：</h3>
+
+<p>指定头文件搜索路径：</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">include_directories</span> <span class="p">(</span>test_func test_func1<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="编译可执行文件">编译可执行文件：</h3>
+
+<p>    直接编译.c文件</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main main.c testFunc.c<span class="p">)</span>
+</code></pre></div></div>
+
+<p>    将目录中的所有源文件存在变量中</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">aux_source_directory</span><span class="p">(</span>. SRC_LIST<span class="p">)</span>
+</code></pre></div></div>
+
+<p>    编译变量指定的文件</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>    设置二进制文件的输出位置：</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>EXECUTABLE_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/bin<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="添加库文件">添加库文件：</h3>
+
+<p> 编译源代码归档成动态和静态库。</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>设置最终生成的库的名字</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set_target_properties</span> <span class="p">(</span>libname PROPERTIES OUTPUT_NAME <span class="s2">"libname "</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>设置库的输出路径</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>LIBRARY_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="链接库和可执行文件">链接库和可执行文件：</h3>
+
+<p>在路径下查找库并把绝对路径存放在变量中</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">find_library</span><span class="p">(</span>LIB_PATH libname HINTS <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
+</code></pre></div></div>
+
+<p>链接目标文件和库文件</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">target_link_libraries</span> <span class="p">(</span>target_file <span class="si">${</span><span class="nv">LIB_PATH</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="添加编译选项">添加编译选项：</h3>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_compile_options</span><span class="p">(</span>-std=c++11 -Wall<span class="p">)</span> 
+</code></pre></div></div>
+
+<h3 id="部分编译">部分编译：</h3>
+
+<h3 id="添加编译子目录">添加编译子目录：</h3>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_subdirectory</span><span class="p">(</span>source_dir [binary_dir] [EXCLUDE_FROM_ALL]<span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>source_dir 源代码目录</strong></p>
+
+    <p>指定一个具有cmakelist和源代码的目录，将其作为编译的子目录</p>
+  </li>
+  <li>
+    <p><strong>binary_dir 二进制代码目录</strong></p>
+
+    <p>指定cmake输出的二进制文件所在的目录</p>
+  </li>
+  <li>
+    <p><strong>EXCLUDE_FROM_ALL标记</strong></p>
+
+    <p>指定将添加的子目录从make all 中移除</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。</p>
+</blockquote>
+
+<ol>
+  <li>文件操作</li>
+</ol>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">file</span><span class="p">(</span>MAKE_DIRECTORY path/to/directory<span class="p">)</span><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>    
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-10-17T00:00:00+00:00">2024-10-17</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">分享</h4>
+
+  <a href="https://twitter.com/intent/tweet?text=Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20https%3A%2F%2Fhonest.github.io%2FCmake%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhonest.github.io%2FCmake%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="pagination--pager" title="Zero mq学习笔记">上一页</a>
+    
+    
+      <a href="/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="pagination--pager" title="锐华嵌入式操作系统">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Linux操作系统学习笔记
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-06T00:00:00+00:00">2024-12-06</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">linux操作系统学习笔记
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">锐华嵌入式操作系统
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Zero mq学习笔记
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-09T00:00:00+00:00">2024-10-09</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          6 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Zero MQ
+
+
+
+We took a normal TCP socket, injected it with a mix of radioactive isotopes stolen from a secret Soviet atomic research project, bombarded it with...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/" rel="permalink">Linux的文本编辑工具
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-08T00:00:00+00:00">2024-10-08</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Linux的文本编辑工具
+
+文本编辑器vim：
+
+命令模式（：）和插入模式（i）,按ecs从插入到命令。命令模式下可以输入命令对文本进行控制。
+
+w 保存
+
+wq保存并退出
+
+q! 退出不保存
+
+u undo
+
+crtl-r redo
+
+x删除
+
+dw删除单词
+
+d$ 删除到行结束
+
+d number w/num...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      输入您要搜索的关键词...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="https://honest.github.io">HONEST的个人主页</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
