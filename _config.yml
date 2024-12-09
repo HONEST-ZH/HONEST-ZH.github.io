@@ -334,14 +334,3 @@ defaults:
         #nav: "main"
         #sticky: true
 
-# ... 现有配置 ...
-defaults:
-  # _pages
-  - scope:
-      path: "_pages/archive"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-# ... 现有配置 ...       
-
