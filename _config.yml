@@ -325,7 +325,23 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
-      #classes: [wide] #wide,narrow,no-shadow,no-border,no-padding,no-background
-      sidebar:
-        nav: "main"
+      #classes:  #wide,narrow,no-shadow,no-border,no-padding,no-background
+      author_profile: true
+      categories: [编程]
+      #sidebar:
+        #enabled: true
+        #position: right 
+        #nav: "main"
+        #sticky: true
+
+# ... 现有配置 ...
+defaults:
+  # _pages
+  - scope:
+      path: "_pages/archive"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+# ... 现有配置 ...       
 
