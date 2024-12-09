@@ -15,7 +15,7 @@ gem "minimal-mistakes-jekyll"
 gem "github-pages", group: :jekyll_plugins
 group :jekyll_plugins do
     gem "jekyll-archives"
-  end  
+end  
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
 #   gem "jekyll-sitemap"
