@@ -12,5 +12,5 @@ main:
     url: /archive/categories/
     description: "存放学习的笔记资料"
   - title: "文章存档"
-    url: /archive/
+    url: /archive/posts/
     description: "按照时间线方式，以存档格式存放文章"
