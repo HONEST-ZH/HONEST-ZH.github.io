@@ -1,691 +1,155 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest.github.io/" rel="alternate" type="text/html" /><updated>2024-12-09T11:31:49+00:00</updated><id>https://honest.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Linux操作系统学习笔记</title><link href="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Linux操作系统学习笔记" /><published>2024-12-06T00:00:00+00:00</published><updated>2024-12-06T00:00:00+00:00</updated><id>https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest.github.io/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="linux操作系统学习笔记">linux操作系统学习笔记</h1>
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
 
-<h1 id="一系统内核kernal介绍"><strong>一、系统内核（kernal）介绍:</strong></h1>
+<html lang="zh-CN" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-<p>是一个建立在硬件和应用之间的中间软件，向上为应用提供调动硬件的接口服务，向下提供对各类硬件的兼容性支持（各种架构的CPU、各种不同原理、不同厂商的内存和设备）。</p>
+<!-- begin _includes/seo.html --><title>Zero mq学习笔记 - HONEST的个人主页</title>
+<meta name="description" content="Zero MQ">
 
-<p>系统内核可以分为三层：系统调用接口（POXIS）、内核代码（不依赖架构，通用）、BSP板级支持包（依赖架构，具体配置）。</p>
 
-<p>系统的主要组件有：系统调用接口、进程管理、内存管理、虚拟文件系统、网络堆栈、设备驱动程序和架构相关的内核代码（BSP）。</p>
+  <meta name="author" content="HONEST">
+  
+  <meta property="article:author" content="HONEST">
+  
 
-<p>https://zhuanlan.zhihu.com/p/342056802</p>
 
-<p>https://www.cnblogs.com/dy2903/p/8453660.html</p>
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="HONEST的个人主页">
+<meta property="og:title" content="Zero mq学习笔记">
+<meta property="og:url" content="https://honest.github.io/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
-<h2 id="11-系统调用接口"><strong>1.1 系统调用接口：</strong></h2>
 
-<p>系统调用接口是操作系统提供给内核的一组函数，用于对操作系统进行管理（后面的内容）。系统调用接口屏蔽了底层硬件的差异性、向上提供了系统内统一的用户接口，但是不同系统之间的借口是不统一的。POSIX是可移植系统接口，规定了通用的系统调用接口，使得应用程序能在兼容POSIX的不同操作系统中正常运行。</p>
+  <meta property="og:description" content="Zero MQ">
 
-<h2 id="12-进程管理"><strong>1.2 进程管理：</strong></h2>
 
-<p><strong>进程、线程、任务：</strong></p>
 
-<p>进程是一个在执行的程序（执行实例），他由一个或多个线程来实现（e.g.PI的计算）。进程是划分资源的基本单位，一个程序开始运行以后就为其开启了一个独立的空间，包括堆（heap进程期间动态分配的malloc/realloc）、缓冲、栈（stack、存放局部变量）、BSS段、数据段data segment、代码段text segment。</p>
 
-<p>线程是进程执行的实体，是真正在运行的执行实体。线程是CPU调度的基本单位。同一个进程的线程之间共享资源（全局变量相同），又保留有自己的程序计数器、堆、栈（局部变量不同）。</p>
 
-<p>任务笼统的表述为某一目的而执行的程序，在Linux和RTOS中任务指的就是线程。</p>
 
-<p>Linux中不明确的区分进程和线程（使用了相同的结构体task_struct），区别只在于是否拥有资源。因此，线程又叫轻量级进程。</p>
 
-<p><strong>进程建立的过程：</strong></p>
+  <meta property="article:published_time" content="2024-10-09T00:00:00+00:00">
 
-<p><strong>进程间通信:</strong></p>
 
-<p><strong>进程优先级和进程调度：</strong></p>
 
-<p><strong>进程的数据结构：</strong></p>
 
-<p>https://blog.csdn.net/weixin_42462202/article/details/102768721</p>
 
-<p>Linux中的进程由结构体task_struct表示，又叫进程描述符。结构体成员如下：</p>
+  
 
-<p>tasks是一个双向的循环链表，连接了所有的进程。</p>
+  
 
-<p>pid是进程号，不论进程还是线程都拥有内核中唯一的进程号（只是习惯的称为进程号，或许线程号的叫法更加合理）。</p>
 
-<p>tgid是线程组号，可以把进程看做一个主线程，由主线程创建的其他子线程和主线程构成一个线程组。线程组中的子线程的线程组号就是主线程的pid。</p>
+<link rel="canonical" href="https://honest.github.io/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
-<p>group_leader是一个指向主线程的进程描述符（task_struct）。</p>
 
-<p>/<em>信号相关的数据结构</em>/</p>
 
-<h2 id="13-内存管理"><strong>1.3 内存管理：</strong></h2>
 
-<p><strong>虚拟内存：</strong>利用cache机制联系内存和硬盘，</p>
 
-<p><strong>分页机制：</strong></p>
 
-<h2 id="14-文件系统"><strong>1.4 文件系统：</strong></h2>
 
-<p><strong>虚拟文件系统VFS</strong><strong>：</strong></p>
 
-<p>建立了一个文件系统的抽象层，实现对于不同的文件系统的兼容支持：网络文件系统NFS,AFS,GFS等等。</p>
 
-<h2 id="15-网络协议栈"><strong>1.5 网络协议栈：</strong></h2>
 
-<h2 id="16-驱动"><strong>1.6 驱动：</strong></h2>
 
-<h2 id="17-bsp"><strong>1.7 BSP:</strong></h2>
 
-<p>参考文献：</p>
+<!-- end _includes/seo.html -->
 
-<p>https://zhuanlan.zhihu.com/p/342056802</p>
 
-<p><strong><a href="https://www.cnblogs.com/dy2903/p/8453660.html">【计算机原理】程序执行过程 - dy2903 - 博客园</a></strong></p>
 
-<h1 id="设备树"><strong>设备树：</strong></h1>
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HONEST的个人主页 Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1 id="kconfig"><strong>Kconfig:</strong></h1>
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
 
-<p>是一种图形化的配置.config文件的工具语言，被广泛的应用于Linux内核。使用一个名为Kconfig的配置脚本，设置了各种配置选项和之间的依赖关系。这样，开发者可以通过make  menuconfig的命令实现图形化的.config文件生成（需要已经安装好了uboot）。</p>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
-<p>Kconfig的语法为：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config [name] [“option name”]
-default     [default_value]
-depends on [dependency_config _name]
-select [select_config _name]
-help [help information]
-</code></pre></div></div>
 
-<h1 id="二linux命令行bash-shell命令"><strong>二、Linux命令行(bash Shell命令)：</strong></h1>
+    <!-- start custom head snippets -->
 
-<p><code class="language-plaintext highlighter-rouge">freecodecamp.org/chinese/news/the-linux-commands-handbook/</code></p>
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
 
-<p><code class="language-plaintext highlighter-rouge">man</code>:查看命令手册的具体内容，帮助了解（很长很长）。建议使用tldr以更快的大致了解一个命令。</p>
+<!-- end custom head snippets -->
 
-<p>man [命令]/tldr [命令]</p>
+  </head>
 
-<h2 id="文件夹操作"><strong>文件夹操作：</strong></h2>
+  <body class="layout--default" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">转到内容</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">转到底部</a></li>
+  </ul>
+</nav>
 
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">ls</code>:查看文件夹的内容，默认是当前目录。常用的属性是-al,可以查看文件的详细信息（l详细数据，a显示隐藏数据）。</li>
-</ol>
+    
 
-<p>        <code class="language-plaintext highlighter-rouge">ls [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">cd</code>:打开文件夹。.. :上级文件夹、. :当前文件夹、/：根目录、~：root目录。</li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">cd [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">pwd</code>:显示当前的工作文件夹。</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">du</code>:显示目录大小。 -h单独计算每个文件大小。</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">mkdir</code>:创建新的文件夹。-p :创建嵌套的文件夹。</p>
-  </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">mkdir [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">rm -f</code>:删除文件和其中内容（必须慎重操作）。<code class="language-plaintext highlighter-rouge">-rf</code>:递归的删除文件（也删除文件夹里的）</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">rmdir</code>:删除文件夹（必须为空）。</p>
-  </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">rmdir [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">mv</code>:移动文件、文件夹；也可用于重命名文件。 -t 目标目录</li>
-</ol>
-
-<p>        mv <当前文件路径> <新的文件路径></新的文件路径></当前文件路径></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">cp</code>：复制文件，-r复制文件夹。</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">find</code>:查找文件,可以限定查找的类型、名称、大小、时间和附加操作。</p>
-  </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">find  [路径]  -type [类型：f/d]  -name [文件名]  -size [+大于的值/-小于的值]  -mtime [更新时间]  -delete/-exec [命令]</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">ln</code>:链接文件,包括硬链接和软链接。保证同步更新？</li>
-</ol>
-
-<p>        硬链接：ln <源文件路径><链接路径>，复制+同步</链接路径></源文件路径></p>
-
-<p>        软链接：ln <源文件路径><链接路径>，指针</链接路径></源文件路径></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">gzip</code>：压缩</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ta</code>：归档</p>
-  </li>
-</ol>
-
-<h2 id="文件操作"><strong>文件操作：</strong></h2>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">touch</code> :创建文件，以写入方式打开。</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">cat</code>：打印文件的内容到标准输出。</p>
-  </li>
-</ol>
-
-<p>cat常常与管道运算符，重定向输出符等连用</p>
-
-<p><code class="language-plaintext highlighter-rouge">cat 文件名</code></p>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">|</code> 是管道符号，标识把左边的内容的输出作为右边内容的输入。</p>
-
-  <p><code class="language-plaintext highlighter-rouge">&gt;</code>是重定向输出符号，把内容输出到文件当中，会覆盖</p>
-
-  <p><code class="language-plaintext highlighter-rouge">&gt;&gt;</code>是追加重定向输出符号，把内容追加在文件的末尾</p>
-</blockquote>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">tail</code>: 打开并监控文件的末尾。（用于日志监控）</li>
-</ol>
-
-<p>       <code class="language-plaintext highlighter-rouge"> tail -f [文件]</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">grep</code>：全局正则表达式打印。在指定的文件里寻找字符串（正则表达式）。-n 显示匹配的行行号、- l 打印匹配的文件名、-i 忽略大小写匹配、-v 反向查找（打印不匹配的） 、-r 递归查找文件、-c 只打印匹配的行数、-C x 打印匹配的行前后x行的内容。</li>
-</ol>
-
-<p><code class="language-plaintext highlighter-rouge">grep [选项] 表达式 [文件]</code></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">echo</code>:打印输出。</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">sort</code>:对文本进行排序 -r倒序 -u移除重复的（对中文不可用）</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">uniq</code>：去除重复的行，-d显示重复行、-u显示不重复行、-c计数</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">diff</code>:比对两个文档。-y逐行对比、-u git式的对比、-r 递归比较、-q显示不同的文件名</p>
-  </li>
-</ol>
-
-<h2 id="进程操作"><strong>进程操作：</strong></h2>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ps</code>:检查进程，（静态）</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">top</code>:动态监控进程</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">kill</code>：向进程发送信号（KILL和STOP先向内核发送，由内核操纵进程）。信号包括：HUP(1)挂起、INT(2)干扰、KILL(9)强制终结、TERM(15)正常终结、CONT(18)继续、STOP(19)停止</p>
-  </li>
-</ol>
-
-<h2 id="用户操作"><strong>用户操作：</strong></h2>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">alias</code>:为命令创造别名。’’ 变量在调用时解析, ””变量在定义时解析。</li>
-</ol>
-
-<p><code class="language-plaintext highlighter-rouge">alias [new_cmd]=’cmd’/”cmd”</code></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">chown</code>:改变所有者</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">chmod</code>:改变权限。rwx分别对应了读4写2执行1,不操作的使用-替代。一个文件有三组rwx的值，对应所有者、关联的用户组和其他人的权限。</p>
-  </li>
-</ol>
-
-<p><code class="language-plaintext highlighter-rouge">chmod  owner/group/world  +/-  rwx</code></p>
-
-<p><code class="language-plaintext highlighter-rouge">chmod  777</code></p>
-
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">df</code>:获取磁盘使用情况。-h</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">su -l </code>:切换设备权限到root</p>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ldconfig</code>：更新系统共享库缓存</p>
-  </li>
-</ol>
-
-<h2 id="查看操作">查看操作</h2>
-
-<p><code class="language-plaintext highlighter-rouge">sudo netstat -tulpn | grep &lt;port_number&gt;</code></p>
-
-<h1 id="linux快捷键">Linux快捷键</h1>
-
-<p>打开终端ctrl+alt+t</p>
-
-<ul>
-  <li>
-    <p>常用：</p>
-
-    <ul>
-      <li><strong>Ctrl L</strong> ：清屏</li>
-      <li><strong>Ctrl M</strong> ：等效于回车</li>
-      <li><strong>Ctrl C</strong> : 中断正在当前正在执行的程序</li>
-    </ul>
-  </li>
-  <li>
-    <p>历史命令：</p>
-
-    <ul>
-      <li><strong>Ctrl P</strong> : 上一条命令，可以一直按表示一直往前翻</li>
-      <li><strong>Ctrl N</strong> : 下一条命令</li>
-      <li><strong>Ctrl R</strong>，再按历史命令中出现过的字符串：按字符串寻找历史命令（重度推荐）</li>
-    </ul>
-  </li>
-  <li>
-    <p>命令行编辑：</p>
-
-    <ul>
-      <li><strong>Tab</strong> : 自动补齐（重度推荐）</li>
-      <li><strong>Ctrl A</strong> ： 移动光标到命令行首</li>
-      <li><strong>Ctrl E</strong> : 移动光标到命令行尾</li>
-      <li><strong>Ctrl B</strong> : 光标后退</li>
-      <li><strong>Ctrl F</strong> : 光标前进</li>
-      <li><strong>Alt F</strong> : 光标前进一个单词</li>
-      <li><strong>Alt B</strong> : 光标后退一格单词</li>
-      <li><strong>Ctrl ]</strong> : 从当前光标往后搜索字符串，用于快速移动到该字符串</li>
-      <li><strong>Ctrl Alt ]</strong> : 从当前光标往前搜索字符串，用于快速移动到该字符串</li>
-      <li><strong>Ctrl H</strong> : 删除光标的前一个字符</li>
-      <li><strong>Ctrl D</strong> : 删除当前光标所在字符</li>
-      <li><strong>Ctrl K</strong> ：删除光标之后所有字符</li>
-      <li><strong>Ctrl U</strong> : 清空当前键入的命令</li>
-      <li><strong>Ctrl W</strong> : 删除光标前的单词(Word, 不包含空格的字符串)</li>
-      <li><code class="language-plaintext highlighter-rouge">Ctrl \</code> : 删除光标前的所有空白字符</li>
-      <li><strong>Ctrl Y</strong> : 粘贴<strong>Ctrl W</strong>或<strong>Ctrl K</strong>删除的内容</li>
-      <li><strong>Alt .</strong> : 粘贴上一条命令的最后一个参数（很有用）</li>
-      <li><strong>Alt [0-9] Alt .</strong> 粘贴上一条命令的第[0-9]个参数</li>
-      <li><strong>Alt [0-9] Alt . Alt.</strong> 粘贴上上一条命令的第[0-9]个参数</li>
-      <li><strong>Ctrl X Ctrl E</strong> : 调出系统默认编辑器编辑当前输入的命令，退出编辑器时，命令执行</li>
-    </ul>
-  </li>
-  <li>
-    <p>其他：</p>
-
-    <ul>
-      <li><strong>Ctrl Z</strong> : 把当前进程放到后台（之后可用’‘fg’‘命令回到前台）</li>
-      <li><strong>Shift Insert</strong> : 粘贴（相当于Windows的<strong>Ctrl V</strong>）</li>
-      <li>在命令行窗口选中即复制</li>
-      <li>在命令行窗口中键即粘贴，可用<strong>Shift Insert</strong>代替</li>
-      <li><strong>Ctrl PageUp</strong> : 屏幕输出向上翻页</li>
-      <li><strong>Ctrl PageDown</strong> : 屏幕输出向下翻页</li>
-    </ul>
-  </li>
-</ul>
-
-<p>#</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[linux操作系统学习笔记]]></summary></entry><entry><title type="html">测试分类存档</title><link href="https://honest.github.io/%E9%9A%8F%E7%AC%94/%E6%B5%8B%E8%AF%95/" rel="alternate" type="text/html" title="测试分类存档" /><published>2024-11-05T00:00:00+00:00</published><updated>2024-11-05T00:00:00+00:00</updated><id>https://honest.github.io/%E9%9A%8F%E7%AC%94/%E6%B5%8B%E8%AF%95</id><content type="html" xml:base="https://honest.github.io/%E9%9A%8F%E7%AC%94/%E6%B5%8B%E8%AF%95/"><![CDATA[<p>这里是一个随笔，用于测试分类存档功能。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /><summary type="html"><![CDATA[这里是一个随笔，用于测试分类存档功能。]]></summary></entry><entry><title type="html">锐华嵌入式操作系统</title><link href="https://honest.github.io/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="alternate" type="text/html" title="锐华嵌入式操作系统" /><published>2024-10-30T00:00:00+00:00</published><updated>2024-10-30T00:00:00+00:00</updated><id>https://honest.github.io/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="https://honest.github.io/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><![CDATA[<h1 id="锐华嵌入式操作系统">锐华嵌入式操作系统</h1>
-
-<h1 id="ch-1rede">CH 1—ReDE</h1>
-
-<h2 id="一-rede介绍">一、 ReDE介绍</h2>
-
-<p>ReDe是基于Eclipse开发的集成嵌入式系统开发平台。构建和项目管理依赖于GCC交叉编译工具链和make工具（但会操作简单点，自动生成Makefile）</p>
-
-<h2 id="二rede使用">二、ReDe使用</h2>
-
-<h3 id="1-建立工程">1. 建立工程</h3>
-
-<p>Reworks的项目是建立在一个拥有系统镜像的自引导工程之上的。</p>
-
-<p>一般的，在项目文件中建立一个自引导工程和多个可下载工程和库工程。通过自引导工程引用别的工程的内容，将所有的文件写入elf的系统镜像之中。</p>
-
-<p>也可以在运行好的Reworks系统上通过库工程L和可下载工程D动态的加卸载.o和.a文件。</p>
-
-<ol>
-  <li>
-    <p><strong>自引导工程B：</strong> 生成可以直接在目标机上运行的目标代码。编译生成.bin和.elf文件。</p>
-  </li>
-  <li>
-    <p><strong>库工程L:</strong> 生成可以被其他库引用的库文件。编译生成.a文件。</p>
-  </li>
-  <li>
-    <p><strong>可下载工程D:</strong> 生成可以下载到目标机运行的文件。编译生成.o和.out文件。</p>
-  </li>
-  <li>
-    <p><strong>BSP工程:</strong> 该工程提供了BSP工程建立、代码模板自动导入、BSP库构建与ReWorks自引导工程一体化调试、BSP资源组建配置与发布等功能。</p>
-  </li>
-  <li>
-    <p><strong>自定义工程：</strong> 允许用户自定义包括makefile的工程。</p>
-  </li>
-  <li>
-    <p><strong>资源组件工程：</strong> 对工程的一系列属性进行了配置。<u>可在自引导工程、库工程、可下载工程的资源配置模块中应用。</u>（资源配置模块就是资源组件工程？是的）</p>
-  </li>
-  <li>
-    <p><strong>目标板资源工程</strong>：定义在目标系统上运行所需的最低资源集合</p>
-  </li>
-</ol>
-
-<h3 id="2-配置系统资源">2. 配置系统资源</h3>
-
-<p>出于嵌入式系统的特性考虑（功耗、资源、性能、价格等…），需要对完整的系统根据需求进行定制裁剪。根据具体的调试和应用需要，各异的设置开发板上所需的系统资源。</p>
-
-<p>ReDe中可以直接在.syscfg中勾选保存所需的功能。具体功能需要那些系统资源请看各自功能的文档。</p>
-
-<p><strong>常用的资源配置：</strong></p>
-
-<p>板级支持包–网卡驱动、控制台配置</p>
-
-<p>开发和运行支持–运行时工具–任务调试支持</p>
-
-<h3 id="3-构建工程">3. 构建工程</h3>
-
-<p>对工程中的文件进行编译，自引导工程、库工程、可下载工程具有默认的构建配置（自动生成的makefile) 。可以在工程属性中管理自动生成的makefile和make指令。</p>
-
-<p><strong>连接可下载/库工程到自引导工程（系统调试）：</strong></p>
-
-<p>右键–属性–C++构建–设置–GCC C++ linker–杂项–附加对象文件–选择</p>
-
-<p><strong>为项目添加依赖（先构建依赖）：</strong></p>
-
-<p>右键–属性–项目引用–选择</p>
-
-<p><strong>为make all 添加选项：</strong></p>
-
-<p>右键–属性–C/C++构建–构建器设置–去除勾选使用默认构建命令–添加选项。</p>
-
-<p>例如：<code class="language-plaintext highlighter-rouge">make -j10 all</code>开启多线程编译。</p>
-
-<h3 id="4-连接目标板">4. 连接目标板</h3>
-
-<p>ReDe和开发板的Uboot通过USB串口和RJ45以太网接口连接。串口用于和开发板直接沟通配置Uboot。以太网接口用于进行FTP通信。</p>
-
-<p><em>此时还没有拷贝镜像！更没有启动系统！和系统资源配置没关系！只是在和U-Boot交互</em></p>
-
-<p><strong>FTP方式下载系统镜像：</strong></p>
-
-<blockquote>
-  <p>注意：网卡需要设置的IP地址。这次用的192.168.1.110，取决于板上写入的服务器地址（uboot tftp配置的地址，可以更改）</p>
-
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setenv ipaddr 192.168.1.1
-setenv serverip 192.168.1.31
-saveenv
-</code></pre></div>  </div>
-
-  <p>更改前本机的ip地址，软件平台室服务器。</p>
-</blockquote>
-
-<p><strong>USB串口设置</strong>：左上角选择终端打开设备管理器选择对应的COM号，设置端口速度为115200。（这是USB连接的线用来和uboot的引导程序命令行进行交互）运行过程中不断敲击回车键（保证能中断他的自动引导，其实一下好像就行）</p>
-
-<p><strong>TFTP服务器设置</strong>：</p>
-
-<p>右键存在需下载文件的项目目录–设置TFTP路径</p>
-
-<p>或</p>
-
-<p>打开窗口–显示视图–TFTP服务–启动TFTP 服务（依然是上次设置的路径）</p>
-
-<h3 id="5-uboot启动系统镜像">5. Uboot启动系统镜像</h3>
-
-<p><strong>在串口界面输入命令：</strong>
-<code class="language-plaintext highlighter-rouge">tftpboot 0x80100000 reworks</code>
-使用TFTP服务从服务器获得reworks.elf放到地址0x80100000</p>
-
-<p><code class="language-plaintext highlighter-rouge">go 0x80100000</code>
-从地址运行系统，进行uboot，启动reworks系统镜像</p>
-
-<blockquote>
-  <p>地址是根据不同开发板而不同的。</p>
-</blockquote>
-
-<h3 id="6-调试">6. 调试</h3>
-
-<h4 id="61-系统调试本地调试">6.1 系统调试（本地调试）：</h4>
-
-<p>.o文件跟随系统镜像写入开发板。参见在自引导工程中引用可下载工程的.o文件部分。直接烧入镜像进行测试。</p>
-
-<blockquote>
-  <p><strong>在自引导工程中引用可下载工程的.o文件：</strong></p>
-
-  <p>右键属性–c++构建–设置–c++linker–杂项–附加对象文件–输入命令<code class="language-plaintext highlighter-rouge">“${workspace_loc:/projectName/gnuXXX/boardName/projectName.out}”</code></p>
-</blockquote>
-
-<h4 id="62-任务调试远程调试">6.2 任务调试（远程调试）：</h4>
-
-<p>.o文件在系统启动以后在写入并加载。首先需要通过TFTP等方式拷贝系统镜像，使用Uboot启动系统。使用的是GNU GDB工具进行测试。</p>
-
-<p><strong>0、系统资源配置：</strong></p>
-
-<p>运行时工具–任务调试支持、协同总线组件、远程接卸载 和 板级支持包–网卡驱动</p>
-
-<p><strong>1、运行系统镜像：</strong></p>
-
-<p>勾选任务调试支持后系统会暂停于usrInit处。</p>
-
-<p><strong>2、连接目标机：</strong></p>
-
-<p>左下角目标机系统管理器，第一个图标：添加连接。</p>
-
-<p>目标机名填写系统资源配置中网卡的IP(和TFTP中的IP并不一定相同)</p>
-
-<blockquote>
-  <p>U-boot和Reworks是两个不同的系统。U-boot是引导系统的系统。</p>
-
-  <p>有bug，必须更改一次ip地址才可以使用！</p>
-</blockquote>
-
-<p><strong>3、调试配置：</strong></p>
-
-<p>右键项目–调试–调试配置–自引导应用程序–程序</p>
-
-<p>右键项目–调试–调试配置–自引导应用程序–目标机</p>
-
-<p><strong>4、开始调试：</strong></p>
-
-<p>等同于GNU GDB，略</p>
-
-<h4 id="63-远程加卸载">6.3 远程加卸载：</h4>
-
-<p>对非核心的.o文件在系统中动态的加载或者卸载。实质是把.out文件下载到 <code class="language-plaintext highlighter-rouge">/clb/dynamicModuleFolder/</code>路径下，然后运行<code class="language-plaintext highlighter-rouge">ld unld</code>指令,然后删除可执行文件。等价于TFTP获取文件+加载模块+删除文件。</p>
-
-<p>与直接镜像link然后构建写入镜像不同。直接写入镜像的模块无法卸载，在<code class="language-plaintext highlighter-rouge">/clb/dynamicModuleFolder/</code>路径下没有.out文件</p>
-
-<blockquote>
-  <p>TFTP命令</p>
-
-  <p><code class="language-plaintext highlighter-rouge">tftp ("ip", "path/remotefile", "get/put",“ascii/netascii/binary/image/octet”, "path/localfile")</code></p>
-
-  <p>符号表命令</p>
-
-  <p><strong>ld</strong> 加载.out/.o文件</p>
-
-  <p><strong>unld</strong> 卸载已加载的.out/.o文件</p>
-
-  <p><strong>unld_by_module_name</strong> 通过模块名称卸载已加载的.out/.o文件</p>
-
-  <p><strong>unld_by_module_id</strong> 通过模块ID卸载已加载的.out/.o文件</p>
-
-  <p><strong>reld</strong> 重新加载.out/.o文件</p>
-
-  <p><strong>module_info</strong> 显示已加载的.out/.o文件</p>
-
-  <p><strong>symbol_lkup</strong> 查找指定的符号信息</p>
-
-  <p><strong>lkup</strong> 显示包括指定名称的所有符号信息</p>
-</blockquote>
-
-<p><strong>0、系统资源配置：</strong> 远程加卸载、符号表、网卡</p>
-
-<p><strong>1、目标及启动系统：</strong> 略</p>
-
-<p><strong>2、连接目标机：</strong> 略</p>
-
-<p><strong>3、加卸载：</strong> 左上角加载–加载配置–设置目标机、动态加载</p>
-
-<p><strong>4、符号表同步：</strong> 何意？</p>
-
-<h4 id="64-仿真调试qumu">6.4 仿真调试：Qumu</h4>
-
-<h1 id="ch-2系统命令行shell">CH 2—系统命令行Shell</h1>
-
-<h2 id="一shell介绍">一、Shell介绍</h2>
-
-<h2 id="11-reworks-shell命令">1.1 Reworks Shell命令</h2>
-
-<p>i</p>
-
-<p>oi</p>
-
-<p>stackuse</p>
-
-<p>cpuuse</p>
-
-<h3 id="12-反汇编">1.2 反汇编</h3>
-
-<p>在软件运行过程中只要有shell线程工作就可以使用pthread_show_stackframe命令获得任务运行的堆栈，再使用arrch64-objdump-elf -C -x -S可以查看反汇编的.elf源码，方便进行调试。</p>
-
-<h4 id="任务堆栈">任务堆栈：</h4>
-
-<p>pthread_show_stackframe</p>
-
-<h4 id="objdump反汇编工具">objdump反汇编工具：</h4>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[锐华嵌入式操作系统]]></summary></entry><entry><title type="html">Cmake学习笔记</title><link href="https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Cmake学习笔记" /><published>2024-10-17T00:00:00+00:00</published><updated>2024-10-17T00:00:00+00:00</updated><id>https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest.github.io/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="cmake笔记">Cmake笔记</h1>
-
-<h2 id="cmake介绍">Cmake介绍</h2>
-
-<p>Cmake是一种<strong>与平台无关</strong>的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。</p>
-
-<p><a href="https://cmake.org/cmake/help/latest/">Cmake说明文档</a></p>
-
-<p><a href="https://www.elecfans.com/d/2186049.html">cmake是什么？cmake的特性和编译原理（cmake原理和cmake编译过程）</a></p>
-
-<p><a href="https://blog.csdn.net/weixin_43717839/article/details/128032486?spm=1001.2101.3001.6650.14&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-128032486-blog-113787870.235%5Ev43%5Epc_blog_bottom_relevance_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-14-128032486-blog-113787870.235%5Ev43%5Epc_blog_bottom_relevance_base3&amp;utm_relevant_index=22">【C++】Cmake使用教程（看这一篇就够了）-CSDN博客</a></p>
-
-<blockquote>
-  <p>不是已经有了makefile去实现编译控制，为什么还需要Cmake?</p>
-
-  <p>Maybe:控制编译的对象范围不同？</p>
-
-  <p>Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂</p>
-</blockquote>
-
-<h2 id="cmake的常用语法">Cmake的常用语法</h2>
-
-<h3 id="初始化">初始化：</h3>
-
-<p>    添加cmake版本要求, 添加project名称</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span> <span class="p">(</span>VERSION 2.8<span class="p">)</span>
-<span class="nb">project</span> <span class="p">(</span>project_name<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="使用变量">使用变量：</h3>
-
-<p>指定头文件搜索路径：</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">include_directories</span> <span class="p">(</span>test_func test_func1<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="编译可执行文件">编译可执行文件：</h3>
-
-<p>    直接编译.c文件</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main main.c testFunc.c<span class="p">)</span>
-</code></pre></div></div>
-
-<p>    将目录中的所有源文件存在变量中</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">aux_source_directory</span><span class="p">(</span>. SRC_LIST<span class="p">)</span>
-</code></pre></div></div>
-
-<p>    编译变量指定的文件</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>    设置二进制文件的输出位置：</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>EXECUTABLE_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/bin<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="添加库文件">添加库文件：</h3>
-
-<p> 编译源代码归档成动态和静态库。</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>设置最终生成的库的名字</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set_target_properties</span> <span class="p">(</span>libname PROPERTIES OUTPUT_NAME <span class="s2">"libname "</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>设置库的输出路径</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>LIBRARY_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="链接库和可执行文件">链接库和可执行文件：</h3>
-
-<p>在路径下查找库并把绝对路径存放在变量中</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">find_library</span><span class="p">(</span>LIB_PATH libname HINTS <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
-</code></pre></div></div>
-
-<p>链接目标文件和库文件</p>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">target_link_libraries</span> <span class="p">(</span>target_file <span class="si">${</span><span class="nv">LIB_PATH</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="添加编译选项">添加编译选项：</h3>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_compile_options</span><span class="p">(</span>-std=c++11 -Wall<span class="p">)</span> 
-</code></pre></div></div>
-
-<h3 id="部分编译">部分编译：</h3>
-
-<h3 id="添加编译子目录">添加编译子目录：</h3>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_subdirectory</span><span class="p">(</span>source_dir [binary_dir] [EXCLUDE_FROM_ALL]<span class="p">)</span>
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p><strong>source_dir 源代码目录</strong></p>
-
-    <p>指定一个具有cmakelist和源代码的目录，将其作为编译的子目录</p>
-  </li>
-  <li>
-    <p><strong>binary_dir 二进制代码目录</strong></p>
-
-    <p>指定cmake输出的二进制文件所在的目录</p>
-  </li>
-  <li>
-    <p><strong>EXCLUDE_FROM_ALL标记</strong></p>
-
-    <p>指定将添加的子目录从make all 中移除</p>
-  </li>
-</ul>
-
-<blockquote>
-  <p>添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。</p>
-</blockquote>
-
-<ol>
-  <li>文件操作</li>
-</ol>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">file</span><span class="p">(</span>MAKE_DIRECTORY path/to/directory<span class="p">)</span><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>    
-</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[Cmake笔记]]></summary></entry><entry><title type="html">Zero mq学习笔记</title><link href="https://honest.github.io/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Zero mq学习笔记" /><published>2024-10-09T00:00:00+00:00</published><updated>2024-10-09T00:00:00+00:00</updated><id>https://honest.github.io/Zero%20MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest.github.io/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="zero-mq">Zero MQ</h1>
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          HONEST的个人主页
+          <span class="site-subtitle">一切美好开始的地方</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                 title="首页"
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/categories/"
+                 title="存放日常生活的心得和感悟"
+                
+              >随笔</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/categories/"
+                 title="存放学习的笔记资料"
+                
+              >学习笔记</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/posts/"
+                 title="按照时间线方式，以存档格式存放文章"
+                
+              >文章存档</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">切换搜索</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      <h1 id="zero-mq">Zero MQ</h1>
 
 <hr />
 
@@ -1258,192 +722,78 @@ saveenv
 
 <p><a href="https://libzmq.readthedocs.io/en/latest/">ZMQ API reference</a></p>
 
-<p><a href="https://aosabook.org/en/v2/zeromq.html">The Architecture of Open Source Applications (Volume 2)ZeroMQ</a></p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[Zero MQ]]></summary></entry><entry><title type="html">Linux的文本编辑工具</title><link href="https://honest.github.io/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/" rel="alternate" type="text/html" title="Linux的文本编辑工具" /><published>2024-10-08T00:00:00+00:00</published><updated>2024-10-08T00:00:00+00:00</updated><id>https://honest.github.io/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7</id><content type="html" xml:base="https://honest.github.io/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"><![CDATA[<h1 id="linux的文本编辑工具">Linux的文本编辑工具</h1>
+<p><a href="https://aosabook.org/en/v2/zeromq.html">The Architecture of Open Source Applications (Volume 2)ZeroMQ</a></p>
 
-<h2 id="文本编辑器vim">文本编辑器vim：</h2>
+      
+    </div>
 
-<p>命令模式（：）和插入模式（i）,按ecs从插入到命令。命令模式下可以输入命令对文本进行控制。</p>
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      输入您要搜索的关键词...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
 
-<p>w 保存</p>
+      </div>
+    
 
-<p>wq保存并退出</p>
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
 
-<p>q! 退出不保存</p>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
 
-<p>u undo</p>
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
 
-<p>crtl-r redo</p>
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
 
-<p>x删除</p>
+<div class="page__footer-copyright">&copy; 2024 <a href="https://honest.github.io">HONEST的个人主页</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
-<p>dw删除单词</p>
+      </footer>
+    </div>
 
-<p>d$ 删除到行结束</p>
+    
+  <script src="/assets/js/main.min.js"></script>
 
-<p>d number w/number e 删除到下number个词的开头或者结束</p>
 
-<p>dd删除整行</p>
 
-<p>p把删除的放到指定位置</p>
 
-<p>r取代当前的词</p>
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
-<p>/向前搜索</p>
 
-<p>?向后搜索</p>
 
-<p>%匹配对应的括号</p>
 
-<p>s替换/old为/new</p>
 
-<p>G移动到结尾</p>
 
-<p>gg移动到开头</p>
-
-<p>ctrl-G当前位置</p>
-
-<p>o下方创建新的一行</p>
-
-<p>O上方创建新的一行</p>
-
-<p>a添加</p>
-
-<p>A在后面的行添加。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[Linux的文本编辑工具]]></summary></entry><entry><title type="html">Linux的系统引导</title><link href="https://honest.github.io/Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC/" rel="alternate" type="text/html" title="Linux的系统引导" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://honest.github.io/Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC</id><content type="html" xml:base="https://honest.github.io/Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC/"><![CDATA[<h1 id="linux系统引导-uboot">Linux系统引导 UBOOT</h1>
-
-<p>本次的目的是实现飞思卡尔t1022板卡的rework引导，决定使用uboot进行。</p>
-
-<h2 id="uboot的运行环境"><strong>Uboot的运行环境：</strong></h2>
-
-<p>首先从Github上获取了uboot的源代码，发现对Uboot源代码的编译需要Linux的make指令操作。</p>
-
-<p>第一时间想到了Linux虚拟机实现（VMware），但是工作环境缺乏Linux发行版的镜像，且不允许接入外部网络和使用移动存储设备，只能退一步考虑如何在windows中进行交叉编译。</p>
-
-<p>第二反应想到了使用Git bash中的MinGW模拟Linux环境，（cygwin和mysys2都基于这个包）在windows系统的主机上进行交叉编译。</p>
-
-<p>MinGW需要下载make包和gcc包的安装。apt工具和上面同样的原因，无法使用。我直接手动下载了具有gcc包的MinGW的文件夹（需要对mingw_make.exe改名为make.exe）。</p>
-
-<p>然后为bash添加<code class="language-plaintext highlighter-rouge">$PATH</code>环境变量。使用vi工具打开并编辑<code class="language-plaintext highlighter-rouge">~/.bashrc</code>文件，<code class="language-plaintext highlighter-rouge">vi ~/.bashrc</code>为文件最后一行添加<code class="language-plaintext highlighter-rouge">export PATH=$PATH:/mingw64/bin/gcc</code>。ESC退出插入模式，然后输入冒号进入命令行模式，输入WQ保存写入文件。<code class="language-plaintext highlighter-rouge">g/^#/d</code>删除注释</p>
-
-<p>使能.bashrc文件。<code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>。</p>
-
-<p>进行make编译报错：没有CC的命令（makefile中的gcc的常见缩写）。</p>
-
-<p>检查gcc是否成功安装。<code class="language-plaintext highlighter-rouge">which gcc</code> 和<code class="language-plaintext highlighter-rouge">gcc -v</code>，发现已经有gcc包。还需要对gcc和cc进行软连接。<code class="language-plaintext highlighter-rouge">ln -s mingw64/bin/gcc mingw64/bin/cc</code>。</p>
-
-<p>再次检查 <code class="language-plaintext highlighter-rouge">which cc</code> 和<code class="language-plaintext highlighter-rouge">cc -v</code>，发现软连接建立成功。 </p>
-
-<p>再次进行编译报错：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scripts/basic/fixdep.c:108:10: fatal error: sys/mman.h: No such file or directory
- #include &lt;sys/mman.h&gt;
-
-            ^~~~~~~~~~~~
-</code></pre></div></div>
-
-<p>Uboot的源码依赖于linux系统的默认系统头文件mman.h(用于内存管理)，mingw没法继续进行工作。最后还是得在Linux虚拟机上进行操作。</p>
-
-<h2 id="uboot介绍">Uboot介绍</h2>
-
-<p>Uboot是一个开源的嵌入式系统引导程序，支持多种不同架构的板卡通过内存、SD卡或者FTP的方式加载系统。Uboot对板上的资源进行初始化使其达到满足引导操作系统的最小化要求（相当于一个小的操作系统），类似于windows系统的BIOS。</p>
-
-<h3 id="uboot工作目录"><strong>Uboot工作目录：</strong></h3>
-
-<p>目录结构和内容，见<code class="language-plaintext highlighter-rouge">docs.u-boot.org/en/latest/develop/directories.html</code>中的表格。</p>
-
-<h3 id="uboot的工作流程"><strong>Uboot的工作流程：</strong></h3>
-
-<p>1.        初始化硬件资源（RAM、网卡等）</p>
-
-<p>2.        从flash搬运系统的内核到RAM中</p>
-
-<p><em>(1)</em>     <em>XIP:(eXcute in place**，片内执行)</em></p>
-
-<p>e.g.写在片内的falsh中</p>
-
-<p>CPU可以直接在片上访问地址找到uboot程序，无需初始化。</p>
-
-<p><em>(2)</em>     <em>非XIP**：</em></p>
-
-<p>e.g.写在SD卡上（需要初始化emmc）</p>
-
-<p>CPU不可以直接在片上访问地址找到uboot程序，需额外的初始化片外的存储设备，以复制uboot的程序uboot.bin和设备树。相当于额外执行了一个加载uboot的加载程序(bootrom，在片上固化的)。</p>
-
-<p>3.        启动系统的内核</p>
-
-<h3 id="uboot的代码执行过程"><strong>Uboot的代码执行过程：</strong></h3>
-
-<p>根据架构的设置从一个汇编文件<code class="language-plaintext highlighter-rouge">strat.s</code>开始。然后执行<code class="language-plaintext highlighter-rouge">lowlevel_init()、board_init_f()、board_init_r()。</code></p>
-
-<h3 id="uboot的make编译流程"><strong>Uboot的make编译流程：</strong></h3>
-
-<p>Uboot的程序通过make指令生成一个名为uboot.bin的二进制文件，烧录到板卡的闪存之中。                     </p>
-
-<h4 id="若板卡厂商已经提供了u-boot的支持"><strong>若板卡厂商已经提供了u-boot的支持：</strong></h4>
-
-<p><strong>STEP1：      <code class="language-plaintext highlighter-rouge">make XXX_defconfig</code>：</strong></p>
-
-<p>根据板卡预设的信息_defconfig，生成.config文件。首先建立一个conf工具，使用Kconfig解析_defconfig的配置，如果不存在依赖，直接写入.config，如果存在依赖，从Kconfig中写入_defconfig依赖的配置到.config文件，未设置的配置使用默认值。</p>
-
-<p>.config决定了uboot项目编译的过程中需要对那些目录、哪些文件进行编译，makefile中使用obj-$(CONFIG_XXXX)+= xxx/ 命令实现。还有可能需要编译文件中的某一部分，因此在make的时候会根据.config文件生成一个名为config.h的头文件，其中包含了所有的config的宏定义。在c文件中使用宏指令#if#else#endif判断编译那一部分。</p>
-
-<p>可以使用以下技巧观察make的具体依赖，分析源码。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make xx -p &gt;detail.txt             
-
-Vi  detail.txt          
-
-:g/^#/d
-</code></pre></div></div>
-
-<p><strong>STEP2.      <code class="language-plaintext highlighter-rouge">make ARCH=OOO CROSS_COMPILE=XXX*</code></strong></p>
-
-<p>根据.config生成了config.h文件，用于编译c文件的部分。生成auto.conf（auto.conf.cmd、autoconf.h、），生成uboot.cfg，autoconf.mk。最后生成uboot.bin文件。</p>
-
-<h4 id="若板卡厂商未提供u-boot的支持"><strong>若板卡厂商未提供u-boot的支持：</strong></h4>
-
-<p>需要自己设置.config文件然后make u-boot.bin文件。最后下入板中的是uboot.bin + 设备树文件（DTB）。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[Linux系统引导 UBOOT]]></summary></entry><entry><title type="html">Markdown</title><link href="https://honest.github.io/MarkDown/" rel="alternate" type="text/html" title="Markdown" /><published>2024-08-20T00:00:00+00:00</published><updated>2024-08-20T00:00:00+00:00</updated><id>https://honest.github.io/MarkDown</id><content type="html" xml:base="https://honest.github.io/MarkDown/"><![CDATA[<h1 id="markdown"><a id="note">MarkDown</a></h1>
-
-<p>标题：<code class="language-plaintext highlighter-rouge">若干# + 空格</code></p>
-
-<p>加粗：<code class="language-plaintext highlighter-rouge"> ** 文本** 、</code>__ 文本__<code class="language-plaintext highlighter-rouge">或</code>Ctrl +B `</p>
-
-<p>倾斜：<code class="language-plaintext highlighter-rouge">* 文本*</code>、<code class="language-plaintext highlighter-rouge">_ 文本_</code> 或<code class="language-plaintext highlighter-rouge">Ctrl+I</code></p>
-
-<p>加粗+倾斜：<code class="language-plaintext highlighter-rouge">*** 文本***、___ 文本___ 或Ctrl+B  Ctrl+I</code></p>
-
-<p>下划线：<code class="language-plaintext highlighter-rouge">&lt;u&gt;文本&lt;/u&gt;或Ctrl+U</code></p>
-
-<p>删除线：<code class="language-plaintext highlighter-rouge">~~ 文本~~或Ctrl+D</code></p>
-
-<p>引用：<code class="language-plaintext highlighter-rouge">&gt; 文本 或Ctrl+shift+Q</code></p>
-
-<p>无序列表：<code class="language-plaintext highlighter-rouge">- 列表</code>或<code class="language-plaintext highlighter-rouge">* 列表</code></p>
-
-<p>有序列表：<code class="language-plaintext highlighter-rouge">1. 列表</code></p>
-
-<p>代码：<code class="language-plaintext highlighter-rouge">\</code>代码`  或Ctrl + ` `</p>
-
-<p>代码段： ```</p>
-
-<p>分割线 <code class="language-plaintext highlighter-rouge">****</code></p>
-
-<p>数学公式：<code class="language-plaintext highlighter-rouge">Ctrl + Shift +M</code> 或 <code class="language-plaintext highlighter-rouge">$数学符号$</code></p>
-
-<p>图片：<code class="language-plaintext highlighter-rouge">![描述]（图片路径）或Ctrl+shift+I</code></p>
-
-<p>链接：</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\`[文本](链接网址"悬浮title")\`
-\`&lt;https://www.114514.com&gt;\`
-</code></pre></div></div>
-<p>亦或</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[链接文本][1]
-[1]:www.1919810.com
-</code></pre></div></div>
-<p>再或</p>
-<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">&lt;a id = XXX&gt;&lt;/a&gt;
-</span></code></pre></div></div>
-<p><a herf="# note">参见Markdown笔记</a></p>
-
-<p>注释：<code class="language-plaintext highlighter-rouge">[//]:#(注释)</code></p>
-
-<p>目录：[TOC]</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><summary type="html"><![CDATA[MarkDown]]></summary></entry></feed>
+  </body>
+</html>
