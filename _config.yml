@@ -326,3 +326,5 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
+      classes: wide
+
