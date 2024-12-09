@@ -1,28 +1,21 @@
 name: GitHub Pages
-
 on:
   push:
     branches:
       - main  # 监听的分支
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
         ruby-version: '3.2'  # 确保使用正确的 Ruby 版本
-
     - name: Install dependencies
       run: bundle install
-
     - name: Build the site
       run: bundle exec jekyll build
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
