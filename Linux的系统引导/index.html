@@ -86,7 +86,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--default" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
@@ -108,7 +108,13 @@
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a
-                href=""
+                href="/"
+                 title="首页"
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/archive/categories/"
                  title="存放日常生活的心得和感悟"
                 
               >个人心得</a>
@@ -120,7 +126,7 @@
               >学习笔记</a>
             </li><li class="masthead__menu-item">
               <a
-                href=""
+                href="/archive/"
                  title="按照时间线方式，以存档格式存放文章"
                 
               >文章档案</a>
@@ -143,110 +149,7 @@
 
 
     <div class="initial-content">
-      
-
-
-
-
-
-<div id="main" role="main">
-  
-  <div class="sidebar sticky">
-  
-  
-    
-      
-      
-      
-      
-    
-    
-      <nav class="nav__list">
-  
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">切换菜单</label>
-  <ul class="nav__items">
-    
-      
-      
-        <li>
-          
-            <span class="nav__sub-title">个人心得</span>
-          
-
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">学习笔记</span>
-          
-
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">文章档案</span>
-          
-
-          
-        </li>
-      
-    
-  </ul>
-</nav>
-
-    
-  
-  </div>
-
-
-
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Linux的系统引导">
-    <meta itemprop="description" content="Linux系统引导 UBOOT">
-    <meta itemprop="datePublished" content="2024-08-20T00:00:00+00:00">
-    
-
-    <div class="page__inner-wrap">
-      
-        <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="https://honest.github.io/Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC/" itemprop="url">Linux的系统引导
-</a>
-          </h1>
-          
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-08-20T00:00:00+00:00">2024-08-20</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
-              <ul class="toc__menu"><li><a href="#linux系统引导-uboot">Linux系统引导 UBOOT</a><ul><li><a href="#uboot的运行环境">Uboot的运行环境：</a></li><li><a href="#uboot介绍">Uboot介绍</a><ul><li><a href="#uboot工作目录">Uboot工作目录：</a></li><li><a href="#uboot的工作流程">Uboot的工作流程：</a></li><li><a href="#uboot的代码执行过程">Uboot的代码执行过程：</a></li><li><a href="#uboot的make编译流程">Uboot的make编译流程：</a><ul><li><a href="#若板卡厂商已经提供了u-boot的支持">若板卡厂商已经提供了u-boot的支持：</a></li><li><a href="#若板卡厂商未提供u-boot的支持">若板卡厂商未提供u-boot的支持：</a></li></ul></li></ul></li></ul></li></ul>
-            </nav>
-          </aside>
-        
-        <h1 id="linux系统引导-uboot">Linux系统引导 UBOOT</h1>
+      <h1 id="linux系统引导-uboot">Linux系统引导 UBOOT</h1>
 
 <p>本次的目的是实现飞思卡尔t1022板卡的rework引导，决定使用uboot进行。</p>
 
@@ -340,228 +243,6 @@ Vi  detail.txt          
 <h4 id="若板卡厂商未提供u-boot的支持"><strong>若板卡厂商未提供u-boot的支持：</strong></h4>
 
 <p>需要自己设置.config文件然后make u-boot.bin文件。最后下入板中的是uboot.bin + 设备树文件（DTB）。</p>
-
-        
-      </section>
-
-      <footer class="page__meta">
-        
-        
-
-
-        
-
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-08-20T00:00:00+00:00">2024-08-20</time></p>
-
-      </footer>
-
-      <section class="page__share">
-  <h4 class="page__share-title" style="color: #FFFFFF;">分享</h4>
-
-  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest.github.io%2FLinux%25E7%259A%2584%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BC%2595%25E5%25AF%25BC%2F&title=Linux%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 QQ">
-    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> QQ</span>
-  </a>
-
-  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest.github.io%2FLinux%25E7%259A%2584%25E7%25B3%25BB%25E7%25BB%259F%25E5%25BC%2595%25E5%25AF%25BC%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 WeChat">
-    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> WeChat</span>
-  </a>
-</section>
-
-
-      
-  <nav class="pagination">
-    
-      <a href="#" class="pagination--pager disabled">上一页</a>
-    
-    
-      <a href="/MarkDown/" class="pagination--pager" title="Markdown">下一页</a>
-    
-  </nav>
-
-
-    </div>
-
-    
-  </article>
-
-  
-  
-    
-<div class="page__related">
-  
-  <h2 class="page__related-title">猜您还喜欢</h2>
-  <div class="grid__wrapper">
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Linux操作系统学习笔记
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-06T00:00:00+00:00">2024-12-06</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">linux操作系统学习笔记
-
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">锐华嵌入式操作系统
-
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Cmake%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Cmake学习笔记
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-17T00:00:00+00:00">2024-10-17</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Cmake笔记
-
-Cmake介绍
-
-Cmake是一种与平台无关的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。
-
-Cmake说明文档
-
-cmake是什么？cmake的特性和编译原理（cmake原...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Zero mq学习笔记
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-09T00:00:00+00:00">2024-10-09</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Zero MQ
-
-
-
-We took a normal TCP socket, injected it with a mix of radioactive isotopes stolen from a secret Soviet atomic research project, bombarded it with...</p>
-  </article>
-</div>
-
-    
-  </div>
-</div>
-
-  
-  
-</div>
 
       
     </div>
