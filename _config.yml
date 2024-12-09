@@ -327,10 +327,25 @@ defaults:
       toc_sticky: true
       #classes:  #wide,narrow,no-shadow,no-border,no-padding,no-background
       author_profile: true
-      categories: [编程]
       #sidebar:
         #enabled: true
         #position: right 
         #nav: "main"
         #sticky: true
+
+defaults:
+  # note
+  - scope:
+      path: "_posts/note"
+      type: posts
+    values:
+      categories: [笔记]
+
+defaults:
+  # essay
+  - scope:
+      path: "_posts/essay"
+      type: posts
+    values:
+      categories: [随笔]
 
