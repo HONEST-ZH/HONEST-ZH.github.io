@@ -129,4 +129,4 @@ keywords: "关键词1, 关键词2"
 ### 2.AI工具生成顶部配图
 使用ChatGPT生成提示词，使用DALLE-3生成图片
 
-![AI生成配图示例图片](/assets/images/blog_header/ZMQ.jpg)
+![AI生成配图示例图片]({{ site.baseurl }}/assets/images/blog_header/ZMQ.jpg)
