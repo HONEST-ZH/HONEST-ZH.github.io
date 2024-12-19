@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Linux的文本编辑工具 - HONEST的个人主页</title>
+<!-- begin _includes/seo.html --><title>中间件 - HONEST的个人主页</title>
 <meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="HONEST的个人主页">
-<meta property="og:title" content="Linux的文本编辑工具">
-<meta property="og:url" content="https://honest.github.io/%E7%AC%94%E8%AE%B0/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/">
+<meta property="og:title" content="中间件">
+<meta property="og:url" content="https://honest.github.io/%E7%AC%94%E8%AE%B0/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
 
 
   <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-10-08T00:00:00+00:00">
+  <meta property="article:published_time" content="2024-07-29T00:00:00+00:00">
 
 
 
@@ -46,7 +46,7 @@
   
 
 
-<link rel="canonical" href="https://honest.github.io/%E7%AC%94%E8%AE%B0/Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="https://honest.github.io/%E7%AC%94%E8%AE%B0/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
 
 
 
@@ -165,7 +165,7 @@
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          Linux的文本编辑工具
+          中间件
 
         
       </h1>
@@ -181,7 +181,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-10-08T00:00:00+00:00">2024-10-08</time>
+        <time datetime="2024-07-29T00:00:00+00:00">2024-07-29</time>
       </span>
     
 
@@ -330,9 +330,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Linux的文本编辑工具">
+    <meta itemprop="headline" content="中间件">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-10-08T00:00:00+00:00">
+    <meta itemprop="datePublished" content="2024-07-29T00:00:00+00:00">
     
 
     <div class="page__inner-wrap">
@@ -343,61 +343,49 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
-              <ul class="toc__menu"><li><a href="#linux的文本编辑工具">Linux的文本编辑工具</a><ul><li><a href="#文本编辑器vim">文本编辑器vim：</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#中间件">中间件：</a></li></ul>
             </nav>
           </aside>
         
-        <h1 id="linux的文本编辑工具">Linux的文本编辑工具</h1>
+        <h1 id="中间件">中间件：</h1>
 
-<h2 id="文本编辑器vim">文本编辑器vim：</h2>
+<p>    中间件是位于操作系统和应用之间的系统软件。核心目标是实现分布式系统的资源共享和共同通信，相当于用额外抽象层来应对实际情况中异构的操作系统和复杂的网络情况。</p>
 
-<p>命令模式（：）和插入模式（i）,按ecs从插入到命令。命令模式下可以输入命令对文本进行控制。</p>
+<p><a href="https://www.zhihu.com/question/19730582/answer/1663627873">中间件</a></p>
 
-<p>w 保存</p>
+<p>    中间件技术与具体的应用需要强相关，不同的需要对应的架构以及使用的中间件技术都大不相同。<a href="https://www.zhihu.com/question/19730582/answer/1768682017">网络架构和中间件</a>。</p>
 
-<p>wq保存并退出</p>
+<p>    常见的网络中间件有：</p>
 
-<p>q! 退出不保存</p>
+<ul>
+  <li>
+    <p>web服务器nginx（服务器反向代理）</p>
+  </li>
+  <li>
+    <p>RPC框架grpc(protobuf)、jrpc(json)</p>
+  </li>
+  <li>
+    <p>消息中间件（消息队列）kafka、rabbitMQ、rocketMQ、ZMQ</p>
+  </li>
+</ul>
 
-<p>u undo</p>
+<table>
+  <tbody>
+    <tr>
+      <td>[消息队列基础知识总结</td>
+      <td>JavaGuide](https://javaguide.cn/high-performance/message-queue/message-queue.html#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97)</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>crtl-r redo</p>
-
-<p>x删除</p>
-
-<p>dw删除单词</p>
-
-<p>d$ 删除到行结束</p>
-
-<p>d number w/number e 删除到下number个词的开头或者结束</p>
-
-<p>dd删除整行</p>
-
-<p>p把删除的放到指定位置</p>
-
-<p>r取代当前的词</p>
-
-<p>/向前搜索</p>
-
-<p>?向后搜索</p>
-
-<p>%匹配对应的括号</p>
-
-<p>s替换/old为/new</p>
-
-<p>G移动到结尾</p>
-
-<p>gg移动到开头</p>
-
-<p>ctrl-G当前位置</p>
-
-<p>o下方创建新的一行</p>
-
-<p>O上方创建新的一行</p>
-
-<p>a添加</p>
-
-<p>A在后面的行添加。</p>
+<ul>
+  <li>
+    <p>分布式缓存redis</p>
+  </li>
+  <li>
+    <p>任务调度框架</p>
+  </li>
+</ul>
 
         
       </section>
@@ -424,18 +412,18 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-10-08T00:00:00+00:00">2024-10-08</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-07-29T00:00:00+00:00">2024-07-29</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title" style="color: #FFFFFF;">分享</h4>
 
-  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest.github.io%2F%25E7%25AC%2594%25E8%25AE%25B0%2FLinux%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E7%25BC%2596%25E8%25BE%2591%25E5%25B7%25A5%25E5%2585%25B7%2F&title=Linux%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest.github.io%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E4%25B8%25AD%25E9%2597%25B4%25E4%25BB%25B6%2F&title=%E4%B8%AD%E9%97%B4%E4%BB%B6" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
     <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
   </a>
 
-  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest.github.io%2F%25E7%25AC%2594%25E8%25AE%25B0%2FLinux%25E7%259A%2584%25E6%2596%2587%25E6%259C%25AC%25E7%25BC%2596%25E8%25BE%2591%25E5%25B7%25A5%25E5%2585%25B7%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest.github.io%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E4%25B8%25AD%25E9%2597%25B4%25E4%25BB%25B6%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
     <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
   </a>
 </section>
@@ -444,10 +432,10 @@
       
   <nav class="pagination">
     
-      <a href="/%E7%AC%94%E8%AE%B0/MarkDown/" class="pagination--pager" title="Markdown">上一页</a>
+      <a href="/%E7%AC%94%E8%AE%B0/kconfig/" class="pagination--pager" title="Kconfig">上一页</a>
     
     
-      <a href="/%E7%AC%94%E8%AE%B0/Zero-MQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="pagination--pager" title="Zero mq学习笔记">下一页</a>
+      <a href="/%E7%AC%94%E8%AE%B0/MarkDown/" class="pagination--pager" title="Markdown">下一页</a>
     
   </nav>
 
@@ -464,6 +452,44 @@
   
   <h2 class="page__related-title">猜您还喜欢</h2>
   <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="permalink">白色相簿2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-19T00:00:00+00:00">2024-12-19</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
     
       
       
@@ -513,7 +539,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/%E7%AC%94%E8%AE%B0/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="permalink">Linux操作系统学习笔记
+        <a href="/%E7%AC%94%E8%AE%B0/GDB/" rel="permalink">Gdb
 </a>
       
     </h2>
@@ -525,7 +551,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-12-06T00:00:00+00:00">2024-12-06</time>
+        <time datetime="2024-11-13T00:00:00+00:00">2024-11-13</time>
       </span>
     
 
@@ -551,7 +577,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/%E9%9A%8F%E7%AC%94/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%AD%98%E6%A1%A3/" rel="permalink">测试分类存档
+        <a href="/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0/" rel="permalink">Cmake笔记
 </a>
       
     </h2>
@@ -563,45 +589,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-12-05T00:00:00+00:00">2024-12-05</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
+        <time datetime="2024-11-06T00:00:00+00:00">2024-11-06</time>
       </span>
     
 
