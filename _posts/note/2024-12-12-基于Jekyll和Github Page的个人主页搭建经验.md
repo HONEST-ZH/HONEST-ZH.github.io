@@ -1,10 +1,10 @@
 ---
-last_modified_at: 2024-12-16
+last_modified_at: 2024-12-19
 header:
-  overlay_image: /assets/images/blog_header/
+  overlay_image: /assets/images/blog_header/zmq.jpg
 tags:
+  - Github Pages
   - Jekyll
-  - Github Page
   - 个人主页
 ---
 # 基于Jekyll和Github Page的个人主页搭建经验
@@ -39,11 +39,11 @@ tags:
 
 ### 1.部署Jekyll环境
 
-这一步其实来说并不是必要的，只是在本地拥有可以使用Jekyll构建网页的环境对于修改个人主页的一些功能来说会更加的方便。你也不想每次对网页布局之类的细微修改的尝试都要push到github上然后重新编译吧，这实在是太麻烦了。
+这一步其实来说并不是必要的，只是在本地拥有可以使用Jekyll构建网页的环境对于修改个人主页的一些功能来说会更加的方便。~~你也不想每次对网页布局之类的细微修改的尝试都要push到github上然后重新等待他慢慢的生成网页吧，这实在是太麻烦了~~。
 
-首先你需要确保的是你拥有一个Linux的虚拟机环境，不管是VMware或者WSL都可以。我使用的是WSL，可以直接在VScode中使用。非常的方便，用过都说豪用。具体怎么弄我这里就不赘述了网上有很多教程。
+首先你需要确保的是你拥有一个Linux的虚拟机环境，不管是VMware或者WSL都可以。我使用的是WSL，可以直接在VScode中使用。~~非常的方便，用过都说豪用~~。具体怎么弄我这里就不赘述了，网上有很多教程。
 
-1. **安装 Ruby**：
+1. 安装 Ruby：
    
    Jekyll 是基于 Ruby 构建的，所以首先需要安装 Ruby。通过以下命令安装 Ruby：
    
@@ -53,7 +53,7 @@ tags:
    sudo apt - get install ruby - full
    ```
 
-2. **安装 Jekyll 和 Bundler（RubyGems 包管理器）**：
+2. 安装 Jekyll 和 Bundler（RubyGems 包管理器）：
    
    在安装好 Ruby 后，可以使用 RubyGems 来安装 Jekyll 和 Bundler。在终端（命令提示符或 PowerShell）中输入以下命令：
    
@@ -70,36 +70,41 @@ tags:
    ```
    
    b. 从原有的模板复制一个项目
-   最简单的方法就是直接使用git clone
+   
+   最简单的方法就是直接使用git clone直接复制这个项目的文件下来。
+   
    ```bash
-   git clone https://github.com/HONEST-ZH/HONEST-ZH.github.io.git
+    git clone https://github.com/HONEST-ZH/HONEST-ZH.github.io.git
    ```
 
 4. 修改网页
-
-TODO：
+   
+   修改`_config.yml`或者`_layout`里的布局文件来达到你满意的网页效果。
 
 5. 本地运行尝试
    
    执行以下命令来运行本地运行jekyll网页的服务器，工作的ip地址是`127.0.0.1:4000`
    
    ```bash
+   bundle install
    bundle exec jekyll serve
    ```
 
+6. 重复4-5直到网页满足你的需求。
+
 ## 三、设置Github Page
 
-一般的静态网页，我们只需要将jekyll项目提交到名为`username.github.io`的仓库中（名字需要和github的账户名字一致），然后再选择`Setting-Pages-Deploy From a Branch`，`branch-main`完成设置，就可以实现静态网页的部署了。这样子的话Github会在Action中自动新建一个名为`pages-build-deployment`的工作流，每次选定的分支上发生推送时会自动地构建和部署网页。
+对于一般的静态网页而言，我们只需要将jekyll项目提交到名为`username.github.io`的仓库中（名字需要和github的账户名字一致，否则会无效），然后再选择`Settings-Pages-Deploy From a Branch`，`branch-main`。完成设置以后，就可以实现静态网页的部署了，Github会在Action中自动新建一个名为`pages-build-deployment`的工作流，每次选定的分支（main）上发生推送时会自动地构建和部署网页。
 
-![]({{ site.baseurl }}\assets\images\blog\2024-12-18-16-33-44-image.png)
+![](/assets/images/blog/2024-12-18-16-33-44-image.png)
 
-但是这里使用Minimal Mistakes模板的网页是没有办法使用这种方法的，网页在编译时会报错，找不到模板的Gem包。这是因为默认的`pages-build-deployment`工作流没有去下载所需要的依赖，我们需要使用别的方式来实现。
+但是这里因为我使用了Minimal Mistakes模板的原因，网页是没有办法使用这种方法的直接生成的。网页在编译时会报错，找不到模板的Gem包。
 
-![]({{ site.baseurl }}\assets\images\blog\2024-12-18-16-44-39-image.png)
+![](/assets/images/blog/2024-12-18-16-44-39-image.png)
 
-![]({{ site.baseurl }}\assets\images\blog\2024-12-18-16-44-56-image.png)
+![](/assets/images/blog/2024-12-18-16-44-56-image.png)
 
-解决这个问题的方法就是自己创建一个工作流。在每次关注的分支上有推送时，下载所需要的Gem包依赖，然后构建和部署网页。
+这是因为默认的`pages-build-deployment`工作流没有去下载所需要的依赖，而缺少了Jekyll模板。解决这个问题的方法也很简单，就是自己创建一个工作流保证每一次都能把所需要的依赖装好。
 
 ### 1. 创建gh-pages.yml工作流文件
 
@@ -112,7 +117,7 @@ touch .github/workflows/gh-pages.yml
 
 ### 2. 编写gh-pages.yml
 
-在gh-pages.yml文件中加入
+在gh-pages.yml文件中写入：
 
 ```yaml
 name: GitHub Pages
@@ -140,9 +145,13 @@ jobs:
         publish_dir: ./_site
 ```
 
-最后构建出的静态网页文件会被这个工作流推送到gh-pages分支上，然后在这个分支上部署静态网页。工作流的结果显示如下图所示，此时就可以在`username.github.io`中访问个人主页的页面了。
+这个工作流在每次检测到`main`分支上有推送时：下载所需要的Gem包依赖，构建静态网页，将静态网页的文件推送到一个专门用于存储静态网页的分支`gh-pages`。
 
-![]({{ site.baseurl }}\assets\images\blog\2024-12-18-17-01-56-image.png)
+### 3. Github pages从gh-pages分支部署
+
+`gh-pages`分支被更新后，还没有完成网页的部署。此时需要把github page关注的分支换为`gh-pages`，根据每次推送到`gh-pages`上的文件部署静态网页。工作流的结果显示如下图所示，此时就可以在`username.github.io`中访问个人主页的页面了。
+
+![](/assets/images/blog/2024-12-18-17-01-56-image.png)
 
 ## 四、网页的使用
 
@@ -240,8 +249,9 @@ keywords: "关键词1, 关键词2"
 
 使用ChatGPT生成提示词，使用DALLE-3生成图片
 
-![AI生成配图示例图片]({{ site.baseurl }}/assets/images/blog_header/ZMQ.jpg)
+![](/assets/images/blog_header/ZMQ.jpg)
 
 ### 3.Markdown文档编写
 
-使用Marktext以方便的编写MarkDown笔记，MarkDown会被Jekyll自动渲染为HTML。
+使用Marktext以方便的编写MarkDown笔记，可以直接粘贴图片。图片可能被以网络链接的方式引用，也可能保存在本地的`C:\Users\HONEST\AppData\Roaming\marktext\images\`路径下，需要把图片的路径改成`/assets/images/blog_header`或者`/assets/images/blog`
+> linux路径使用/，windows路径使用\
