@@ -333,9 +333,10 @@ defaults:
         #enabled: true
         #nav: "main"
         #sticky: true
-      header:
-        overlay_filter: 0.5  # 可选：添加半透明遮罩
-        overlay_color: "#333333"  # 可选：使用纯色替代图片
+      show_feature_image: true # 确保启用了配图显示
+      #header:
+      #  overlay_filter: 0.5  # 可选：添加半透明遮罩
+      #  overlay_color: "#333333"  # 可选：使用纯色替代图片
 
   # note
   - scope:
@@ -344,6 +345,8 @@ defaults:
     values:
       categories: 
         - 笔记
+      header:
+        overlay_image: /assets/images/blog_header/default_header.jpg
 
   # essay
   - scope:

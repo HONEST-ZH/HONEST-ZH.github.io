@@ -1,7 +1,5 @@
 ---
 last_modified_at: 2024-12-19
-header:
-  overlay_image: /assets/images/blog_header/zmq.jpg
 tags:
   - Github Pages
   - Jekyll
