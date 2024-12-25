@@ -155,7 +155,7 @@ jobs:
 
 ### 1.基本FrontMatter
 
-```
+```yaml
 ---
 
 title: "文章标题"
@@ -245,9 +245,30 @@ keywords: "关键词1, 关键词2"
 
 ### 2.AI工具生成顶部配图
 
-使用ChatGPT生成提示词，使用DALLE-3生成图片
+使用ChatGPT生成提示词，然后使用DALLE-3生成图片
+>提示词应该具有的结构：
+>* 主题描述
+描述主要场景或元素，让 AI 理解你想要生成的内容是什么。
+>* 细节补充
+包括场景的颜色、灯光、材质等信息，增加细节丰富度。
+>*情感与氛围
+指定图像的情感和氛围，如“宁静”、“温暖”、“科幻感”等。
+>* 视觉风格
+选择一种视觉呈现方式，如“水彩画风格”、“数字艺术”、“摄影级真实感”等。
+>* 构图与比例
+提到图像的布局与比例，如“宽屏横向构图”、“16:9比例”。
+>* 特定要求（可选）
+如果需要特别的元素，比如“背景模糊”或“有特定的道具”，也可以写明。
 
-![](/assets/images/blog_header/ZMQ.jpg)
+例如：
+提示词为
+```
+A breathtaking sunset over a calm ocean, 
+with soft waves reflecting the warm orange and pink hues of the sky, a few scattered clouds, and silhouetted palm trees framing the scene.
+Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and peaceful mood, digital painting style，1200px width
+```
+生成的图像为
+![](/assets/images/blog/ai_generate.jpg)
 
 ### 3.Markdown文档编写
 

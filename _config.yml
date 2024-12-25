@@ -355,3 +355,5 @@ defaults:
     values:
       categories: 
         - 随笔
+      header:
+        overlay_image: /assets/images/blog_header/default_header1.jpg
