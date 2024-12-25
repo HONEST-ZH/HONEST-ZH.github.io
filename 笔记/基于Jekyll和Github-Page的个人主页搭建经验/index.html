@@ -163,7 +163,7 @@
 
 
 <div class="page__hero--overlay"
-  style=" background-image: url('/assets/images/blog_header/default_header.jpg');"
+  style="background-color: transparent; background-image: url('/assets/images/blog_header/default_header.jpg');"
 >
   
     <div class="wrapper">
@@ -512,98 +512,122 @@
 
 <h3 id="1基本frontmatter">1.基本FrontMatter</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 
-title: "文章标题"
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">文章标题"</span>
 
-date: 2023-10-20
+<span class="na">date</span><span class="pi">:</span> <span class="s">2023-10-20</span>
 
-last_modified_at: 2023-10-21    # 最后修改时间
+<span class="na">last_modified_at</span><span class="pi">:</span> <span class="s">2023-10-21    # 最后修改时间</span>
 
-categories:
+<span class="na">categories</span><span class="pi">:</span>
 
-  - 技术
+<span class="s">  - 技术</span>
 
-  - ZMQ
+<span class="s">  - ZMQ</span>
 
-tags:
+<span class="na">tags</span><span class="pi">:</span>
 
-  - 消息队列
+<span class="s">  - 消息队列</span>
 
-  - 网络编程
+<span class="s">  - 网络编程</span>
 
-toc: true                       # 显示目录
+<span class="na">toc</span><span class="pi">:</span> <span class="no">true</span><span class="s">                      </span> <span class="c1"># 显示目录</span>
 
-toc_sticky: true               # 固定目录
+<span class="na">toc_sticky</span><span class="pi">:</span> <span class="no">true</span><span class="s">              </span> <span class="c1"># 固定目录</span>
 
-toc_label: "目录"              # 目录标题
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">目录"</span> <span class="s">             # 目录标题</span>
 
-toc_icon: "cog"               # 目录图标
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cog"</span> <span class="s">             </span> <span class="c1"># 目录图标</span>
 
-#图片
+<span class="c1">#图片</span>
 
-header:
+<span class="na">header</span><span class="pi">:</span>
 
-  image: /assets/images/header.jpg           # 头部大图
+<span class="na">  image</span><span class="pi">:</span> <span class="s">/assets/images/header.jpg          </span> <span class="c1"># 头部大图</span>
 
-  teaser: /assets/images/teaser-image.jpg    # 预览图
+<span class="na">  teaser</span><span class="pi">:</span> <span class="s">/assets/images/teaser-image.jpg    # 预览图</span>
 
-  overlay_image: /assets/images/banner.jpg   # 覆盖图
+<span class="na">  overlay_image</span><span class="pi">:</span> <span class="s">/assets/images/banner.jpg  </span> <span class="c1"># 覆盖图</span>
 
-  overlay_color: "#333"                      # 覆盖颜色
+<span class="na">  overlay_color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#333"</span> <span class="s">                     # 覆盖颜色</span>
 
-  caption: "图片来源: [**网站**](链接)"      # 图片说明
+<span class="na">  caption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">图片来源:</span><span class="nv"> </span><span class="s">[**网站**](链接)"</span> <span class="s">     # 图片说明</span>
 
 
 
-excerpt: "这是文章摘要，将显示在文章列表中"    # 文章摘要
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">这是文章摘要，将显示在文章列表中"</span> <span class="s">   # 文章摘要</span>
 
-# 作者相关
+<span class="c1"># 作者相关</span>
 
-author: Your Name
+<span class="na">author</span><span class="pi">:</span> <span class="s">Your Name</span>
 
-author_profile: true    # 显示作者信息
+<span class="na">author_profile</span><span class="pi">:</span> <span class="no">true</span><span class="s">    # 显示作者信息</span>
 
-# 布局相关
+<span class="c1"># 布局相关</span>
 
-layout: single
+<span class="na">layout</span><span class="pi">:</span> <span class="s">single</span>
 
-classes: wide          # 宽屏显示
+<span class="na">classes</span><span class="pi">:</span> <span class="s">wide          # 宽屏显示</span>
 
-# 评论相关
+<span class="c1"># 评论相关</span>
 
-comments: true        # 启用评论
+<span class="na">comments</span><span class="pi">:</span> <span class="no">true</span><span class="s">        # 启用评论</span>
 
-share: true           # 显示分享按钮
+<span class="na">share</span><span class="pi">:</span> <span class="no">true</span><span class="s">          </span> <span class="c1"># 显示分享按钮</span>
 
-# 相关文章
+<span class="c1"># 相关文章</span>
 
-related: true         # 显示相关文章
+<span class="na">related</span><span class="pi">:</span> <span class="no">true</span><span class="s">        </span> <span class="c1"># 显示相关文章</span>
 
-# 阅读时间
+<span class="c1"># 阅读时间</span>
 
-read_time: true       # 显示预计阅读时间
+<span class="na">read_time</span><span class="pi">:</span> <span class="no">true</span><span class="s">      </span> <span class="c1"># 显示预计阅读时间</span>
 
-# 导航
+<span class="c1"># 导航</span>
 
-sidebar:
+<span class="na">sidebar</span><span class="pi">:</span>
 
-  nav: "main"        # 侧边栏导航
+<span class="na">  nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">main"</span> <span class="s">       # 侧边栏导航</span>
 
-# SEO相关
+<span class="c1"># SEO相关</span>
 
-description: "这是一段用于SEO的描述"
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">这是一段用于SEO的描述"</span>
 
-keywords: "关键词1, 关键词2"
+<span class="na">keywords</span><span class="pi">:</span> <span class="s2">"</span><span class="s">关键词1,</span><span class="nv"> </span><span class="s">关键词2"</span>
 
----
+<span class="nn">---</span>
 </code></pre></div></div>
 
 <h3 id="2ai工具生成顶部配图">2.AI工具生成顶部配图</h3>
 
-<p>使用ChatGPT生成提示词，使用DALLE-3生成图片</p>
+<p>使用ChatGPT生成提示词，然后使用DALLE-3生成图片</p>
+<blockquote>
+  <p>提示词应该具有的结构：</p>
+  <ul>
+    <li>主题描述
+描述主要场景或元素，让 AI 理解你想要生成的内容是什么。</li>
+    <li>细节补充
+包括场景的颜色、灯光、材质等信息，增加细节丰富度。
+*情感与氛围
+指定图像的情感和氛围，如“宁静”、“温暖”、“科幻感”等。</li>
+    <li>视觉风格
+选择一种视觉呈现方式，如“水彩画风格”、“数字艺术”、“摄影级真实感”等。</li>
+    <li>构图与比例
+提到图像的布局与比例，如“宽屏横向构图”、“16:9比例”。</li>
+    <li>特定要求（可选）
+如果需要特别的元素，比如“背景模糊”或“有特定的道具”，也可以写明。</li>
+  </ul>
+</blockquote>
 
-<p><img src="/assets/images/blog_header/ZMQ.jpg" alt="" /></p>
+<p>例如：
+提示词为</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A breathtaking sunset over a calm ocean, 
+with soft waves reflecting the warm orange and pink hues of the sky, a few scattered clouds, and silhouetted palm trees framing the scene.
+Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and peaceful mood, digital painting style，1200px width
+</code></pre></div></div>
+<p>生成的图像为
+<img src="/assets/images/blog/ai_generate.jpg" alt="" /></p>
 
 <h3 id="3markdown文档编写">3.Markdown文档编写</h3>
 
@@ -707,6 +731,44 @@ keywords: "关键词1, 关键词2"
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/" rel="permalink">随笔
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-25T00:00:00+00:00">2024-12-25</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="permalink">白色相簿2
 </a>
       
@@ -796,44 +858,6 @@ keywords: "关键词1, 关键词2"
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
         <time datetime="2024-11-06T00:00:00+00:00">2024-11-06</time>
-      </span>
-    
-
-    
-
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
       </span>
     
 
