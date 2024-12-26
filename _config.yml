@@ -22,11 +22,11 @@ title_separator          : "-"
 subtitle                 : "一切美好开始的地方"# site tagline that appears below site title in masthead
 name                     : "HONEST"
 description              : "这里是HONEST的个人主页，存放我的想法和学习的笔记"
-url                      : https://honest.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://honest-zh.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+repository               : honest-zh/honest-zh.github.io# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+teaser                   : /assets/images/teaser.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : /assets/images/logo.jpg # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
@@ -120,9 +120,9 @@ author:
   location         : "中国-上海"
   email            : 2260363172qq.com
   links:
-    - label: "non"
+    - label: "mail"
       icon: "fas fa-fw fa-envelope-square"
-       # url: "mailto:2260363172@qq.com"
+      url: "mailto:2260363172@qq.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
