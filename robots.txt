@@ -1,1 +1,1 @@
-Sitemap: https://honest.github.io/sitemap.xml
+Sitemap: https://honest-zh.github.io/sitemap.xml
