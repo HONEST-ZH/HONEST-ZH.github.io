@@ -26,7 +26,7 @@ url                      : https://honest-zh.github.io # the base hostname & pro
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : honest-zh/honest-zh.github.io# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : /assets/images/teaser.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : /assets/images/logo.jpg # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : #/assets/images/logo.jpg # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
@@ -324,6 +324,7 @@ defaults:
       excerpt: ""               # 设置为空字符串
       excerpt_separator: ""     # 设置分隔符为空
       share: true
+      read_time: true
       related: true
       toc: true
       toc_sticky: true
@@ -333,8 +334,9 @@ defaults:
         #enabled: true
         #nav: "main"
         #sticky: true
-      show_feature_image: true # 确保启用了配图显示
-      #header:
+      #show_feature_image: true # 确保启用了配图显示
+      header:
+        show_overlay_excerpt: true
       #  overlay_filter: 0.5  # 可选：添加半透明遮罩
       #  overlay_color: "#333333"  # 可选：使用纯色替代图片
 
