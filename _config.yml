@@ -359,3 +359,13 @@ defaults:
         - 随笔
       header:
         overlay_image: /assets/images/blog_header/default_header1.jpg
+
+  # snag
+  - scope:
+      path: "_posts/snag"
+      type: posts
+    values:
+      categories: 
+        - 问题
+      header:
+        overlay_image: /assets/images/blog_header/default_header2.jpg

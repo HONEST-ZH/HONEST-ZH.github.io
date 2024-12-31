@@ -6,11 +6,11 @@ main:
     url: /
     description: "首页"
   - title: "随笔"
-    url: /archive/categories/#随笔
+    url: /categories/#随笔
     description: "存放日常生活的心得和感悟"
   - title: "学习笔记"
-    url: /archive/categories/#学习笔记
+    url: /categories/#学习笔记
     description: "存放学习的笔记资料"
   - title: "文章存档"
-    url: /archive/posts/
+    url: /posts/
     description: "按照时间线方式，以存档格式存放文章"
