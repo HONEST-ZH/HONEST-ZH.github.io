@@ -41,6 +41,8 @@
 
 
 
+  <meta property="article:modified_time" content="2024-12-31T00:00:00+00:00">
+
 
 
   
@@ -202,7 +204,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          约432字，预计1 分钟阅读
+          约729字，预计2 分钟阅读
         
       </span>
     
@@ -353,7 +355,7 @@
     <meta itemprop="headline" content="Cmake笔记">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-11-06T00:00:00+00:00">
-    
+    <meta itemprop="dateModified" content="2024-12-31T00:00:00+00:00">
 
     <div class="page__inner-wrap">
       
@@ -363,7 +365,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
-              <ul class="toc__menu"><li><a href="#cmake笔记">Cmake笔记</a><ul><li><a href="#cmake介绍">Cmake介绍</a></li><li><a href="#cmake的常用语法">Cmake的常用语法</a><ul><li><a href="#初始化">初始化：</a></li><li><a href="#使用变量">使用变量：</a></li><li><a href="#编译可执行文件">编译可执行文件：</a></li><li><a href="#添加库文件">添加库文件：</a></li><li><a href="#链接库和可执行文件">链接库和可执行文件：</a></li><li><a href="#添加编译选项">添加编译选项：</a></li><li><a href="#部分编译">部分编译：</a></li><li><a href="#添加编译子目录">添加编译子目录：</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#cmake笔记">Cmake笔记</a><ul><li><a href="#cmake介绍">Cmake介绍</a></li><li><a href="#cmake的常用语法">Cmake的常用语法</a><ul><li><a href="#初始化">初始化：</a></li><li><a href="#使用变量">使用变量：</a></li><li><a href="#编译可执行文件">编译可执行文件：</a></li><li><a href="#添加库文件">添加库文件：</a></li><li><a href="#链接库和可执行文件">链接库和可执行文件：</a></li><li><a href="#添加编译选项">添加编译选项：</a></li><li><a href="#部分编译">部分编译：</a></li><li><a href="#添加编译子目录">添加编译子目录：</a></li><li><a href="#文件操作">文件操作</a></li><li><a href="#循环语句">循环语句</a></li><li><a href="#set_target_properties">SET_TARGET_PROPERTIES</a></li></ul></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -489,12 +491,70 @@
   <p>添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。</p>
 </blockquote>
 
-<ol>
-  <li>文件操作</li>
-</ol>
+<h3 id="文件操作">文件操作</h3>
 
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">file</span><span class="p">(</span>MAKE_DIRECTORY path/to/directory<span class="p">)</span><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>    
 </code></pre></div></div>
+<h3 id="循环语句">循环语句</h3>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">foreach</span><span class="p">(</span>ITEM <span class="si">${</span><span class="nv">LIST</span><span class="si">}</span><span class="p">)</span>
+    dosomething
+<span class="nb">endforeach</span><span class="p">()</span>
+</code></pre></div></div>
+<h3 id="set_target_properties">SET_TARGET_PROPERTIES</h3>
+<p>SET_TARGET_PROPERTIES是 CMake 中的一个重要指令，用于设置目标（target）的各种属性，这里的目标可以是库（静态库、动态库），也可以是可执行文件。其基本语法如下：</p>
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>target1 target2... PROPERTIES
+    property1 value1
+    property2 value2
+   ...
+<span class="p">)</span>
+</code></pre></div></div>
+<p>常见属性及用途：</p>
+<ol>
+  <li>ARCHIVE_OUTPUT_DIRECTORY：
+设置静态库的输出目录。例如：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
+ ARCHIVE_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
+<span class="p">)</span>
+</code></pre></div>    </div>
+    <p>这会将名为 mylib 的静态库输出到<code class="language-plaintext highlighter-rouge"> ${CMAKE_BINARY_DIR}/lib </code>目录下。</p>
+  </li>
+  <li>LIBRARY_OUTPUT_DIRECTORY：
+用于指定动态库的输出目录，用法和静态库类似：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
+ LIBRARY_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
+<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>RUNTIME_OUTPUT_DIRECTORY：
+设定可执行文件的输出目录。比如：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>myapp PROPERTIES
+ RUNTIME_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/bin
+<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>POSITION_INDEPENDENT_CODE：
+对于生成动态库或者希望被动态链接的目标很有用，设置为 ON 表示生成位置无关代码（PIC）。这是共享库编译时的常见需求，因为共享库需要能被加载到内存的不同位置，代码必须是位置无关的：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
+ POSITION_INDEPENDENT_CODE ON
+<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>INSTALL_RPATH：
+正如前面提到的，和运行时库路径相关，用于设置安装后的可执行文件搜索动态库的路径。”$ORIGIN” 是一个常用值，表示可执行文件所在目录：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>test_mylib PROPERTIES
+ INSTALL_RPATH <span class="s2">"$ORIGIN"</span>
+<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>INTERFACE_INCLUDE_DIRECTORIES：
+在创建库时，用于指定库的使用者需要包含的头文件目录，方便其他项目链接该库时能正确找到头文件：
+    <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
+ INTERFACE_INCLUDE_DIRECTORIES <span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span>/include
+<span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
 
         
       </section>
@@ -502,6 +562,25 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cmake" class="page__taxonomy-item p-category" rel="tag">Cmake</a><span class="sep">, </span>
+    
+      <a href="/tags/#cmakelist" class="page__taxonomy-item p-category" rel="tag">CmakeList</a><span class="sep">, </span>
+    
+      <a href="/tags/#%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7" class="page__taxonomy-item p-category" rel="tag">自动编译工具</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -521,7 +600,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-11-06T00:00:00+00:00">2024-11-06</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-12-31">2024-12-31</time></p>
 
       </footer>
 
@@ -561,6 +640,58 @@
   
   <h2 class="page__related-title">猜您还喜欢</h2>
   <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" rel="permalink">Cmake出来的可执行文件找不到库文件
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-31T00:00:00+00:00">2024-12-31</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约0字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
     
       
       
@@ -653,7 +784,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          约3068字，预计12 分钟阅读
+          约3069字，预计12 分钟阅读
         
       </span>
     
@@ -706,58 +837,6 @@
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           约2102字，预计8 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/GDB/" rel="permalink">Gdb
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-13T00:00:00+00:00">2024-11-13</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          约569字，预计2 分钟阅读
         
       </span>
     
