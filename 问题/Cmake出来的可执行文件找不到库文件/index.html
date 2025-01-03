@@ -202,7 +202,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          约103字，预计少于 1 分钟阅读
+          约199字，预计少于 1 分钟阅读
         
       </span>
     
@@ -363,14 +363,48 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
-              <ul class="toc__menu"><li><a href="#问题描述">问题描述</a></li><li><a href="#解决">解决</a></li></ul>
+              <ul class="toc__menu"><li><a href="#问题描述">问题描述</a></li><li><a href="#解决方法">解决方法</a></li></ul>
             </nav>
           </aside>
         
         <h1 id="问题描述">问题描述</h1>
+
 <p>项目中使用Cmake自动化构建，首先将源码生成动态库，然后编译测试用例，最后把编译好的动态库和测试例都转移到输出目录中方便部署。
 出现的问题是输出目录中的测试用例可执行文件在运行时提示找不到对应的动态库，需要手动设置LD_LIBRARY_PATH</p>
-<h1 id="解决">解决</h1>
+
+<h1 id="解决方法">解决方法</h1>
+<p><strong>使用 rpath 选项和make install</strong></p>
+
+<p>在 CMakeLists.txt 中添加链接选项：在生成可执行文件（测试用例）的 add_executable 和 target_link_libraries 部分，通过 SET_TARGET_PROPERTIES 来设置 rpath。</p>
+
+<p>示例如下：</p>
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 生成动态库</span>
+<span class="nb">add_library</span><span class="p">(</span>mylib SHARED mylib.cpp<span class="p">)</span>
+
+<span class="c1"># 生成测试用例可执行文件</span>
+<span class="nb">add_executable</span><span class="p">(</span>test_mylib test_mylib.cpp<span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span>test_mylib mylib<span class="p">)</span>
+
+<span class="c1"># 设置 RPATH，假设动态库和可执行文件最终在同一输出目录下</span>
+<span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>test_mylib PROPERTIES
+    INSTALL_RPATH <span class="s2">"Path/of/mylib"</span>
+<span class="p">)</span>
+
+<span class="c1"># 安装动态库</span>
+<span class="nb">install</span><span class="p">(</span>TARGETS mylib
+    LIBRARY DESTINATION lib
+<span class="p">)</span>
+
+<span class="c1"># 安装可执行文件</span>
+<span class="nb">install</span><span class="p">(</span>TARGETS test_mylib
+    RUNTIME DESTINATION bin
+<span class="p">)</span>
+
+<span class="c1"># 安装头文件</span>
+<span class="nb">install</span><span class="p">(</span>FILES myheader.h
+    DESTINATION include
+<span class="p">)</span>
+</code></pre></div></div>
 
         
       </section>
@@ -719,7 +753,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 <a href="https://honest-zh.github.io">HONEST的个人主页</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://honest-zh.github.io">HONEST的个人主页</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
