@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-01-03T09:17:37+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Cmake出来的可执行文件找不到库文件</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" rel="alternate" type="text/html" title="Cmake出来的可执行文件找不到库文件" /><published>2024-12-31T00:00:00+00:00</published><updated>2024-12-31T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-01-09T08:37:48+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Bash脚本win Linux之间的换行符问题</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Bash脚本win Linux之间的换行符问题" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+
+<p>在嵌入式开发的过程当中，经常需要使用bash脚本进行批量的操作。编写bash脚本时，有时会出现报错，未找到xxx。使用Vi打开bash脚本以后发现在每行命令的行尾出现了<code class="language-plaintext highlighter-rouge">^M</code>这样的符号，导致指令未能被正确的识别和执行。</p>
+
+<p>导致这种问题的原因是Windows和Linux系统下的换行符的不同。这种不同来源于传统电控打字机的兼容性带来的历史遗留问题。</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">\r</code>（Carriage Return，ASCII 码值为 13 ）：意思是 “回车”，起源于老式的打字机机械结构。打字机打印头在一行末尾打完字后，需要将整个打印托架移回本行开头的位置，为下一行的打字做准备，这个动作就叫 “回车” 。在电传打字机、早期计算机终端设备等场景下，当接收到\r字符时，设备的光标或者打印头就会回到本行起始坐标处，准备后续输入或者输出。</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">\n</code>（Line Feed，ASCII 码值为 10）：意思是 “换行”，当电传打字机等设备接收到该字符时，会将纸张向上滚动一行，让打印位置垂直下移一行，这样后续内容就会打印到新的一行。Windows使用的换行符是<code class="language-plaintext highlighter-rouge">\r\n</code>,由两部分组成。</p>
+</blockquote>
+
+<p>windows为了更好的兼容性同时使用了<code class="language-plaintext highlighter-rouge">\r\n</code>一起作为换行符，称为CRLF换行符。</p>
+
+<p>Linux（等类unix系统）则秉持着最小化的哲学仅使用<code class="language-plaintext highlighter-rouge">\n</code>，称为LF换行符。</p>
+
+<p>Windows 风格换行符（CRLF，\r\n ）中的 “回车符（Carriage Return，ASCII 码值 13，对应 Ctrl + M，在文本显示中就呈现为^M ）” 。</p>
+
+<h1 id="解决方法">解决方法</h1>
+<ol>
+  <li>
+    <p>最简单直接的做法就是在IDE中直接设置好文件的换行符格式。例如，在vscode的右下角蓝色底部边框中可以修改文件的编码格式、换行符和缩进方式。</p>
+  </li>
+  <li>
+    <p>在linux系统下,一种方法是使用对应的工具包<code class="language-plaintext highlighter-rouge">unix2dos</code>或<code class="language-plaintext highlighter-rouge">dos2unix</code>,但是需要下载。</p>
+  </li>
+  <li>另一种方法是使用tr命令和管道相结合的方式修改文件中的换行符。
+ RF –&gt; CRLF
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\n' '\t' | tr '\t' '\r\n' &gt; output.txt
+</code></pre></div>    </div>
+    <p>CRLF –&gt; LF</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\r\n' '\t' | tr '\t' '\n' &gt; output.txt
+</code></pre></div>    </div>
+  </li>
+  <li>还有一种方法是使用vim的<code class="language-plaintext highlighter-rouge">set fileformat</code>命令进行设置
+ RF –&gt; CRLF
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=dos
+ :wq
+</code></pre></div>    </div>
+    <p>CRLF –&gt; LF</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=unix
+ :wq
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="shell" /><category term="git" /><category term="vim" /></entry><entry><title type="html">Git自动切换文件的换行符格式</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/" rel="alternate" type="text/html" title="Git自动切换文件的换行符格式" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>在进行嵌入式编程的时候，首先在vscode上将已经写好的测试脚本shell提交到gitlab上，然后在测试的电脑上使用git clone获得测试例源码。使用scp/ftp等方式传输文件到运行了linux系统的开发板上，运行shell的测试脚本，依然出现了换行符的报错。第一时间想到的是<a href="/_posts/snag/2025-1-3-bash脚本win-linux之间的换行符问题.md">bash换行符问题</a>。</p>
+
+<p>但是已经明确确认过vscode上向gitlab提交的源码使用的是LF的换行方式的情况下，依然有这个问题那么问题仅能出在git上。</p>
+
+<p>答案是git上存在一个默认的设置选项<code class="language-plaintext highlighter-rouge">autocrlf</code>，pull拉取文件的时候会将文件的换行符自动切换为当前设备的换行符。这种方法一般而言是十分方便的，但是对于嵌入式开发来说带来了额外的问题。</p>
+
+<blockquote>
+  <p>本质上问题还是偷懒了，开发板一定会接win的电脑，需要xterm之类的串口，还需要通过网口和电脑测试。所以就没有连开发板和gitlab的服务器，结果出现了这种和平台相关的问题。</p>
+</blockquote>
+
+<h1 id="解决方法">解决方法</h1>
+<ol>
+  <li>嵌入式设备允许的情况下，在设备的linux CLI使用git clone获得测试源码</li>
+  <li>设置仓库中的autocrlf变量
+ 设置全局（在本地创建和克隆的都受到影响）
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git config --global core.autocrlf true
+</code></pre></div>    </div>
+    <p>设置当前仓库</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git config core.autocrlf false
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="git" /><category term="shell" /></entry><entry><title type="html">Cmake出来的可执行文件找不到库文件</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" rel="alternate" type="text/html" title="Cmake出来的可执行文件找不到库文件" /><published>2024-12-31T00:00:00+00:00</published><updated>2024-12-31T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 
 <p>项目中使用Cmake自动化构建，首先将源码生成动态库，然后编译测试用例，最后把编译好的动态库和测试例都转移到输出目录中方便部署。
 出现的问题是输出目录中的测试用例可执行文件在运行时提示找不到对应的动态库，需要手动设置LD_LIBRARY_PATH</p>
@@ -35,10 +103,7 @@
 <span class="nb">install</span><span class="p">(</span>FILES myheader.h
     DESTINATION include
 <span class="p">)</span>
-</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="Cmake" /></entry><entry><title type="html">随笔</title><link href="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/" rel="alternate" type="text/html" title="随笔" /><published>2024-12-25T00:00:00+00:00</published><updated>2024-12-25T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94</id><content type="html" xml:base="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/"><![CDATA[<h1 id="测试">测试</h1>
-<p>测试默认标题头部图片
-test the default title image (overlay_color)
-test the count of words（only chinese was conuted!）</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /></entry><entry><title type="html">白色相簿2</title><link href="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="alternate" type="text/html" title="白色相簿2" /><published>2024-12-19T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2</id><content type="html" xml:base="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/"><![CDATA[<hr />
+</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="Cmake" /></entry><entry><title type="html">白色相簿2</title><link href="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="alternate" type="text/html" title="白色相簿2" /><published>2024-12-19T00:00:00+00:00</published><updated>2024-12-24T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2</id><content type="html" xml:base="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/"><![CDATA[<hr />
 
 <center>白色相簿什么的已经无所谓了，</center>
 <center>因为已经不再有歌，值得去唱了。</center>
@@ -1864,54 +1929,4 @@ saveenv
 
 <p><code class="language-plaintext highlighter-rouge">protocol</code>：用于确定协议，一般为0</p>
 
-<p><code class="language-plaintext highlighter-rouge">sv[2]</code>：用于储存套接字的标识符，这两个套接字是socketpair创建出的用于全双工跨进程线程间通信的。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Socket" /><category term="套接字编程" /></entry><entry><title type="html">多线程编程</title><link href="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" rel="alternate" type="text/html" title="多线程编程" /><published>2024-09-18T00:00:00+00:00</published><updated>2024-09-18T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B</id><content type="html" xml:base="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/"><![CDATA[<h1 id="多线程编程">多线程编程</h1>
-
-<p>多线程编程一般使用的是基于POSIX标准的系统接口pthread实现的。不同的操作系统可能有不同的接口，但是POSIX（Portable Operating System Interface, 可移植操作系统接口）是一个统一的标准和要求。在所有符合POSIX标准的系统上，（无论是linux、windows-WSL还是其他类unix系统）都可以使用。</p>
-
-<p>多线程编程的核心难点在于<strong>线程安全性</strong>和<strong>进程间通信</strong>。</p>
-
-<p>线程安全需要程序员对于共享资源的访问和线程的时序加以更多的考虑，以避免内存泄露和分布式系统的一致性等问题。</p>
-
-<p>进程之下的线程资源是共享的，但是多个进程之间的资源是不共享的，需要使用合适的方法在不同的进程之间进行通信，</p>
-
-<p><strong>pthread_create</strong></p>
-
-<p>最常用的函数是pthread_create，这个函数会根据attr这一属性，向start_routine这一函数入口传递arg结构体作为参数，运行一个新的线程。这个线程的接口是pthread_t结构体。</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
-</code></pre></div></div>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">thread</code>：这是一个输出参数，用于接收新创建线程的标识符。</li>
-  <li><code class="language-plaintext highlighter-rouge">attr</code>：用于指定新线程的属性，如线程的堆栈大小、调度策略等。如果设置为 <code class="language-plaintext highlighter-rouge">NULL</code>，则使用默认属性。</li>
-  <li><code class="language-plaintext highlighter-rouge">start_routine</code>：这是一个函数指针，指向新线程将执行的函数。这个函数必须有一个 <code class="language-plaintext highlighter-rouge">void*</code> 类型的参数，并返回一个 <code class="language-plaintext highlighter-rouge">void*</code> 类型的值。</li>
-  <li><code class="language-plaintext highlighter-rouge">arg</code>：是传递给新线程执行函数的参数，是一个指向存放有函数所需参数的结构体的指针。如果不需要传递参数，可以设置为 <code class="language-plaintext highlighter-rouge">NULL</code>。</li>
-</ol>
-
-<h2 id="1-线程安全">1. 线程安全</h2>
-
-<p>线程安全主要需要考虑的是对线程间共享资源（临界区资源）的管理和调度，以及线程资源的回收防止内存泄漏的问题。</p>
-
-<h3 id="11-共享资源管理">1.1 共享资源管理</h3>
-
-<p>对共享资源的管理最主要的方法就是互斥锁。</p>
-
-<h2 id="12-资源回收">1.2 资源回收</h2>
-
-<p>资源回收主要包括：</p>
-
-<ol>
-  <li>
-    <p>回收自由分配的结构体数据（malloc、alloc等等），通过自由分配的数据空间不会在函数结束时自动释放需要手动free防止资源泄露。</p>
-  </li>
-  <li>
-    <p>回收套接字资源。</p>
-  </li>
-  <li>
-    <p>回收线程防止僵尸线程的出现（自然return、主线程设置信号、pthread_cancel + pthread_join、pthread_detach）。</p>
-  </li>
-</ol>
-
-<h2 id="2-进程间通信">2. 进程间通信：</h2>
-
-<p>信号量、共享内存、管道、AF_UNIX族套接字</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="多线程" /><category term="进程安全" /><category term="进程间通信" /></entry></feed>
+<p><code class="language-plaintext highlighter-rouge">sv[2]</code>：用于储存套接字的标识符，这两个套接字是socketpair创建出的用于全双工跨进程线程间通信的。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Socket" /></entry></feed>

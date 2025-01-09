@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>随笔 - HONEST的个人主页</title>
+<!-- begin _includes/seo.html --><title>Bash脚本win Linux之间的换行符问题 - HONEST的个人主页</title>
 <meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
@@ -23,19 +23,21 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="HONEST的个人主页">
-<meta property="og:title" content="随笔">
-<meta property="og:url" content="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/">
+<meta property="og:title" content="Bash脚本win Linux之间的换行符问题">
+<meta property="og:url" content="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/">
 
 
   <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
 
+  <meta property="og:image" content="https://honest-zh.github.io/assets/images/blog_header/default_header2.jpg">
 
 
 
 
-  <meta property="article:published_time" content="2024-12-25T00:00:00+00:00">
+
+  <meta property="article:published_time" content="2025-01-03T00:00:00+00:00">
 
 
 
@@ -46,7 +48,7 @@
   
 
 
-<link rel="canonical" href="https://honest-zh.github.io/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/">
+<link rel="canonical" href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/">
 
 
 
@@ -119,13 +121,19 @@
                 href="/categories/#%E9%9A%8F%E7%AC%94"
                  title="存放日常生活的心得和感悟"
                 
-              >随笔</a>
+              >随想随笔</a>
             </li><li class="masthead__menu-item">
               <a
-                href="/categories/#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                href="/categories/#%E7%AC%94%E8%AE%B0"
                  title="存放学习的笔记资料"
                 
               >学习笔记</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%97%AE%E9%A2%98"
+                 title="记录我踩过的坑，能让以后避一避"
+                
+              >踩坑记录</a>
             </li><li class="masthead__menu-item">
               <a
                 href="/posts/"
@@ -161,13 +169,13 @@
 
 
 <div class="page__hero--overlay"
-  style="background-color: #333; "
+  style="background-color: transparent; background-image: url('/assets/images/blog_header/default_header2.jpg');"
 >
   
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          随笔
+          Bash脚本win Linux之间的换行符问题
 
         
       </h1>
@@ -183,7 +191,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-12-25T00:00:00+00:00">2024-12-25</time>
+        <time datetime="2025-01-03T00:00:00+00:00">2025-01-03</time>
       </span>
     
 
@@ -200,7 +208,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          约12字，预计少于 1 分钟阅读
+          约537字，预计2 分钟阅读
         
       </span>
     
@@ -348,9 +356,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="随笔">
+    <meta itemprop="headline" content="Bash脚本win Linux之间的换行符问题">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-12-25T00:00:00+00:00">
+    <meta itemprop="datePublished" content="2025-01-03T00:00:00+00:00">
     
 
     <div class="page__inner-wrap">
@@ -361,14 +369,57 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
-              <ul class="toc__menu"><li><a href="#测试">测试</a></li></ul>
+              <ul class="toc__menu"><li><a href="#问题描述">问题描述</a></li><li><a href="#解决方法">解决方法</a></li></ul>
             </nav>
           </aside>
         
-        <h1 id="测试">测试</h1>
-<p>测试默认标题头部图片
-test the default title image (overlay_color)
-test the count of words（only chinese was conuted!）</p>
+        <h1 id="问题描述">问题描述</h1>
+
+<p>在嵌入式开发的过程当中，经常需要使用bash脚本进行批量的操作。编写bash脚本时，有时会出现报错，未找到xxx。使用Vi打开bash脚本以后发现在每行命令的行尾出现了<code class="language-plaintext highlighter-rouge">^M</code>这样的符号，导致指令未能被正确的识别和执行。</p>
+
+<p>导致这种问题的原因是Windows和Linux系统下的换行符的不同。这种不同来源于传统电控打字机的兼容性带来的历史遗留问题。</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">\r</code>（Carriage Return，ASCII 码值为 13 ）：意思是 “回车”，起源于老式的打字机机械结构。打字机打印头在一行末尾打完字后，需要将整个打印托架移回本行开头的位置，为下一行的打字做准备，这个动作就叫 “回车” 。在电传打字机、早期计算机终端设备等场景下，当接收到\r字符时，设备的光标或者打印头就会回到本行起始坐标处，准备后续输入或者输出。</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">\n</code>（Line Feed，ASCII 码值为 10）：意思是 “换行”，当电传打字机等设备接收到该字符时，会将纸张向上滚动一行，让打印位置垂直下移一行，这样后续内容就会打印到新的一行。Windows使用的换行符是<code class="language-plaintext highlighter-rouge">\r\n</code>,由两部分组成。</p>
+</blockquote>
+
+<p>windows为了更好的兼容性同时使用了<code class="language-plaintext highlighter-rouge">\r\n</code>一起作为换行符，称为CRLF换行符。</p>
+
+<p>Linux（等类unix系统）则秉持着最小化的哲学仅使用<code class="language-plaintext highlighter-rouge">\n</code>，称为LF换行符。</p>
+
+<p>Windows 风格换行符（CRLF，\r\n ）中的 “回车符（Carriage Return，ASCII 码值 13，对应 Ctrl + M，在文本显示中就呈现为^M ）” 。</p>
+
+<h1 id="解决方法">解决方法</h1>
+<ol>
+  <li>
+    <p>最简单直接的做法就是在IDE中直接设置好文件的换行符格式。例如，在vscode的右下角蓝色底部边框中可以修改文件的编码格式、换行符和缩进方式。</p>
+  </li>
+  <li>
+    <p>在linux系统下,一种方法是使用对应的工具包<code class="language-plaintext highlighter-rouge">unix2dos</code>或<code class="language-plaintext highlighter-rouge">dos2unix</code>,但是需要下载。</p>
+  </li>
+  <li>另一种方法是使用tr命令和管道相结合的方式修改文件中的换行符。
+ RF –&gt; CRLF
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\n' '\t' | tr '\t' '\r\n' &gt; output.txt
+</code></pre></div>    </div>
+    <p>CRLF –&gt; LF</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\r\n' '\t' | tr '\t' '\n' &gt; output.txt
+</code></pre></div>    </div>
+  </li>
+  <li>还有一种方法是使用vim的<code class="language-plaintext highlighter-rouge">set fileformat</code>命令进行设置
+ RF –&gt; CRLF
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=dos
+ :wq
+</code></pre></div>    </div>
+    <p>CRLF –&gt; LF</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=unix
+ :wq
+</code></pre></div>    </div>
+  </li>
+</ol>
 
         
       </section>
@@ -376,6 +427,25 @@ test the count of words（only chinese was conuted!）</p>
       <footer class="page__meta">
         
         
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">git</a><span class="sep">, </span>
+    
+      <a href="/tags/#shell" class="page__taxonomy-item p-category" rel="tag">shell</a><span class="sep">, </span>
+    
+      <a href="/tags/#vim" class="page__taxonomy-item p-category" rel="tag">vim</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -387,7 +457,7 @@ test the count of words（only chinese was conuted!）</p>
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#%E9%9A%8F%E7%AC%94" class="page__taxonomy-item p-category" rel="tag">随笔</a>
+      <a href="/categories/#%E9%97%AE%E9%A2%98" class="page__taxonomy-item p-category" rel="tag">问题</a>
     
     </span>
   </p>
@@ -395,18 +465,18 @@ test the count of words（only chinese was conuted!）</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2024-12-25T00:00:00+00:00">2024-12-25</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-01-03T00:00:00+00:00">2025-01-03</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title" style="color: #FFFFFF;">分享</h4>
 
-  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%259A%258F%25E7%25AC%2594%2F%25E9%259A%258F%25E7%25AC%2594%2F&title=%E9%9A%8F%E7%AC%94" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2Fbash%25E8%2584%259A%25E6%259C%25ACwin-linux%25E4%25B9%258B%25E9%2597%25B4%25E7%259A%2584%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%25E9%2597%25AE%25E9%25A2%2598%2F&title=Bash%E8%84%9A%E6%9C%ACwin+Linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
     <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
   </a>
 
-  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%259A%258F%25E7%25AC%2594%2F%25E9%259A%258F%25E7%25AC%2594%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2Fbash%25E8%2584%259A%25E6%259C%25ACwin-linux%25E4%25B9%258B%25E9%2597%25B4%25E7%259A%2584%25E6%258D%25A2%25E8%25A1%258C%25E7%25AC%25A6%25E9%2597%25AE%25E9%25A2%2598%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
     <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
   </a>
 </section>
@@ -415,10 +485,10 @@ test the count of words（only chinese was conuted!）</p>
       
   <nav class="pagination">
     
-      <a href="/%E9%9A%8F%E7%AC%94/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" class="pagination--pager" title="白色相簿2">上一页</a>
+      <a href="/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" class="pagination--pager" title="Cmake出来的可执行文件找不到库文件">上一页</a>
     
     
-      <a href="/%E9%97%AE%E9%A2%98/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" class="pagination--pager" title="Cmake出来的可执行文件找不到库文件">下一页</a>
+      <a href="/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/" class="pagination--pager" title="Git自动切换文件的换行符格式">下一页</a>
     
   </nav>
 
@@ -435,6 +505,58 @@ test the count of words（only chinese was conuted!）</p>
   
   <h2 class="page__related-title">猜您还喜欢</h2>
   <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/" rel="permalink">Git自动切换文件的换行符格式
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-01-03T00:00:00+00:00">2025-01-03</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约360字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
     
       
       
@@ -580,58 +702,6 @@ test the count of words（only chinese was conuted!）</p>
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           约2102字，预计8 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/GDB/" rel="permalink">Gdb
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-13T00:00:00+00:00">2024-11-13</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          约569字，预计2 分钟阅读
         
       </span>
     
