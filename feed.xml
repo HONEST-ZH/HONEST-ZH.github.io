@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-01-09T08:37:48+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Bash脚本win Linux之间的换行符问题</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Bash脚本win Linux之间的换行符问题" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-01-14T06:58:28+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Bash脚本win Linux之间的换行符问题</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Bash脚本win Linux之间的换行符问题" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-01-03T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 
 <p>在嵌入式开发的过程当中，经常需要使用bash脚本进行批量的操作。编写bash脚本时，有时会出现报错，未找到xxx。使用Vi打开bash脚本以后发现在每行命令的行尾出现了<code class="language-plaintext highlighter-rouge">^M</code>这样的符号，导致指令未能被正确的识别和执行。</p>
 
@@ -610,11 +610,15 @@ Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and pea
 
 <p><strong>六、远程调试</strong></p>
 
-<p>可以使用 GDB 进行远程调试，例如调试在另一台机器上运行的程序。这通常需要在目标机器上运行一个调试服务器，并在本地使用 GDB 连接到该服务器。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="GDB" /></entry><entry><title type="html">Cmake笔记</title><link href="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Cmake笔记" /><published>2024-11-06T00:00:00+00:00</published><updated>2025-01-02T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="cmake笔记">Cmake笔记</h1>
+<p>可以使用 GDB 进行远程调试，例如调试在另一台机器上运行的程序。这通常需要在目标机器上运行一个调试服务器，并在本地使用 GDB 连接到该服务器。</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="GDB" /></entry><entry><title type="html">Cmake笔记</title><link href="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0/" rel="alternate" type="text/html" title="Cmake笔记" /><published>2024-11-06T00:00:00+00:00</published><updated>2025-01-14T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0</id><content type="html" xml:base="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/Cmake%E7%AC%94%E8%AE%B0/"><![CDATA[<h1 id="cmake笔记">Cmake笔记</h1>
 
 <h2 id="一-cmake介绍">一、 Cmake介绍</h2>
 
 <p>Cmake是一种<strong>与平台无关</strong>的自动控制项目编译过程的工具（自动生成makefile文档）。只需要配置CMakeList.txt就可以自动的根据平台生成Makefile，方便的跨越多个平台进行编译。</p>
+
+<blockquote>
+  <p>CMakeList.txt注意大小写和s不然识别不成功</p>
+</blockquote>
 
 <p><a href="https://cmake.org/cmake/help/latest/">Cmake说明文档</a></p>
 
@@ -627,120 +631,99 @@ Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and pea
 
   <p>Maybe:控制编译的对象范围不同？</p>
 
-  <p>Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂</p>
+  <p>Answer:Cmake为了方便的自动生成可以跨平台的makefile，直接写makefile可以实现但是复杂。<strong><em>最重要的，Makefile不像人读的</em></strong>。</p>
 </blockquote>
 
-<p>一般的，Cmake</p>
 <h2 id="二-cmake的常用语法">二、 Cmake的常用语法</h2>
 
-<ol>
-  <li>初始化：</li>
-</ol>
+<p>一般的，Cmake的编写分为几个部分：初始化、</p>
 
-<p>添加cmake版本要求, 添加project名称</p>
+<h3 id="1-初始化">1. 初始化：</h3>
+
+<p>添加cmake版本要求, 添加project名称和版本号</p>
 
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span> <span class="p">(</span>VERSION 2.8<span class="p">)</span>
-<span class="nb">project</span> <span class="p">(</span>project_name<span class="p">)</span>
+<span class="nb">project</span> <span class="p">(</span>project_name VERSION 1.0<span class="p">)</span>
 </code></pre></div></div>
 
-<ol>
-  <li>设置头文件路径：</li>
-</ol>
+<h3 id="2-设置头文件路径">2. 设置头文件路径：</h3>
 
 <p>指定头文件搜索路径：</p>
+
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">include_directories</span> <span class="p">(</span>test_func test_func1<span class="p">)</span>
 </code></pre></div></div>
-<ol>
-  <li>编译可执行文件：</li>
-</ol>
 
-<p>直接编译.c文件</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main main.c testFunc.c<span class="p">)</span>
-</code></pre></div></div>
-
-<p>将目录中的所有源文件存在变量中</p>
-<blockquote>
-  <p>一般的，变量名称使用大写字符表示，字符拼接等使用时需要用<code class="language-plaintext highlighter-rouge">${VAR}</code>取出值，其他时候可以直接使用变量</p>
-</blockquote>
-
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">aux_source_directory</span><span class="p">(</span>. SRC_LIST<span class="p">)</span>
-</code></pre></div></div>
-
-<p>编译变量指定的文件</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>设置二进制文件的输出位置：</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>EXECUTABLE_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/bin<span class="p">)</span>
-</code></pre></div></div>
-<blockquote>
-  <p>还可以使用<code class="language-plaintext highlighter-rouge">SET_TARGET_PROPERTIES</code>设置输出路径，路径更精细</p>
-</blockquote>
-
-<ol>
-  <li>添加库文件：</li>
-</ol>
-
-<p>编译源代码归档成动态（SHARED）和静态库(STATIC)。</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>设置最终生成的库的名字</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set_target_properties</span> <span class="p">(</span>libname PROPERTIES OUTPUT_NAME <span class="s2">"libname "</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>设置库的输出路径</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>LIBRARY_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
-</code></pre></div></div>
-
-<ol>
-  <li>链接库和可执行文件：</li>
-</ol>
-
-<p>在路径下查找库并把绝对路径存放在变量中</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">find_library</span><span class="p">(</span>LIB_PATH libname HINTS <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
-</code></pre></div></div>
-
-<p>链接目标文件和库文件</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">target_link_libraries</span> <span class="p">(</span>target_file <span class="si">${</span><span class="nv">LIB_PATH</span><span class="si">}</span><span class="p">)</span>
-</code></pre></div></div>
-
-<ol>
-  <li>添加编译选项：</li>
-</ol>
+<h3 id="3-添加编译选项">3. 添加编译选项：</h3>
 
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_compile_options</span><span class="p">(</span>-std=c++11 -Wall<span class="p">)</span> 
 </code></pre></div></div>
-<ol>
-  <li>安装：</li>
-</ol>
 
-<p>设置 RPATH，假设动态库和可执行文件最终在同一输出目录下</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>test_mylib PROPERTIES
-    INSTALL_RPATH <span class="s2">"Path/of/mylib"</span>
-<span class="p">)</span>
+<p>或者使用set设置变量<code class="language-plaintext highlighter-rouge">CMAKE_CXX_FLAGS</code>或<code class="language-plaintext highlighter-rouge">CMAKE_C_FLAGS</code></p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span>CMAKE_CXX_FLAGS <span class="s2">"-Wall"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>安装动态库</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>TARGETS mylib
-    LIBRARY DESTINATION lib
-<span class="p">)</span>
+<h3 id="4-编译可执行文件">4. 编译可执行文件：</h3>
+
+<h4 id="41-直接编译c文件"><em>4.1 直接编译.c文件</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_executable</span><span class="p">(</span>main main.c testFunc.c<span class="p">)</span>
 </code></pre></div></div>
 
-<p>安装可执行文件</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>TARGETS test_mylib
-    RUNTIME DESTINATION bin
-<span class="p">)</span>
+<h4 id="42-将目录中的所有源文件存在变量中"><em>4.2 将目录中的所有源文件存在变量中</em></h4>
+
+<blockquote>
+  <p>一般的，Cmake中变量名称使用大写字符表示，<code class="language-plaintext highlighter-rouge">${VAR}</code>取出变量的值</p>
+</blockquote>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">aux_source_directory</span><span class="p">(</span>. SRC_LIST<span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span>main <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>安装头文件</p>
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>FILES myheader.h
-    DESTINATION include
-<span class="p">)</span>
+<h4 id="43-设置二进制文件的输出位置"><em>4.3 设置二进制文件的输出位置：</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>EXECUTABLE_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/bin<span class="p">)</span>
 </code></pre></div></div>
-<ol>
-  <li>添加编译子目录：</li>
-</ol>
+
+<blockquote>
+  <p>还可以使用<code class="language-plaintext highlighter-rouge">SET_TARGET_PROPERTIES</code>设置单个编译对象的输出路径，路径更精细。设置输出路径的颗粒度可以精细到每个编译的对象</p>
+</blockquote>
+
+<h3 id="5-编译库文件">5. 编译库文件：</h3>
+
+<h4 id="51-编译源代码归档成动态库shared或静态库static"><em>5.1 编译源代码归档成动态库（SHARED）或静态库(STATIC)</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_library</span> <span class="p">(</span>libname SHARED <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
+<span class="nb">add_library</span> <span class="p">(</span>libname STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="52-设置最终生成的库的名字"><em>5.2 设置最终生成的库的名字</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set_target_properties</span> <span class="p">(</span>libname PROPERTIES OUTPUT_NAME <span class="s2">"libname "</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="53-设置库的输出路径"><em>5.3 设置库的输出路径</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span> <span class="p">(</span>LIBRARY_OUTPUT_PATH <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>同样可以使用<code class="language-plaintext highlighter-rouge">SET_TARGET_PROPERTIES</code>设置输出路径</p>
+</blockquote>
+
+<h3 id="6-链接库">6. 链接库：</h3>
+
+<h4 id="61-在路径下查找库并把绝对路径存放在变量中"><em>6.1 在路径下查找库并把绝对路径存放在变量中</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">find_library</span><span class="p">(</span>LIB_PATH libname HINTS <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/lib<span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="62-链接目标文件和库文件"><em>6.2 链接目标文件和库文件</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">target_link_libraries</span> <span class="p">(</span>target_file <span class="si">${</span><span class="nv">LIB_PATH</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="7-添加编译子目录可选">7. 添加编译子目录（可选）：</h3>
 
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_subdirectory</span><span class="p">(</span>source_dir [binary_dir] [EXCLUDE_FROM_ALL]<span class="p">)</span>
 </code></pre></div></div>
@@ -761,73 +744,191 @@ Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and pea
 </ul>
 
 <blockquote>
-  <p>添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。</p>
+  <p>添加编译子目录是为了让源码的编译结构更加清晰，可以更好的使用选项管理编译过程。新的目录路径下建立一个新的CMakeLists。</p>
 </blockquote>
 
-<p>文件操作file</p>
+<h3 id="8-安装规则可选">8. 安装规则（可选）：</h3>
 
-<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">file</span><span class="p">(</span>MAKE_DIRECTORY path/to/directory<span class="p">)</span><span class="nb">add_library</span> <span class="p">(</span>libname SHARED/STATIC <span class="si">${</span><span class="nv">SRC_LIST</span><span class="si">}</span><span class="p">)</span>    
+<p>在编译完成之后，可以使用以下命令将编译好的源文件、头文件、测试用例等资源安装到Cmake指定的位置。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make <span class="nb">install</span>
 </code></pre></div></div>
-<p>循环语句 foreach</p>
+
+<h4 id="81-安装动态库"><em>8.1 安装动态库</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>TARGETS mylib
+    LIBRARY DESTINATION lib
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="82-安装可执行文件"><em>8.2 安装可执行文件</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>TARGETS test_mylib
+    RUNTIME DESTINATION bin
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="83-安装头文件"><em>8.3 安装头文件</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">install</span><span class="p">(</span>FILES myheader.h
+    DESTINATION include
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="9-测试可选">9. 测试（可选）</h3>
+
+<p>CMake 提供了内建的测试功能，可以帮助开发者验证项目是否正确构建以及是否通过了各种测试。CMake 的测试功能依赖于 CTest，这是一个 CMake 的测试驱动工具，通常用于执行项目中的单元测试、集成测试等。以下是关于 CMake 测试的主要概念和使用方法。</p>
+
+<h4 id="91-启用测试"><em>9.1 启用测试</em></h4>
+
+<p>要启用 CMake 测试功能，首先需要在 CMakeLists.txt 文件中调用 enable_testing()。这将启用 ctest 测试命令。一旦启用测试，您就可以通过 add_test() 命令定义具体的测试。</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">enable_testing</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="92-添加测试"><em>9.2 添加测试</em></h4>
+
+<p>使用 add_test() 命令来定义测试。该命令接受两个参数：测试名称和要执行的命令。</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_test</span><span class="p">(</span>NAME MyTest COMMAND MyExecutable<span class="p">)</span>
+</code></pre></div></div>
+
+<p>这个命令将会添加一个名为 MyTest 的测试，它会运行 MyExecutable 可执行文件。如果 MyExecutable 执行成功，测试将通过。</p>
+
+<h4 id="93-测试命令的参数"><em>9.3 测试命令的参数</em></h4>
+
+<p>在 add_test() 命令中，您可以传递多个参数，供测试命令使用。例如，如果您的程序需要一些命令行参数，您可以这样做：</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_test</span><span class="p">(</span>NAME TestWithArguments COMMAND MyExecutable arg1 arg2<span class="p">)</span>
+</code></pre></div></div>
+
+<p>这样在运行测试时，MyExecutable 将以 arg1 和 arg2 作为参数执行。</p>
+
+<h4 id="94-测试期望的返回值"><em>9.4 测试期望的返回值</em></h4>
+
+<p>默认情况下，CMake 假定测试程序成功执行时返回 0，如果返回非 0 值，则认为测试失败。如果您的测试需要特定的返回值来表示成功，可以使用 add_test() 的第三个参数指定期望的返回值：</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">add_test</span><span class="p">(</span>NAME TestWithExpectedReturnValue COMMAND MyExecutable<span class="p">)</span>
+<span class="nb">set_tests_properties</span><span class="p">(</span>TestWithExpectedReturnValue PROPERTIES WILL_FAIL TRUE<span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="95-测试输出"><em>9.5 测试输出</em></h4>
+
+<p>CTest 会捕获测试的标准输出（stdout）和标准错误（stderr）。如果您希望在测试中检查输出内容，可以使用 add_test() 的 –output-on-failure 标志来显示失败的输出。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctest <span class="nt">--output-on-failure</span>
+</code></pre></div></div>
+
+<p>这样，如果测试失败，你将看到每个失败测试的详细输出。</p>
+
+<h4 id="96-测试属性"><em>9.6 测试属性</em></h4>
+
+<p>使用 set_tests_properties() 可以设置测试的额外属性。例如，您可以将某个测试标记为“预期失败”（WILL_FAIL），或者设置测试的超时时间（TIMEOUT）等。</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set_tests_properties</span><span class="p">(</span>MyTest PROPERTIES TIMEOUT 30<span class="p">)</span>
+<span class="nb">set_tests_properties</span><span class="p">(</span>MyTest PROPERTIES WILL_FAIL TRUE<span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>TIMEOUT：指定测试的超时时间（以秒为单位）。如果测试在此时间内没有结束，将被视为失败。</li>
+  <li>WILL_FAIL：标记该测试为预期失败。</li>
+</ul>
+
+<h3 id="10cmake其他操作">10.Cmake其他操作</h3>
+
+<h4 id="101-文件操作file"><em>10.1 文件操作file</em></h4>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code>file MAKE_DIRECTORY path/to/directory<span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="102-判断语句-if"><em>10.2 判断语句 if</em></h4>
+
+<h4 id="103-循环语句-foreach"><em>10.3 循环语句 foreach</em></h4>
 
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">foreach</span><span class="p">(</span>ITEM <span class="si">${</span><span class="nv">LIST</span><span class="si">}</span><span class="p">)</span>
     dosomething
 <span class="nb">endforeach</span><span class="p">()</span>
 </code></pre></div></div>
-<p>设置目标属性 SET_TARGET_PROPERTIES 
-<code class="language-plaintext highlighter-rouge">SET_TARGET_PROPERTIES</code>是 CMake 中的一个重要指令，用于设置目标（target）的各种属性，这里的目标可以是库（静态库、动态库），也可以是可执行文件。其基本语法如下：</p>
+
+<h4 id="104-设置目标属性-set_target_properties"><em>10.4 设置目标属性 SET_TARGET_PROPERTIES</em></h4>
+
+<p><code class="language-plaintext highlighter-rouge">SET_TARGET_PROPERTIES</code>是 CMake 中的一个重要指令，用于设置目标（target）的各种属性，这里的目标可以是库（静态库、动态库），也可以是可执行文件。其基本语法如下：</p>
+
 <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>target1 target2... PROPERTIES
     property1 value1
     property2 value2
    ...
 <span class="p">)</span>
 </code></pre></div></div>
+
 <p>常见属性及用途：</p>
+
 <ol>
-  <li>ARCHIVE_OUTPUT_DIRECTORY：
-设置静态库的输出目录。例如：
+  <li>
+    <p>ARCHIVE_OUTPUT_DIRECTORY：
+设置静态库的输出目录。例如：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
- ARCHIVE_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
+ARCHIVE_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
 <span class="p">)</span>
 </code></pre></div>    </div>
-    <p>这会将名为 mylib 的静态库输出到<code class="language-plaintext highlighter-rouge"> ${CMAKE_BINARY_DIR}/lib </code>目录下。</p>
+
+    <p>这会将名为 mylib 的静态库输出到<code class="language-plaintext highlighter-rouge">${CMAKE_BINARY_DIR}/lib</code>目录下。</p>
   </li>
-  <li>LIBRARY_OUTPUT_DIRECTORY：
-用于指定动态库的输出目录，用法和静态库类似：
+  <li>
+    <p>LIBRARY_OUTPUT_DIRECTORY：
+用于指定动态库的输出目录，用法和静态库类似：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
- LIBRARY_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
+LIBRARY_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/lib
 <span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-  <li>RUNTIME_OUTPUT_DIRECTORY：
-设定可执行文件的输出目录。比如：
+  <li>
+    <p>RUNTIME_OUTPUT_DIRECTORY：
+设定可执行文件的输出目录。比如：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>myapp PROPERTIES
- RUNTIME_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/bin
+RUNTIME_OUTPUT_DIRECTORY <span class="si">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="si">}</span>/bin
 <span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-  <li>POSITION_INDEPENDENT_CODE：
-对于生成动态库或者希望被动态链接的目标很有用，设置为 ON 表示生成位置无关代码（PIC）。这是共享库编译时的常见需求，因为共享库需要能被加载到内存的不同位置，代码必须是位置无关的：
+  <li>
+    <p>POSITION_INDEPENDENT_CODE：
+对于生成动态库或者希望被动态链接的目标很有用，设置为 ON 表示生成位置无关代码（PIC）。这是共享库编译时的常见需求，因为共享库需要能被加载到内存的不同位置，代码必须是位置无关的：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
- POSITION_INDEPENDENT_CODE ON
+POSITION_INDEPENDENT_CODE ON
 <span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-  <li>INSTALL_RPATH：
-正如前面提到的，和运行时库路径相关，用于设置安装后的可执行文件搜索动态库的路径。”$ORIGIN” 是一个常用值，表示可执行文件所在目录：
+  <li>
+    <p>INSTALL_RPATH：
+正如前面提到的，和运行时库路径相关，用于设置安装后的可执行文件搜索动态库的路径。”$ORIGIN” 是一个常用值，表示可执行文件所在目录：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>test_mylib PROPERTIES
- INSTALL_RPATH <span class="s2">"$ORIGIN"</span>
+INSTALL_RPATH <span class="s2">"$ORIGIN"</span>
 <span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-  <li>INTERFACE_INCLUDE_DIRECTORIES：
-在创建库时，用于指定库的使用者需要包含的头文件目录，方便其他项目链接该库时能正确找到头文件：
+  <li>
+    <p>INTERFACE_INCLUDE_DIRECTORIES：
+在创建库时，用于指定库的使用者需要包含的头文件目录，方便其他项目链接该库时能正确找到头文件：</p>
+
     <div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">SET_TARGET_PROPERTIES</span><span class="p">(</span>mylib PROPERTIES
- INTERFACE_INCLUDE_DIRECTORIES <span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span>/include
+INTERFACE_INCLUDE_DIRECTORIES <span class="si">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="si">}</span>/include
 <span class="p">)</span>
 </code></pre></div>    </div>
   </li>
-</ol>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Cmake" /></entry><entry><title type="html">锐华嵌入式操作系统</title><link href="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="alternate" type="text/html" title="锐华嵌入式操作系统" /><published>2024-10-30T00:00:00+00:00</published><updated>2024-10-30T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><![CDATA[<h1 id="锐华嵌入式操作系统">锐华嵌入式操作系统</h1>
+</ol>
+
+<h2 id="三cmake使用">三、Cmake使用</h2>
+
+<p>使用cmakelist宏变量和make的命令选项显示make的详细内容</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake <span class="nt">-DCMAKE_VERBOSE_MAKEFILE</span><span class="o">=</span>ON ..
+make <span class="nv">VERBOSE</span><span class="o">=</span>1
+</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Cmake" /></entry><entry><title type="html">锐华嵌入式操作系统</title><link href="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="alternate" type="text/html" title="锐华嵌入式操作系统" /><published>2024-10-30T00:00:00+00:00</published><updated>2024-10-30T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F</id><content type="html" xml:base="https://honest-zh.github.io/%E7%AC%94%E8%AE%B0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><![CDATA[<h1 id="锐华嵌入式操作系统">锐华嵌入式操作系统</h1>
 
 <h1 id="ch-1rede">CH 1—ReDE</h1>
 
