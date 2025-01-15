@@ -125,12 +125,6 @@ var store = [{
         "url": "/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/",
         "teaser": null
       },{
-        "title": "Git使用",
-        "excerpt":"github 公钥设置  ```bash ssh-keygen -t rsa -b 4096 -C “your_email@example.com” cat ~/.ssh/id_rsa.pub  ","categories": ["笔记"],
-        "tags": ["Github","Git"],
-        "url": "/%E7%AC%94%E8%AE%B0/git%E4%BD%BF%E7%94%A8/",
-        "teaser": null
-      },{
     "title": "按时间归档",
     "excerpt":"","url": "https://honest-zh.github.io/posts/"
   },{
