@@ -125,6 +125,24 @@ var store = [{
         "url": "/%E9%97%AE%E9%A2%98/git%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%96%87%E4%BB%B6%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F/",
         "teaser": null
       },{
+        "title": "Git使用",
+        "excerpt":"github 公钥设置  ```bash ssh-keygen -t rsa -b 4096 -C “your_email@example.com” cat ~/.ssh/id_rsa.pub  ","categories": ["笔记"],
+        "tags": ["Github","Git"],
+        "url": "/%E7%AC%94%E8%AE%B0/git%E4%BD%BF%E7%94%A8/",
+        "teaser": null
+      },{
+        "title": "Systemd和systemctl",
+        "excerpt":" systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与 systemd 进行交互的主要方式，它非常强大且功能丰富。  1. 管理服务（Unit）  1.1 启动服务：  sudo systemctl start [服务名称]  例如，启动httpd服务（假设已安装）：  bash sudo systemctl start httpd  1.2 停止服务：  sudo systemctl stop [服务名称]  例如，停止httpd服务：  sudo systemctl stop httpd  1.3 重启服务：  sudo systemctl restart [服务名称]  例如，重启httpd服务，常用于在修改服务配置文件后使其生效：  sudo systemctl restart httpd  1.4 重新加载服务配置：  sudo systemctl reload [服务名称]  此命令在不重启服务的情况下重新加载服务的配置文件，适用于某些服务可以在运行时重新加载配置而无需完全重启的情况，如nginx：  sudo systemctl reload nginx  1.5 查看服务状态：  sudo systemctl status [服务名称]  该命令显示服务当前的运行状态，包括是否正在运行、启动时间、最近一次启动或停止的结果等信息。例如查看vsftpd服务状态：  sudo systemctl status vsftpd  输出类似如下内容：  plaintext ● vsftpd.service - vsftpd FTP server    Loaded: loaded (/lib/systemd/system/vsftpd.service; enabled; vendor preset: enabled)    Active: active (running) since Mon 2024 - 01 - 01 10:00:00 UTC; 1h ago   Process: 1234 ExecStart=/usr/sbin/vsftpd /etc/vsftpd.conf (code = exited, status = 0/SUCCESS)  Main PID: 1234 (vsftpd)     Tasks: 1 (limit: 4915)    Memory: 1.2M    CGroup: /system.slice/vsftpd.service            └─1234 /usr/sbin/vsftpd /etc/vsftpd.conf  其中 “Active: active (running)” 表明服务正在运行。  2. 服务开机自启管理  2.1 设置服务开机自启：  sudo systemctl enable [服务名称]  例如，设置httpd服务开机自启：  sudo systemctl enable httpd  执行后会创建或修改符号链接，将服务单元文件链接到系统启动相关的目录。  2.2 取消服务开机自启：  sudo systemctl disable [服务名称]  例如，取消httpd服务开机自启：  sudo systemctl disable httpd  此命令会删除相关的符号链接，使服务在系统启动时不再自动启动。  2.3 查看服务是否开机自启：  sudo systemctl is - enabled [服务名称]  例如，查看httpd服务是否开机自启，若输出为enabled则表示开机自启，若为disabled则表示未设置开机自启：  sudo systemctl is - enabled httpd  3. 系统管理相关  3.1 启动进入指定运行级别（target）：  运行级别在 systemd 中被称为 target。例如，要启动到图形化界面（通常是graphical.target）：  sudo systemctl start graphical.target  若要启动到多用户文本界面（multi - user.target）：  sudo systemctl start multi - user.target  3.2 查看当前运行级别（target）：  systemctl get - default  输出结果会显示当前默认的启动目标，例如graphical.target或multi - user.target。  3.3 设置默认运行级别（target）：  例如，将默认运行级别设置为多用户文本界面：  sudo systemctl set - default multi - user.target  若要恢复为图形化界面为默认：  sudo systemctl set - default graphical.target  3.4 重启系统：  sudo systemctl reboot  3.5 关闭系统：  sudo systemctl poweroff  3.6 挂起系统（进入睡眠状态）：  sudo systemctl suspend  3.7 使系统进入休眠状态：  sudo systemctl hibernate  4. 管理服务依赖关系  4.1 查看服务依赖关系：  sudo systemctl list - dependencies [服务名称]  例如，查看httpd服务的依赖关系，会显示该服务所依赖的其他服务以及依赖它的服务：  sudo systemctl list - dependencies httpd  ","categories": ["笔记"],
+        "tags": [],
+        "url": "/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/",
+        "teaser": null
+      },{
+        "title": "使用vsftpd在阿里云ecs上建立一个ftp服务器",
+        "excerpt":"首先要做的就是在服务器上运行一个FTP server。现在已经十分的成熟了，可以直接使用apt工具下载一些常用的ftp工具软件包，例如vsftpd和ProFTPD等。这里我使用的是vsftpd。   apt update apt install vsftpd systemctl start vsftpd     “vsftpd” 中，最后的 “d” 代表 “daemon”，即守护进程。守护进程是一种在后台持续运行的进程，它独立于控制终端，通常在系统启动时自动启动，并一直运行直至系统关闭，用于执行特定的系统任务或提供某种服务。 systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与systemd 进行交互的主要方式，具体参见systemctl。    接下来要做的是对vsftpd的一些配置，最主要的是添加用户和用户组，设置用户的权限和工作目录。   adduser honest   完成了配置以后，还需要再阿里云的控制台里配置服务器的安全组，让ftp的端口开放出来。   登录阿里云控制台，找到对应的 ECS 实例，进入安全组设置页面。添加安全组规则，允许 FTP 服务相关端口的访问。如果是主动模式，需开放 21 端口（控制连接）；如果使用被动模式，除了 21 端口，还需开放配置的被动模式端口范围（例如 40000 - 40100）。方便起见，这里我把入方向和出方向都配置成了所有端口。      很有可能不安全，小孩子不要学       在想要连接FTP server的设备上运行FileZilla client这样的软件。建立连接时有如下提示，也就是没有做加密。      FTPS 一种方法是使用FTPS（FTP over SSL/TLS）的协议，使用SSl/tsl来实现安全传输。这需要依赖openssl这个软件包，一般的Linux发行版都会下载这个包，所以仅需要我们配置ssl的公钥然后让Vsftpd 支持 FTPS。 打开vsftpd.conf文件  vi /etc/vsftpd.conf  添加或修改以下配置参数：  ssl_enable=YES write_enable=YES  重启vsftpd服务  systemctl restart vsftpd  SFTP 另一种方法是使用SFTP（SSH FTP），SFTP 是基于 SSH 协议的文件传输协议，使用 SSH 的安全通道来传输文件。SFTP将文件传输作为 SSH 协议的子系统，所以只需要支持ssh的设备就可以使用这种方式传输文件。因为使用 SSH 协议，所以继承了 SSH 的安全性，包括加密和用户认证。     更简单的情况下，我们可以直接使用SCP来复制文件。   ","categories": ["笔记"],
+        "tags": ["ECS","FTP","vsftpd"],
+        "url": "/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/",
+        "teaser": null
+      },{
     "title": "按时间归档",
     "excerpt":"","url": "https://honest-zh.github.io/posts/"
   },{
