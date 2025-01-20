@@ -122,7 +122,7 @@ author:
   links:
     - label: "mail"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:2260363172@qq.com"
+      #url: "mailto:2260363172@qq.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"

@@ -14,7 +14,7 @@ apt install vsftpd
 systemctl start vsftpd
 ```
 >  “vsftpd” 中，最后的 “d” 代表 “daemon”，即守护进程。守护进程是一种在后台持续运行的进程，它独立于控制终端，通常在系统启动时自动启动，并一直运行直至系统关闭，用于执行特定的系统任务或提供某种服务。
-> systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与systemd 进行交互的主要方式，具体参见[systemctl](/_posts/note/2025-1-16-systemd和systemctl.md)。
+> systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与systemd 进行交互的主要方式，具体参见[systemctl]({% link _posts/note/2025-1-16-systemd和systemctl.md %})。
 
 接下来要做的是对vsftpd的一些配置，最主要的是添加用户和用户组，设置用户的权限和工作目录。
 

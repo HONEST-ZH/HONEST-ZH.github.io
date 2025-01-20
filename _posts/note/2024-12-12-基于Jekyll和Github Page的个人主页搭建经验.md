@@ -274,3 +274,6 @@ Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and pea
 
 使用Marktext以方便的编写MarkDown笔记，可以直接粘贴图片。图片可能被以网络链接的方式引用，也可能保存在本地的`C:\Users\HONEST\AppData\Roaming\marktext\images\`路径下，需要把图片的路径改成`/assets/images/blog_header`或者`/assets/images/blog`
 > linux路径使用/，windows路径使用\
+要在使用jekyll构建好的网页之间进行链接的跳转，需要使用网页的永久链接跳转。手动输入`[]({{ site.baseurl }}/url)`或者使用liquid的link标识获得文件的路径`[](\{\% link path/to/file \%\})`
+>手动输入URL时需要注意：1. 空格使用-代替 2.跳转的博客最后不带文件名,不带开头的日期 最简单的方法，从想要链接到的博客的浏览器抬头处复制URL
+>使用link标识时需要注意 1.开头的第一个文件没有 `/` 2. 使用空格取代%20 最简单的方法，复制想要链接到的博客的文件路径然后修改（大部分博客名称应该没有空格）
