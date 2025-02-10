@@ -2,7 +2,7 @@
 #last_modified_at: 2025-1-2
 tags:
     - git
-    - jekll
+    - jekyll
     - 个人主页
 ---
 
