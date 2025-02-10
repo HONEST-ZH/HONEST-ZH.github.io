@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>问题记录模板 - HONEST的个人主页</title>
+<!-- begin _includes/seo.html --><title>Wsl2突然无法使用 - HONEST的个人主页</title>
 <meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="HONEST的个人主页">
-<meta property="og:title" content="问题记录模板">
-<meta property="og:url" content="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95%E6%A8%A1%E6%9D%BF/">
+<meta property="og:title" content="Wsl2突然无法使用">
+<meta property="og:url" content="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/">
 
 
   <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
@@ -37,7 +37,7 @@
 
 
 
-  <meta property="article:published_time" content="1999-09-09T00:00:00+00:00">
+  <meta property="article:published_time" content="2025-02-06T00:00:00+00:00">
 
 
 
@@ -48,7 +48,7 @@
   
 
 
-<link rel="canonical" href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95%E6%A8%A1%E6%9D%BF/">
+<link rel="canonical" href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/">
 
 
 
@@ -175,7 +175,7 @@
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          问题记录模板
+          Wsl2突然无法使用
 
         
       </h1>
@@ -191,7 +191,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="1999-09-09T00:00:00+00:00">1999-09-09</time>
+        <time datetime="2025-02-06T00:00:00+00:00">2025-02-06</time>
       </span>
     
 
@@ -208,7 +208,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          约8字，预计少于 1 分钟阅读
+          约207字，预计少于 1 分钟阅读
         
       </span>
     
@@ -354,9 +354,9 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="问题记录模板">
+    <meta itemprop="headline" content="Wsl2突然无法使用">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="1999-09-09T00:00:00+00:00">
+    <meta itemprop="datePublished" content="2025-02-06T00:00:00+00:00">
     
 
     <div class="page__inner-wrap">
@@ -372,8 +372,33 @@
           </aside>
         
         <h1 id="问题描述">问题描述</h1>
+<p>之前一直可以使用的wsl突然抽风无法使用。powershell运行wsl报错：</p>
+
+<blockquote>
+  <p>PS C:\WINDOWS\system32&gt; wsl
+当前计算机配置不支持 WSL2。
+请启用“虚拟机平台”可选组件，并确保在 BIOS 中启用虚拟化。
+通过运行以下命令启用“虚拟机平台”: wsl.exe –install –no-distribution
+有关信息，请访问 https://aka.ms/enablevirtualization
+错误代码: Wsl/Service/CreateInstance/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED</p>
+</blockquote>
 
 <h1 id="解决方法">解决方法</h1>
+<p>确保在启动配置中启用了虚拟机监控程序启动。 可以通过运行（提升的 PowerShell）来对此进行验证：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bcdedit /enum | findstr -i hypervisorlaunchtype
+</code></pre></div></div>
+
+<p>如果看到 hypervisorlaunchtype Off，则会禁用虚拟机监控程序。 使其在提升的 PowerShell 中运行：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bcdedit /set hypervisorlaunchtype Auto
+</code></pre></div></div>
+
+<p>设置完成以后重新启动wsl,wsl就工作正常了。</p>
+
+<blockquote>
+  <p>猜想：设置的 hypervisorlaunchtype 属性是 Auto,有时会自动关掉？是的，尤其是在windows对wsl进行了更新的情况下。（沟槽的微软阿三程序员#￥%@。。。以下略）</p>
+</blockquote>
 
         
       </section>
@@ -390,7 +415,7 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#%E6%A8%A1%E6%9D%BF" class="page__taxonomy-item p-category" rel="tag">模板</a>
+      <a href="/tags/#wsl" class="page__taxonomy-item p-category" rel="tag">wsl</a>
     
     </span>
   </p>
@@ -415,18 +440,18 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="1999-09-09T00:00:00+00:00">1999-09-09</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-06T00:00:00+00:00">2025-02-06</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title" style="color: #FFFFFF;">分享</h4>
 
-  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2F%25E9%2597%25AE%25E9%25A2%2598%25E8%25AE%25B0%25E5%25BD%2595%25E6%25A8%25A1%25E6%259D%25BF%2F&title=%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95%E6%A8%A1%E6%9D%BF" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2Fwsl2%25E7%25AA%2581%25E7%2584%25B6%25E6%2597%25A0%25E6%25B3%2595%25E4%25BD%25BF%25E7%2594%25A8%2F&title=Wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
     <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
   </a>
 
-  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2F%25E9%2597%25AE%25E9%25A2%2598%25E8%25AE%25B0%25E5%25BD%2595%25E6%25A8%25A1%25E6%259D%25BF%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=https%3A%2F%2Fhonest-zh.github.io%2F%25E9%2597%25AE%25E9%25A2%2598%2Fwsl2%25E7%25AA%2581%25E7%2584%25B6%25E6%2597%25A0%25E6%25B3%2595%25E4%25BD%25BF%25E7%2594%25A8%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
     <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
   </a>
 </section>
@@ -435,10 +460,10 @@
       
   <nav class="pagination">
     
-      <a href="/%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94%E6%A8%A1%E6%9D%BF/" class="pagination--pager" title="随笔模板">上一页</a>
+      <a href="/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/" class="pagination--pager" title="使用ghpage分支配置jekyll网页的自定义域名问题">上一页</a>
     
     
-      <a href="/%E7%AC%94%E8%AE%B0/kconfig/" class="pagination--pager" title="Kconfig">下一页</a>
+      <a href="#" class="pagination--pager disabled">下一页</a>
     
   </nav>
 
@@ -455,58 +480,6 @@
   
   <h2 class="page__related-title">猜您还喜欢</h2>
   <div class="grid__wrapper">
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="permalink">Wsl2突然无法使用
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2025-02-06T00:00:00+00:00">2025-02-06</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          约207字，预计少于 1 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
     
       
       
@@ -547,7 +520,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          约190字，预计少于 1 分钟阅读
+          约176字，预计少于 1 分钟阅读
         
       </span>
     
@@ -651,7 +624,59 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          约635字，预计2 分钟阅读
+          约634字，预计2 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/" rel="permalink">Systemd和systemctl
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-01-16T00:00:00+00:00">2025-01-16</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约654字，预计2 分钟阅读
         
       </span>
     

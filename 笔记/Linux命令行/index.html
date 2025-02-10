@@ -208,7 +208,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          约1278字，预计5 分钟阅读
+          约2269字，预计9 分钟阅读
         
       </span>
     
@@ -377,79 +377,87 @@
 
 <p><code class="language-plaintext highlighter-rouge">man</code>:查看命令手册的具体内容，帮助了解（很长很长）。建议使用tldr以更快的大致了解一个命令。</p>
 
-<p>man [命令]/tldr [命令]</p>
+<p><code class="language-plaintext highlighter-rouge">man [命令]/tldr [命令]</code></p>
 
 <h2 id="文件夹操作"><strong>文件夹操作：</strong></h2>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">ls</code>:查看文件夹的内容，默认是当前目录。常用的属性是-al,可以查看文件的详细信息（l详细数据，a显示隐藏数据）。</li>
+  <li><code class="language-plaintext highlighter-rouge">ls</code>:查看文件夹的内容。
+默认是当前目录。常用的属性是-l,可以查看文件的详细信息（l详细数据，a显示隐藏数据）。
+  <code class="language-plaintext highlighter-rouge">ls [选项] &lt;文件路径&gt;</code></li>
 </ol>
 
-<p>        <code class="language-plaintext highlighter-rouge">ls [选项] &lt;文件路径&gt;</code></p>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">ls -l</code>将显示文件夹的权限、所有者和用户组</p>
+
+  <p>例如：<code class="language-plaintext highlighter-rouge">-rw-r--r-- 1 user group 1024 Jan  1 00:00 example.txt</code></p>
+
+  <p><strong>文件权限（-rw-r–r–）</strong></p>
+
+  <p>第 1 个字符：表示文件类型。第 2 - 4 个字符：表示文件所有者的权限。分别对应读（r）、写（w）、执行（x）权限。如果没有相应权限，则用 - 表示。第 5 - 7 个字符：表示文件所属用户组的权限。第 8 - 10 个字符：表示其他用户的权限。</p>
+
+  <p><strong>硬链接数（1）</strong>
+该数字表示文件或目录的硬链接数量。对于文件来说，硬链接数表示有多少个文件名指向同一个文件的物理数据；对于目录来说，硬链接数表示该目录下的子目录和 .（当前目录）、..（父目录）的总数。</p>
+
+  <p><strong>文件所有者（user）</strong>
+显示文件或目录的所有者用户名。所有者对文件有特殊的权限控制，可以修改文件权限、删除文件等。</p>
+
+  <p><strong>文件所属用户组（group）</strong>
+显示文件或目录所属的用户组名。用户组是具有相同权限的用户集合，文件所属用户组的成员可以根据用户组的权限对文件进行操作。</p>
+
+  <p><strong>文件大小（1024）</strong>
+以字节为单位显示文件或目录的大小。对于目录，显示的是目录本身的元数据大小，而不是目录下所有文件的总大小。如果要查看目录下所有文件的总大小，可以使用 du -sh 命令。</p>
+
+  <p><strong>文件最后修改时间（Jan 1 00:00）</strong>
+显示文件或目录最后一次被修改的时间，包括月份、日期和具体时间。如果文件是很久以前修改的，可能会显示年份而不是具体时间。</p>
+
+  <p><strong>文件名（example.txt）</strong></p>
+</blockquote>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">cd</code>:打开文件夹。.. :上级文件夹、. :当前文件夹、/：根目录、~：root目录。</li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">cd [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cd</code>:打开文件夹。
+  <code class="language-plaintext highlighter-rouge">cd [选项] &lt;文件路径&gt;</code>
+  .. :上级文件夹、. :当前文件夹、/：根目录、~：root目录。</p>
+  </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">pwd</code>:显示当前的工作文件夹。</p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">du</code>:显示目录大小。 -h单独计算每个文件大小。</p>
+    <p><code class="language-plaintext highlighter-rouge">du</code>:显示目录大小。 
+  -h单独计算每个文件大小。</p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">mkdir</code>:创建新的文件夹。-p :创建嵌套的文件夹。</p>
+    <p><code class="language-plaintext highlighter-rouge">mkdir</code>:创建新的文件夹。 
+  -p :创建嵌套的文件夹。
+  <code class="language-plaintext highlighter-rouge">mkdir [选项] &lt;文件路径&gt;</code></p>
   </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">mkdir [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
   <li>
     <p><code class="language-plaintext highlighter-rouge">rm -f</code>:删除文件和其中内容（必须慎重操作）。<code class="language-plaintext highlighter-rouge">-rf</code>:递归的删除文件（也删除文件夹里的）</p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">rmdir</code>:删除文件夹（必须为空）。</p>
+    <p><code class="language-plaintext highlighter-rouge">rmdir</code>:删除文件夹（必须为空）。
+  <code class="language-plaintext highlighter-rouge">rmdir [选项] &lt;文件路径&gt;</code></p>
   </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">rmdir [选项] &lt;文件路径&gt;</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">mv</code>:移动文件、文件夹；也可用于重命名文件。 -t 目标目录</li>
-</ol>
-
-<p>        mv <当前文件路径> <新的文件路径></新的文件路径></当前文件路径></p>
-
-<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">mv</code>:移动文件、文件夹；也可用于重命名文件。 
+  -t 目标目录
+  <code class="language-plaintext highlighter-rouge">mv &lt;当前文件路径&gt; &lt;新的文件路径&gt;</code></p>
+  </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">cp</code>：复制文件，-r复制文件夹。</p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">find</code>:查找文件,可以限定查找的类型、名称、大小、时间和附加操作。</p>
+    <p><code class="language-plaintext highlighter-rouge">find</code>:查找文件,可以限定查找的类型、名称、大小、时间和附加操作。
+  <code class="language-plaintext highlighter-rouge">find  [路径]  -type [类型：f/d]  -name [文件名]  -size [+大于的值/-小于的值]  -mtime [更新时间]  -delete/-exec [命令]</code></p>
   </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">find  [路径]  -type [类型：f/d]  -name [文件名]  -size [+大于的值/-小于的值]  -mtime [更新时间]  -delete/-exec [命令]</code></p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">ln</code>:链接文件,包括硬链接和软链接。保证同步更新？</li>
-</ol>
-
-<p>        硬链接：ln <源文件路径><链接路径>，复制+同步</链接路径></源文件路径></p>
-
-<p>        软链接：ln <源文件路径><链接路径>，指针</链接路径></源文件路径></p>
-
-<ol>
+  <li><code class="language-plaintext highlighter-rouge">ln</code>:链接文件,包括硬链接和软链接。保证同步更新？
+  硬链接：ln <源文件路径><链接路径>，复制+同步
+  软链接：ln <源文件路径><链接路径>，指针</链接路径></源文件路径></链接路径></源文件路径></li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">gzip</code>：压缩</p>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ta</code>：归档</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">ta</code>：归档</li>
 </ol>
 
 <h2 id="文件操作"><strong>文件操作：</strong></h2>
@@ -464,27 +472,21 @@
     <p>cat常常与管道运算符，重定向输出符等连用</p>
 
     <p><code class="language-plaintext highlighter-rouge">cat 文件名</code></p>
-
     <blockquote>
-      <p><code class="language-plaintext highlighter-rouge">|</code> 是管道符号，标识把左边的内容的输出作为右边内容的输入。</p>
-
-      <p><code class="language-plaintext highlighter-rouge">&gt;</code>是重定向输出符号，把内容输出到文件当中，会覆盖</p>
-
-      <p><code class="language-plaintext highlighter-rouge">&gt;&gt;</code>是追加重定向输出符号，把内容追加在文件的末尾</p>
+      <p><code class="language-plaintext highlighter-rouge">|</code> 是管道符号，标识把左边的内容的输出作为右边内容的输入。
+<code class="language-plaintext highlighter-rouge">&gt;</code>是重定向输出符号，把内容输出到文件当中，会覆盖
+<code class="language-plaintext highlighter-rouge">&gt;&gt;</code>是追加重定向输出符号，把内容追加在文件的末尾</p>
     </blockquote>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">tail</code>: 打开并监控文件的末尾。（用于日志监控）</p>
+    <p><code class="language-plaintext highlighter-rouge">tail</code>: 打开并监控文件的末尾。（用于日志监控）
+  <code class="language-plaintext highlighter-rouge">tail -f [文件]</code></p>
   </li>
-</ol>
-
-<p>        <code class="language-plaintext highlighter-rouge">tail -f [文件]</code></p>
-
-<ol>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">grep</code>：全局正则表达式打印。在指定的文件里寻找字符串（正则表达式）。-n 显示匹配的行行号、- l 打印匹配的文件名、-i 忽略大小写匹配、-v 反向查找（打印不匹配的） 、-r 递归查找文件、-c 只打印匹配的行数、-C x 打印匹配的行前后x行的内容。</p>
-
-    <p><code class="language-plaintext highlighter-rouge">grep [选项] 表达式 [文件]</code></p>
+    <p><code class="language-plaintext highlighter-rouge">grep</code>：全局正则表达式打印。
+在指定的文件里寻找字符串（正则表达式）。
+-n 显示匹配的行行号、- l 打印匹配的文件名、-i 忽略大小写匹配、-v 反向查找（打印不匹配的） 、-r 递归查找文件、-c 只打印匹配的行数、-C x 打印匹配的行前后x行的内容。
+  <code class="language-plaintext highlighter-rouge">grep [选项] 表达式 [文件]</code></p>
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">echo</code>:打印输出。</p>
@@ -515,22 +517,48 @@
 </ol>
 
 <h2 id="用户操作"><strong>用户操作：</strong></h2>
-
 <ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">alias</code>:为命令创造别名。’’ 变量在调用时解析, ””变量在定义时解析。</p>
+  <li><code class="language-plaintext highlighter-rouge">users</code>:命令会显示当前登录到系统的所有用户
+    <blockquote>
+      <p>查看当前系统内的所有用户，使用文本编辑器打开文件</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/passwd
+</code></pre></div>      </div>
+      <p>/etc/passwd 文件是一个重要的系统文件，它存储了系统中所有用户的基本信息。使用 vi /etc/passwd 命令打开该文件后，每一行代表一个用户的信息，各字段之间用冒号 : 分隔。</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username:x:1001:1001:User Description:/home/username:/bin/bash
+</code></pre></div>      </div>
 
-    <p><code class="language-plaintext highlighter-rouge">alias [new_cmd]=’cmd’/”cmd”</code></p>
+      <p><strong>用户名（username）</strong>：这是用户登录系统时使用的名称，是用户在系统中的唯一标识，通常由字母、数字、下划线等字符组成，且不能包含冒号 :。</p>
+
+      <p><strong>加密密码占位符（x）</strong>:在早期的 Linux 系统中，该字段存储用户的加密密码。但由于 /etc/passwd 文件的权限通常设置为所有用户可读，为了提高安全性，现在密码通常存储在 /etc/shadow 文件中，而 /etc/passwd 文件中的该字段统一显示为 x，表示密码被存储在其他地方。</p>
+
+      <p><strong>用户 ID（UID，1001）</strong>:用户 ID 是一个唯一的整数，用于系统内部标识用户。系统通过 UID 来管理用户的权限和资源。在大多数 Linux 系统中，root 用户的 UID 为 0，系统保留用户（如 daemon、bin 等）的 UID 通常小于 1000，而普通用户的 UID 通常从 1000 或 1001 开始分配。</p>
+
+      <p><strong>组 ID（GID，1001）</strong>:组 ID 是用户所属主要用户组的唯一标识。用户可以属于多个用户组，但每个用户都有一个主要用户组，记录在 /etc/passwd 文件中。与 UID 类似，系统通过 GID 来管理用户组的权限和资源。用户组的详细信息存储在 /etc/group 文件中。</p>
+
+      <p><strong>用户描述信息（User Description）</strong>
+该字段用于存储用户的描述信息，通常是用户的全名或其他相关说明。</p>
+
+      <p><strong>用户主目录（/home/username）</strong>:用户主目录是用户登录系统后默认进入的目录，通常以 /home 为根目录，后面跟上用户名。</p>
+
+      <p><strong>用户默认 shell（/bin/bash）</strong>:该字段指定用户登录系统后默认使用的 shell 程序。如果该字段设置为 /sbin/nologin，则表示该用户不能登录系统，通常用于系统服务账户。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">groups</code>:查看当前用户所属的用户组</p>
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">chown</code>:改变所有者</p>
+
+    <p><code class="language-plaintext highlighter-rouge">chown newuser:newgroup example.txt</code></p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">chmod</code>:改变权限。rwx分别对应了读4写2执行1,不操作的使用-替代。一个文件有三组rwx的值，对应所有者、关联的用户组和其他人的权限。</p>
+    <p><code class="language-plaintext highlighter-rouge">chmod</code>:改变权限。</p>
+
+    <p>rwx分别对应了读4写2执行1,不操作的使用-替代。一个文件有三组rwx的值，对应所有者、关联的用户组和其他人的权限。</p>
+
+    <p>-R递归的改变文件夹下的所有文件的权限</p>
 
     <p><code class="language-plaintext highlighter-rouge">chmod  owner/group/world  +/-  rwx</code></p>
-
-    <p><code class="language-plaintext highlighter-rouge">chmod  777</code></p>
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">df</code>:获取磁盘使用情况。-h</p>
@@ -539,8 +567,12 @@
     <p><code class="language-plaintext highlighter-rouge">su -l</code> :切换设备权限到root</p>
   </li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">ldconfig</code>：更新系统共享库缓存</p>
+    <p><code class="language-plaintext highlighter-rouge">alias</code>:为命令创造别名。</p>
+
+    <p>’’ 变量在调用时解析, ””变量在定义时解析。
+<code class="language-plaintext highlighter-rouge">alias [new_cmd]=’cmd’/”cmd”</code></p>
   </li>
+  <li><code class="language-plaintext highlighter-rouge">ldconfig</code>：更新系统共享库缓存</li>
 </ol>
 
 <h2 id="查看操作">查看操作</h2>
@@ -611,12 +643,12 @@
       </li>
       <li>
         <p><code class="language-plaintext highlighter-rouge">Ctrl PageDown</code> : 屏幕输出向下翻页</p>
-
-        <h1 id="linux的包管理工具apt">Linux的包管理工具Apt</h1>
       </li>
     </ul>
   </li>
 </ul>
+
+<h1 id="linux的包管理工具apt">Linux的包管理工具Apt</h1>
 
 <p>包管理工具apt</p>
 
@@ -731,6 +763,58 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="permalink">Wsl2突然无法使用
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-06T00:00:00+00:00">2025-02-06</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约207字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/" rel="permalink">使用ghpage分支配置jekyll网页的自定义域名问题
 </a>
       
@@ -783,6 +867,58 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/%E9%9A%8F%E7%AC%94/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" rel="permalink">2024年终总结
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-01-20T00:00:00+00:00">2025-01-20</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约445字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="permalink">使用vsftpd在阿里云ecs上建立一个ftp服务器
 </a>
       
@@ -813,110 +949,6 @@
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
           约635字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/" rel="permalink">Systemd和systemctl
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2025-01-16T00:00:00+00:00">2025-01-16</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          约654字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/git%E4%BD%BF%E7%94%A8/" rel="permalink">Git使用
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2025-01-15T00:00:00+00:00">2025-01-15</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          约4字，预计少于 1 分钟阅读
         
       </span>
     
