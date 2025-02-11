@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-02-10T08:27:03+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Wsl2突然无法使用</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Wsl2突然无法使用" /><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-06T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://honest-zh.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://honest-zh.github.io/" rel="alternate" type="text/html" /><updated>2025-02-11T09:59:34+00:00</updated><id>https://honest-zh.github.io/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Wsl2突然无法使用</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Wsl2突然无法使用" /><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-06T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 <p>之前一直可以使用的wsl突然抽风无法使用。powershell运行wsl报错：</p>
 
 <blockquote>
@@ -33,14 +33,11 @@
 
 <p>一开始是普通的技术总结和工作记录，然后是自己在游戏、动画等作品之后的一些感悟和体会，再之后是像高中那样对自己和过去进行总结和分析——五年之后的今天，我又开始了和自己的长谈。</p>
 
-<h1 id="年度汉字转">年度汉字——“转”</h1>
+<h1 id="转">转</h1>
 
-<p><img src="/assets/images/blog/2025-01-28%202344541-image.png" alt="" />
-要用一个字总结2024年，那应该是“转”。</p>
+<p>要用一个字总结2024年，那应该是“转”。2024年是我生活中的一个重要转折点——在2024年的上半年我还是一个普通的学生，在2024年的下半年我实际上已经成了一个朝九晚五的社畜。</p>
 
-<p>2024年是一个转折点。在2024年的上半年我还是一个普通的学生，在2024年的下半年我实际上已经成了一个朝九晚五的社畜。</p>
-
-<p>研一的生活和本科相比实际上没有什么区别，重复着上课、笔记、作业、考试的古旧循环。说实话，从我的体验而言我还是和本科的时候一样，没有什么太大的变化。</p>
+<p>研一的生活说实话和本科相比实际上没有什么区别，重复着上课、笔记、作业、考试的古旧循环。</p>
 
 <p>#</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /><category term="年终总结" /></entry><entry><title type="html">使用ghpage分支配置jekyll网页的自定义域名问题</title><link href="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="使用ghpage分支配置jekyll网页的自定义域名问题" /><published>2025-01-20T00:00:00+00:00</published><updated>2025-01-20T00:00:00+00:00</updated><id>https://honest-zh.github.io/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98</id><content type="html" xml:base="https://honest-zh.github.io/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 <p>最近在阿里云上为我的个人网页购买了一个域名<code class="language-plaintext highlighter-rouge">honest-zh.me</code>,我将<code class="language-plaintext highlighter-rouge">www.honest-zh.me</code>的链接重定向到了我之前在github page上托管的<a href="/笔记/基于Jekyll和Github-Page的个人主页搭建经验/">个人主页</a>。并在github的设置中的page选项的Custom domain里设置为了我的域名。很顺利的，域名可以跳转到我在github page上托管的个人网页网址<code class="language-plaintext highlighter-rouge">honest-zh.github.io</code>上。但当我更新我的博客，ghpage分支重新部署文件后，域名的重定向就失效了！</p>
