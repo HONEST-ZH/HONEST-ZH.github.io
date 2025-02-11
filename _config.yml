@@ -11,7 +11,8 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 host : 0.0.0.0
 theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes"
+# remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme           : 
 minimal_mistakes_skin    : "contrast" #"default"  "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -116,7 +117,7 @@ analytics:
 author:
   name             : "HONEST"
   avatar           : /assets/author/avatar.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "喜欢打打游戏看看动漫的普通宅男，摸鱼型休闲牌佬。"
+  bio              : "喜欢打打游戏看看动漫的普通宅男；摸鱼型休闲牌佬；喜欢捣鼓一些小东西的技术宅；正在一步步迈向社畜生活的深渊的研究牲......人太多这里放不下了QAQ"
   location         : "中国-上海"
   email            : 2260363172qq.com
   links:
@@ -265,6 +266,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-pinyin
 
 # mimic GitHub Pages with --safe
 whitelist:

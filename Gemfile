@@ -13,6 +13,7 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "minimal-mistakes-jekyll"
 gem "github-pages", group: :jekyll_plugins
+gem 'pinyin'
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
 #   gem "jekyll-sitemap"

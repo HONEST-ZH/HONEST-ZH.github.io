@@ -9,6 +9,15 @@
         <time datetime="{{ date | date_to_xmlschema }}">{{ date | date: date_format }}</time>
       </span>
     {% endif %}
+    
+    <span class="page__meta-sep"></span>
+
+    {% if post.last_modified_at or post.date %}
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="{{ post.last_modified_at | default: post.date | date_to_xmlschema }}">{{ post.last_modified_at | default: post.date | date: date_format }}</time>
+      </span>
+    {% endif %}
 
     {% if document.read_time and document.show_date %}<span class="page__meta-sep"></span>{% endif %}
 
