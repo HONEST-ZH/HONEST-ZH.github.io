@@ -244,7 +244,7 @@ pagination:
   permalink: '/page/:num/'
   title: ':title - 第:num页'
   limit: 0
-  sort_field: 'last-modified-at'
+  sort_field: 'date'
   sort_reverse: true
   category: 'posts'
   tag: ''
