@@ -1,6 +1,11 @@
 ---
 layout: home
-entries_layout: grid    # 改为 grid 可以显示预览图
+#entries_layout: grid    # 改为 grid 可以显示预览图
+entries_layout: list
 author_profile: true
 permalink: /
+pagination: 
+  enabled: true
+  collection: posts  # 明确指定要分页的集合
+  per_page: 10       # 需与配置文件保持一致
 ---

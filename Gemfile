@@ -10,19 +10,20 @@ source "https://rubygems.org"
 # Happy Jekylling!
 # gem "github-pages", group: :jekyll_plugins
 # To upgrade, run `bundle update`.
-gem "jekyll"
-gem "minimal-mistakes-jekyll"
-gem "github-pages", group: :jekyll_plugins
-gem 'pinyin'
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
 #   gem "jekyll-sitemap"
 #   gem "jekyll-gist"
 #   gem "jekyll-feed"
 #   gem "jekyll-include-cache"
-#
 # If you have any other plugins, put them here!
 # Cf. https://jekyllrb.com/docs/plugins/installation/
+
+gem "jekyll"
+gem "minimal-mistakes-jekyll"
+gem "github-pages", group: :jekyll_pluginsgem 
+gem 'jekyll-paginate-v2'
+gem 'jekyll-last-modified-at'  
 group :jekyll_plugins do
     gem "jekyll-archives"
-end  
+end
