@@ -20,7 +20,7 @@ locale                   : "zh-CN"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "HONEST的个人主页"
 title_separator          : "-"
-subtitle                 : "一切美好开始的地方"# site tagline that appears below site title in masthead
+subtitle                 : "成为一切美好开始的地方"# site tagline that appears below site title in masthead
 name                     : "HONEST"
 description              : "这里是HONEST的个人主页，存放我的想法和学习的笔记"
 url                      : https://honest-zh.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -117,7 +117,12 @@ analytics:
 author:
   name             : "HONEST"
   avatar           : /assets/author/avatar.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "喜欢打打游戏看看动漫的普通宅男；摸鱼型休闲牌佬；喜欢捣鼓一些小东西的技术宅；正在一步步迈向社畜生活的深渊的研究牲......人太多这里放不下了QAQ"
+  bio              : |
+    TCG/TRPG/ACGN爱好者，并非二次元  
+    总在捣鼓莫名其妙的东西的技术宅  
+    一步步迈向社畜生活的深渊的研究牲  
+    为了毕业和工作忧愁中  
+    最近正在自学电吉他  
   location         : "中国-上海"
   email            : 2260363172qq.com
   links:
@@ -255,7 +260,8 @@ pagination:
 
 jekyll-last-modified-at:
   format: "%Y-%m-%d"  # 自定义时间格式
-  fallback_to: mtime  # 使用文件系统修改时间
+  source: git  # 使用git提交修改时间
+  #fallback_to: mtime  # 使用文件系统修改时间
 
 # Plugins (previously gems:)
 plugins:
