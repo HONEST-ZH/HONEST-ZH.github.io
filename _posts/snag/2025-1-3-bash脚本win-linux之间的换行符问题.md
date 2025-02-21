@@ -1,9 +1,9 @@
 ---
 #last_modified_at: 2025-1-2、
 tags:
-    - shell
-    - git
-    - vim
+    - Shell
+    - Git
+    - Vim
 ---
 
 # 问题描述

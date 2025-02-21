@@ -1,4 +1,8 @@
-
+---
+tags:
+  - Linux
+  - systemd
+---
 systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与 systemd 进行交互的主要方式，它非常强大且功能丰富。
 # 1. 管理服务（Unit）
 ## 1.1 启动服务：

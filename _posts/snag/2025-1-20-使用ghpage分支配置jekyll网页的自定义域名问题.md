@@ -1,8 +1,8 @@
 ---
 #last_modified_at: 2025-1-2
 tags:
-    - git
-    - jekyll
+    - Git
+    - Jekyll
     - 个人主页
 ---
 
