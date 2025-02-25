@@ -9,7 +9,7 @@
 #
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-host : 0.0.0.0
+
 theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 remote_theme           : 
@@ -23,11 +23,12 @@ title_separator          : "-"
 subtitle                 : "成为一切美好开始的地方"# site tagline that appears below site title in masthead
 name                     : "HONEST"
 description              : "这里是HONEST的个人主页，存放我的想法和学习的笔记"
-url                      : https://honest-zh.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+host                     : 127.0.0.1
+url                      : "http://47.95.215.1:4000" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : honest-zh/honest-zh.github.io# GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : honest-zh/honest-zh.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : #/assets/images/teaser.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : /assets/images/logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/web/logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 250
@@ -232,7 +233,6 @@ sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
-
 # Outputting
 permalink: /:categories/:title/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -245,7 +245,7 @@ pagination:
   enabled: true
   debug: false
   collection: 'posts'
-  per_page: 10
+  per_page: 5
   permalink: '/page/:num/'
   title: ':title - 第:num页'
   limit: 0
@@ -260,8 +260,13 @@ pagination:
 
 jekyll-last-modified-at:
   format: "%Y-%m-%d"  # 自定义时间格式
-  source: git  # 使用git提交修改时间
-  #fallback_to: mtime  # 使用文件系统修改时间
+  #source: git  # 使用git提交修改时间
+  fallback_to: mtime  # 使用文件系统修改时间
+
+
+jekyll-admin:
+  enabled: true
+  base_url: /admin
 
 # Plugins (previously gems:)
 plugins:
@@ -271,6 +276,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-last-modified-at
+  - jekyll-admin
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -280,6 +286,7 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-last-modified-at
+  - jekyll-admin
 
 # Archives
 #  Type

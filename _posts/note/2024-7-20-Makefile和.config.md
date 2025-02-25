@@ -3,6 +3,7 @@ tags:
   - Linux
   - 操作系统内核
   - .config
+  - Makfile
 ---
 # Makefile和config/kconfig
 

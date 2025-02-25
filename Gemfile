@@ -19,11 +19,24 @@ source "https://rubygems.org"
 # If you have any other plugins, put them here!
 # Cf. https://jekyllrb.com/docs/plugins/installation/
 
+# Jekyll 核心依赖
 gem "jekyll"
+# 主题依赖
 gem "minimal-mistakes-jekyll"
-gem "github-pages", group: :jekyll_pluginsgem 
+# 分页插件
 gem 'jekyll-paginate-v2'
-gem 'jekyll-last-modified-at'  
-group :jekyll_plugins do
-    gem "jekyll-archives"
-end
+# 最后修改时间插件
+gem 'jekyll-last-modified-at'
+# 后台管理插件
+gem "jekyll-admin"
+# 文章归档插件
+gem "jekyll-archives"
+
+gem "sinatra", ">= 3", "< 4"
+
+# 其他常用插件（可根据需要启用）
+# gem "jekyll-paginate"
+# gem "jekyll-sitemap"
+# gem "jekyll-gist"
+# gem "jekyll-feed"
+# gem "jekyll-include-cache"
