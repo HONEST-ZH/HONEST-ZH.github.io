@@ -1,1 +1,1 @@
-Sitemap: https://honest-zh.github.io/sitemap.xml
+Sitemap: http://47.95.215.1:4000/sitemap.xml
