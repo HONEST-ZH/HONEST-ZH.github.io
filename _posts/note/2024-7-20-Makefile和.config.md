@@ -5,7 +5,6 @@ tags:
   - .config
   - Makfile
 ---
-# Makefile和config/kconfig
 
 ## 自动项目编译工具make
 

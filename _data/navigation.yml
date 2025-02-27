@@ -17,3 +17,6 @@ main:
   - title: "文章存档"
     url: /posts/
     description: "按照时间线方式，以存档格式存放文章"
+  - title: "标签分类"
+    url: /tags/
+    description: "按照标签分类存放文章"
