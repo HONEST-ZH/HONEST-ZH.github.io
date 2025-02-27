@@ -1,0 +1,1088 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="zh-CN" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>基于jekyll和github page的个人主页搭建经验 - 诚的随想和代码</title>
+<meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+  <meta name="author" content="HONEST">
+  
+  <meta property="article:author" content="HONEST">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="诚的随想和代码">
+<meta property="og:title" content="基于jekyll和github page的个人主页搭建经验">
+<meta property="og:url" content="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/">
+
+
+  <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+
+  <meta property="og:image" content="www.honest-zh.me/assets/images/blog_header/default_header.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-12-12T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2025-02-27T01:38:46+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="诚的随想和代码 Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">转到内容</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">转到底部</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/web/logo.png" alt="诚的随想和代码"></a>
+        
+        <a class="site-title" href="/">
+          诚的随想和代码
+          <span class="site-subtitle">βlatu-CodeRealm</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                 title="首页"
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%9A%8F%E7%AC%94"
+                 title="存放日常生活的心得和感悟"
+                
+              >随想随笔</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E7%AC%94%E8%AE%B0"
+                 title="存放学习的笔记资料"
+                
+              >学习笔记</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%97%AE%E9%A2%98"
+                 title="记录我踩过的坑"
+                
+              >踩坑记录</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                 title="按照时间线方式，以存档格式存放文章"
+                
+              >文章存档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/tags/"
+                 title="按照标签分类存放文章"
+                
+              >标签分类</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">切换搜索</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: transparent; background-image: url('/assets/images/blog_header/default_header.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          基于jekyll和github page的个人主页搭建经验
+
+        
+      </h1>
+      
+        <p class="page__lead">
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-12T00:00:00+00:00">2024-12-12</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          约2264字，预计9 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="www.honest-zh.me/">
+        <img src="/assets/author/avatar.jpg" alt="HONEST" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="www.honest-zh.me/" itemprop="url">HONEST</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>TCG/TRPG/ACGN爱好者，并非二次元<br />
+总在捣鼓莫名其妙的东西的技术宅<br />
+一步步迈向社畜生活的深渊的研究牲<br />
+为了毕业和工作忧愁中<br />
+最近正在自学电吉他</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">关注</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">中国-上海</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:2260363172qq.com" rel="me" class="u-email">
+            <meta itemprop="email" content="2260363172qq.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">电子邮箱</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="基于jekyll和github page的个人主页搭建经验">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-12-12T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-02-27T01:38:46+00:00">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#一方案选择">一、方案选择</a></li><li><a href="#二jekyll和minimal-mistakes主题">二、Jekyll和Minimal Mistakes主题</a><ul><li><a href="#1部署jekyll环境">1.部署Jekyll环境</a></li></ul></li><li><a href="#三设置github-page">三、设置Github Page</a><ul><li><a href="#1-创建gh-pagesyml工作流文件">1. 创建gh-pages.yml工作流文件</a></li><li><a href="#2-编写gh-pagesyml">2. 编写gh-pages.yml</a></li><li><a href="#3-github-pages从gh-pages分支部署">3. Github pages从gh-pages分支部署</a></li></ul></li><li><a href="#四网页的使用">四、网页的使用</a><ul><li><a href="#1基本frontmatter">1.基本FrontMatter</a></li><li><a href="#2ai工具生成顶部配图">2.AI工具生成顶部配图</a></li><li><a href="#3markdown文档编写">3.Markdown文档编写</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="一方案选择">一、方案选择</h2>
+
+<p>大体上讲，搭建个人网站有几种常见的方案技术路线。一种是分为前端和后端，使用web服务器处理web请求的<strong>通用网页方案</strong>；另一种是使用<strong>静态网页生成器</strong>将所有网页内容预先生成为静态文件（如 HTML、CSS、JavaScript），然后部署到<strong>静态网页托管平台</strong>上。</p>
+
+<p>前者是web网页的一般方法，由前端和后端两部分组成。前端负责提供网页的结构、布局和交互等可视化的直接和用户接触的部分，后端负责处理请求的业务逻辑、数据存储和安全性等涉及服务器端的部分。</p>
+
+<ul>
+  <li>
+    <p>前端的核心是HTML、CSS、JavaScript三个部分，分别对应了网页的结构、布局和交互处理。除此以外，还有其他基于JavaScript的前端的框架（如 <code class="language-plaintext highlighter-rouge">React</code>、<code class="language-plaintext highlighter-rouge">Vue.js</code>、<code class="language-plaintext highlighter-rouge">Angular</code>）用来简化网页交互的编写。</p>
+  </li>
+  <li>
+    <p>后端的核心是Web服务器、后端框架和数据库。</p>
+
+    <ul>
+      <li>Web服务器主要用于连接用户的网页请求和用于处理请求的服务器。具体来说：主要负责处理用户HTTP/HTTPS请求、对后端的服务器进行反向代理和负载均衡。</li>
+      <li>后端框架则主要用于处理业务逻辑，负责对web服务器代理后的请求进行处理。常见的后端框架有：Python的<code class="language-plaintext highlighter-rouge">Django</code>,和<code class="language-plaintext highlighter-rouge">Flask</code>、JavaScript的<code class="language-plaintext highlighter-rouge">Node.js</code>、Java的<code class="language-plaintext highlighter-rouge">Spring</code>等。</li>
+      <li>数据库则是十分明了的用于存储和管理数据。常见的数据库包括：<code class="language-plaintext highlighter-rouge">MySQL</code>、<code class="language-plaintext highlighter-rouge">Oracle</code>（关系型数据库）、<code class="language-plaintext highlighter-rouge">MongoDB</code>、<code class="language-plaintext highlighter-rouge">Redis</code>（非关系型数据库）。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>后者是用于生成静态网页的方法，即使用静态网页生成器（如<code class="language-plaintext highlighter-rouge">Jekyll</code>、<code class="language-plaintext highlighter-rouge">Hugo</code>、<code class="language-plaintext highlighter-rouge">Hexo</code>等）预先生成好网页，将之存为不需要服务器端处理的文件（如<code class="language-plaintext highlighter-rouge">HTML</code>、<code class="language-plaintext highlighter-rouge">CSS</code>、<code class="language-plaintext highlighter-rouge">JavaScript</code>）。静态网页可以直接使用静态网页托管平台直接进行部署，如<code class="language-plaintext highlighter-rouge">Github Pages</code>、<code class="language-plaintext highlighter-rouge">Vercel</code>、<code class="language-plaintext highlighter-rouge">Netlify</code>等。</p>
+
+<p>动态网页的灵活性更高，可以处理更多的交互需求，但是需要服务器端的支持，部署较为复杂，需要额外的服务器;静态网页的灵活性较差，但是部署简单，可以直接使用Github Page进行部署（还省去了配置公网IP和网页备案的麻烦）。对比两种方案，静态网页的方案适合个人主页低更新频率，交互性较弱的应用需求。</p>
+
+<p>因此，我最后选择了静态网页的方案，使用<strong>Jekyll的Minimal Mistakes主题</strong>和<strong>Github Pages静态网页托管平台</strong>组合的方案搭建了自己的个人主页。</p>
+
+<p>首先，我在运行了ubuntu的虚拟机上下载Jekyll和其所需要的环境。然后，根据自己的使用需要，按照MInimal Mistakes的文档说明修改了<code class="language-plaintext highlighter-rouge">_config.yml</code>配置文件，调整了个人主页的一些常用设置。最后使用Github Page的部署功能来部署整个网页。</p>
+
+<blockquote>
+  <p>PS.除了使用模板以外，也可以根据自己需要的格式修改<code class="language-plaintext highlighter-rouge">_layout</code>文件夹中的模板。添加自己想要的内容。</p>
+</blockquote>
+
+<h2 id="二jekyll和minimal-mistakes主题">二、Jekyll和Minimal Mistakes主题</h2>
+
+<p><a href="https://jekyllrb.com/docs">Jekyll</a>是一个基于 Ruby 语言开发的开源静态网页生成器。其核心原理是将包含文本内容（如 Markdown 文件）、布局模板（如 HTML 模板）和配置文件（如<code class="language-plaintext highlighter-rouge">_config.yml</code>）的源文件目录，通过一系列的转换和处理，生成最终的静态网站（HTML、CSS、JavaScript 等文件的集合）。<a href="https://mmistakes.github.io/minimal-mistakes/docs">Minimal Mistakes</a>是一个Jekyll的主题，提供了丰富的功能和灵活的配置选项，可以方便地设置美观的网页的布局和样式。</p>
+
+<h3 id="1部署jekyll环境">1.部署Jekyll环境</h3>
+
+<p>这一步其实来说并不是必要的，只是在本地拥有可以使用Jekyll构建网页的环境对于修改个人主页的一些功能来说会更加的方便。<del>你也不想每次对网页布局之类的细微修改的尝试都要push到github上然后重新等待他慢慢的生成网页吧，这实在是太麻烦了</del>。</p>
+
+<p>首先你需要确保的是你拥有一个Linux的虚拟机环境，不管是VMware或者WSL都可以。我使用的是WSL，可以直接在VScode中使用。<del>非常的方便，用过都说豪用</del>。具体怎么弄我这里就不赘述了，网上有很多教程。</p>
+
+<ol>
+  <li>
+    <p>安装 Ruby：</p>
+
+    <p>Jekyll 是基于 Ruby 构建的，所以首先需要安装 Ruby。通过以下命令安装 Ruby：</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt - get update
+   
+<span class="nb">sudo </span>apt - get <span class="nb">install </span>ruby - full
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>安装 Jekyll 和 Bundler（RubyGems 包管理器）：</p>
+
+    <p>在安装好 Ruby 后，可以使用 RubyGems 来安装 Jekyll 和 Bundler。在终端（命令提示符或 PowerShell）中输入以下命令：</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>jekyll bundler
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>创建项目</p>
+
+    <p>a. 新创建项目</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new <span class="nb">.</span>
+</code></pre></div>    </div>
+
+    <p>b. 从原有的模板复制一个项目</p>
+
+    <p>最简单的方法就是直接使用git clone直接复制这个项目的文件下来。</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git clone https://github.com/HONEST-ZH/HONEST-ZH.github.io.git
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>修改网页</p>
+
+    <p>修改<code class="language-plaintext highlighter-rouge">_config.yml</code>或者<code class="language-plaintext highlighter-rouge">_layout</code>里的布局文件来达到你满意的网页效果。</p>
+  </li>
+  <li>
+    <p>本地运行尝试</p>
+
+    <p>执行以下命令来运行本地运行jekyll网页的服务器，工作的ip地址是<code class="language-plaintext highlighter-rouge">127.0.0.1:4000</code></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>重复4-5直到网页满足你的需求。</p>
+  </li>
+</ol>
+
+<h2 id="三设置github-page">三、设置Github Page</h2>
+
+<p>对于一般的静态网页而言，我们只需要将jekyll项目提交到名为<code class="language-plaintext highlighter-rouge">username.github.io</code>的仓库中（名字需要和github的账户名字一致，否则会无效），然后再选择<code class="language-plaintext highlighter-rouge">Settings-Pages-Deploy From a Branch</code>，<code class="language-plaintext highlighter-rouge">branch-main</code>。完成设置以后，就可以实现静态网页的部署了，Github会在Action中自动新建一个名为<code class="language-plaintext highlighter-rouge">pages-build-deployment</code>的工作流，每次选定的分支（main）上发生推送时会自动地构建和部署网页。</p>
+
+<p><img src="/assets/images/blog/2024-12-18-16-33-44-image.png" alt="" /></p>
+
+<p>但是这里因为我使用了Minimal Mistakes模板的原因，网页是没有办法使用这种方法的直接生成的。网页在编译时会报错，找不到模板的Gem包。</p>
+
+<p><img src="/assets/images/blog/2024-12-18-16-44-39-image.png" alt="" /></p>
+
+<p><img src="/assets/images/blog/2024-12-18-16-44-56-image.png" alt="" /></p>
+
+<p>这是因为默认的<code class="language-plaintext highlighter-rouge">pages-build-deployment</code>工作流没有去下载所需要的依赖，而缺少了Jekyll模板。解决这个问题的方法也很简单，就是自己创建一个工作流保证每一次都能把所需要的依赖装好。</p>
+
+<h3 id="1-创建gh-pagesyml工作流文件">1. 创建gh-pages.yml工作流文件</h3>
+
+<p>在项目的根目录下创建.github/workflows文件夹然后添加gh-pages.yml文件。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> .github/workflows
+<span class="nb">touch</span> .github/workflows/gh-pages.yml
+</code></pre></div></div>
+
+<h3 id="2-编写gh-pagesyml">2. 编写gh-pages.yml</h3>
+
+<p>在gh-pages.yml文件中写入：</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">GitHub Pages</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>  <span class="c1"># 监听的分支</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Ruby</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-ruby@v1</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">ruby-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.2'</span>  <span class="c1"># 确保使用正确的 Ruby 版本</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">bundle install</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build the site</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">github_token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+</code></pre></div></div>
+
+<p>这个工作流在每次检测到<code class="language-plaintext highlighter-rouge">main</code>分支上有推送时：下载所需要的Gem包依赖，构建静态网页，将静态网页的文件推送到一个专门用于存储静态网页的分支<code class="language-plaintext highlighter-rouge">gh-pages</code>。</p>
+
+<h3 id="3-github-pages从gh-pages分支部署">3. Github pages从gh-pages分支部署</h3>
+
+<p><code class="language-plaintext highlighter-rouge">gh-pages</code>分支被更新后，还没有完成网页的部署。此时需要把github page关注的分支换为<code class="language-plaintext highlighter-rouge">gh-pages</code>，根据每次推送到<code class="language-plaintext highlighter-rouge">gh-pages</code>上的文件部署静态网页。工作流的结果显示如下图所示，此时就可以在<code class="language-plaintext highlighter-rouge">username.github.io</code>中访问个人主页的页面了。</p>
+
+<p><img src="/assets/images/blog/2024-12-18-17-01-56-image.png" alt="" /></p>
+
+<h2 id="四网页的使用">四、网页的使用</h2>
+
+<h3 id="1基本frontmatter">1.基本FrontMatter</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">文章标题"</span>
+
+<span class="na">date</span><span class="pi">:</span> <span class="s">2023-10-20</span>
+
+<span class="na">last_modified_at</span><span class="pi">:</span> <span class="s">2023-10-21    # 最后修改时间</span>
+
+<span class="na">categories</span><span class="pi">:</span>
+
+<span class="s">  - 技术</span>
+
+<span class="s">  - ZMQ</span>
+
+<span class="na">tags</span><span class="pi">:</span>
+
+<span class="s">  - 消息队列</span>
+
+<span class="s">  - 网络编程</span>
+
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span><span class="s">                      </span> <span class="c1"># 显示目录</span>
+
+<span class="na">toc_sticky</span><span class="pi">:</span> <span class="kc">true</span><span class="s">              </span> <span class="c1"># 固定目录</span>
+
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">目录"</span> <span class="s">             # 目录标题</span>
+
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cog"</span> <span class="s">             </span> <span class="c1"># 目录图标</span>
+
+<span class="c1">#图片</span>
+
+<span class="na">header</span><span class="pi">:</span>
+
+<span class="na">  image</span><span class="pi">:</span> <span class="s">/assets/images/header.jpg          </span> <span class="c1"># 头部大图</span>
+
+<span class="na">  teaser</span><span class="pi">:</span> <span class="s">/assets/images/teaser-image.jpg    # 预览图</span>
+
+<span class="na">  overlay_image</span><span class="pi">:</span> <span class="s">/assets/images/banner.jpg  </span> <span class="c1"># 覆盖图</span>
+
+<span class="na">  overlay_color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#333"</span> <span class="s">                     # 覆盖颜色</span>
+
+<span class="na">  caption</span><span class="pi">:</span> <span class="s2">"</span><span class="s">图片来源:</span><span class="nv"> </span><span class="s">[**网站**](链接)"</span> <span class="s">     # 图片说明</span>
+
+
+
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">这是文章摘要，将显示在文章列表中"</span> <span class="s">   # 文章摘要</span>
+
+<span class="c1"># 作者相关</span>
+
+<span class="na">author</span><span class="pi">:</span> <span class="s">Your Name</span>
+
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span><span class="s">    # 显示作者信息</span>
+
+<span class="c1"># 布局相关</span>
+
+<span class="na">layout</span><span class="pi">:</span> <span class="s">single</span>
+
+<span class="na">classes</span><span class="pi">:</span> <span class="s">wide          # 宽屏显示</span>
+
+<span class="c1"># 评论相关</span>
+
+<span class="na">comments</span><span class="pi">:</span> <span class="kc">true</span><span class="s">        # 启用评论</span>
+
+<span class="na">share</span><span class="pi">:</span> <span class="kc">true</span><span class="s">          </span> <span class="c1"># 显示分享按钮</span>
+
+<span class="c1"># 相关文章</span>
+
+<span class="na">related</span><span class="pi">:</span> <span class="kc">true</span><span class="s">        </span> <span class="c1"># 显示相关文章</span>
+
+<span class="c1"># 阅读时间</span>
+
+<span class="na">read_time</span><span class="pi">:</span> <span class="kc">true</span><span class="s">      </span> <span class="c1"># 显示预计阅读时间</span>
+
+<span class="c1"># 导航</span>
+
+<span class="na">sidebar</span><span class="pi">:</span>
+
+<span class="na">  nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">main"</span> <span class="s">       # 侧边栏导航</span>
+
+<span class="c1"># SEO相关</span>
+
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">这是一段用于SEO的描述"</span>
+
+<span class="na">keywords</span><span class="pi">:</span> <span class="s2">"</span><span class="s">关键词1,</span><span class="nv"> </span><span class="s">关键词2"</span>
+
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="2ai工具生成顶部配图">2.AI工具生成顶部配图</h3>
+
+<p>使用ChatGPT生成提示词，然后使用DALLE-3生成图片</p>
+<blockquote>
+  <p>提示词应该具有的结构：</p>
+  <ul>
+    <li>主题描述
+描述主要场景或元素，让 AI 理解你想要生成的内容是什么。</li>
+    <li>细节补充
+包括场景的颜色、灯光、材质等信息，增加细节丰富度。
+*情感与氛围
+指定图像的情感和氛围，如“宁静”、“温暖”、“科幻感”等。</li>
+    <li>视觉风格
+选择一种视觉呈现方式，如“水彩画风格”、“数字艺术”、“摄影级真实感”等。</li>
+    <li>构图与比例
+提到图像的布局与比例，如“宽屏横向构图”、“16:9比例”。</li>
+    <li>特定要求（可选）
+如果需要特别的元素，比如“背景模糊”或“有特定的道具”，也可以写明。</li>
+  </ul>
+</blockquote>
+
+<p>例如：
+提示词为</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A breathtaking sunset over a calm ocean, 
+with soft waves reflecting the warm orange and pink hues of the sky, a few scattered clouds, and silhouetted palm trees framing the scene.
+Cinematic wide-angle composition, 16:9 aspect ratio, high detail, serene and peaceful mood, digital painting style，1200px width
+</code></pre></div></div>
+<p>生成的图像为
+<img src="/assets/images/blog/ai_generate.jpg" alt="" /></p>
+
+<h3 id="3markdown文档编写">3.Markdown文档编写</h3>
+
+<p>使用Marktext以方便的编写MarkDown笔记，可以直接粘贴图片。图片可能被以网络链接的方式引用，也可能保存在本地的<code class="language-plaintext highlighter-rouge">C:\Users\HONEST\AppData\Roaming\marktext\images\</code>路径下，需要把图片的路径改成<code class="language-plaintext highlighter-rouge">/assets/images/blog_header</code>或者<code class="language-plaintext highlighter-rouge">/assets/images/blog</code></p>
+<blockquote>
+  <p>linux路径使用/，windows路径使用<br />
+要在使用jekyll构建好的网页之间进行链接的跳转，需要使用网页的永久链接跳转。手动输入<code class="language-plaintext highlighter-rouge">[](/url)</code>或者使用liquid的link标识获得文件的路径<code class="language-plaintext highlighter-rouge">[](\{\% link path/to/file \%\})</code>
+手动输入URL时需要注意：1. 空格使用-代替 2.跳转的博客最后不带文件名,不带开头的日期 最简单的方法，从想要链接到的博客的浏览器抬头处复制URL
+使用link标识时需要注意 1.开头的第一个文件没有 <code class="language-plaintext highlighter-rouge">/</code> 2. 使用空格取代%20 最简单的方法，复制想要链接到的博客的文件路径然后修改（大部分博客名称应该没有空格，注意\和/）</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">Github</a><span class="sep">, </span>
+    
+      <a href="/tags/#github-pages" class="page__taxonomy-item p-category" rel="tag">Github Pages</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">Jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5" class="page__taxonomy-item p-category" rel="tag">个人主页</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0" class="page__taxonomy-item p-category" rel="tag">显示的文章</a><span class="sep">, </span>
+    
+      <a href="/categories/#%E7%AC%94%E8%AE%B0" class="page__taxonomy-item p-category" rel="tag">笔记</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-27">2025-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title" style="color: #000000;">分享</h4>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2F%25E5%259F%25BA%25E4%25BA%258EJekyll%25E5%2592%258CGithub-Page%25E7%259A%2584%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25B8%25BB%25E9%25A1%25B5%25E6%2590%25AD%25E5%25BB%25BA%25E7%25BB%258F%25E9%25AA%258C%2F&title=%E5%9F%BA%E4%BA%8Ejekyll%E5%92%8Cgithub+page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
+  </a>
+
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2F%25E5%259F%25BA%25E4%25BA%258EJekyll%25E5%2592%258CGithub-Page%25E7%259A%2584%25E4%25B8%25AA%25E4%25BA%25BA%25E4%25B8%25BB%25E9%25A1%25B5%25E6%2590%25AD%25E5%25BB%25BA%25E7%25BB%258F%25E9%25AA%258C%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/GDB/" class="pagination--pager" title="Gdb">上一页</a>
+    
+    
+      <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" class="pagination--pager" title="白色相簿2">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/SCA/" rel="permalink">Sca
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-26T00:00:00+00:00">2025-02-26</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约2字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="permalink">在服务器上使用Jekyll和Nginx实现SSL和用户登录
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-25T00:00:00+00:00">2025-02-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约1135字，预计4 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="permalink">Twin Theives
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-24T00:00:00+00:00">2025-02-24</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约43字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="permalink">Jekyll Admin使用的包依赖问题
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-22T00:00:00+00:00">2025-02-22</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约277字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      输入您要搜索的关键词...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="www.honest-zh.me">诚的随想和代码</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -10,30 +10,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>诚的随想和代码 - 第2页 - 页面 2</title>
+<!-- begin _includes/seo.html --><title>Uboot - 诚的随想和代码</title>
 <meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
   <meta name="author" content="HONEST">
   
+  <meta property="article:author" content="HONEST">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="诚的随想和代码">
-<meta property="og:title" content="诚的随想和代码 - 第2页">
-<meta property="og:url" content="www.honest-zh.me/page/2/">
+<meta property="og:title" content="Uboot">
+<meta property="og:url" content="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Uboot/">
 
 
   <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
 
+  <meta property="og:image" content="www.honest-zh.me/assets/images/blog_header/default_header.jpg">
 
 
 
 
 
+  <meta property="article:published_time" content="2024-08-20T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2025-02-27T01:38:46+00:00">
 
 
 
@@ -42,13 +50,9 @@
   
 
 
-<link rel="canonical" href="www.honest-zh.me/page/2/">
+<link rel="canonical" href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Uboot/">
 
 
-  <link rel="prev" href="www.honest-zh.me/">
-
-
-  <link rel="next" href="www.honest-zh.me/page/3/">
 
 
 
@@ -86,7 +90,7 @@
 
   </head>
 
-  <body class="layout--home" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
@@ -164,6 +168,74 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: transparent; background-image: url('/assets/images/blog_header/default_header.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Uboot
+
+        
+      </h1>
+      
+        <p class="page__lead">
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-20T00:00:00+00:00">2024-08-20</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          约570字，预计2 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
 
 
 
@@ -297,657 +369,419 @@
 
 
 
-  <div class="archive">
-    
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Uboot">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-08-20T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-02-27T01:38:46+00:00">
 
-<h3 class="archive__subtitle">最新文章</h3>
+    <div class="page__inner-wrap">
+      
 
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#uboot介绍">Uboot介绍</a><ul><li><a href="#一uboot工作目录">一、Uboot工作目录：</a></li><li><a href="#二uboot的工作流程">二、Uboot的工作流程：</a></li><li><a href="#三uboot的代码执行过程">三、Uboot的代码执行过程：</a></li><li><a href="#四uboot的make编译流程">四、Uboot的make编译流程：</a><ul><li><a href="#1-若板卡厂商已经提供了u-boot的支持">1. 若板卡厂商已经提供了u-boot的支持：</a></li><li><a href="#2-若板卡厂商未提供u-boot的支持">2. 若板卡厂商未提供u-boot的支持：</a></li></ul></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="uboot介绍">Uboot介绍</h2>
 
+<p>Uboot是一个开源的嵌入式系统引导程序，支持多种不同架构的板卡通过内存、SD卡或者FTP的方式加载系统。Uboot对板上的资源进行初始化使其达到满足引导操作系统的最小化要求（相当于一个小的操作系统），类似于windows系统的BIOS。</p>
 
+<h3 id="一uboot工作目录">一、Uboot工作目录：</h3>
 
-<div class="entries-list">
+<p>目录结构和内容，见<code class="language-plaintext highlighter-rouge">docs.u-boot.org/en/latest/develop/directories.html</code>中的表格。</p>
+
+<h3 id="二uboot的工作流程">二、Uboot的工作流程：</h3>
+
+<p><strong>1. 初始化硬件资源（RAM、网卡等）</strong></p>
+
+<p><strong>2. 从flash搬运系统的内核到RAM中</strong></p>
+
+<p><strong>2.1.  XIP:(eXcute in place，片内执行)</strong></p>
+
+<p>e.g.写在片内的falsh中
+CPU可以直接在片上访问地址找到uboot程序，无需初始化。</p>
+
+<p><strong>2.2.  非XIP：</strong></p>
+
+<p>e.g.写在SD卡上（需要初始化emmc）
+CPU不可以直接在片上访问地址找到uboot程序，需额外的初始化片外的存储设备，以复制uboot的程序uboot.bin和设备树。相当于额外执行了一个加载uboot的加载程序(bootrom，这段程序是在片上固化的)。</p>
+
+<p><strong>3. 启动系统的内核</strong></p>
+
+<h3 id="三uboot的代码执行过程">三、Uboot的代码执行过程：</h3>
+
+<p>根据架构的设置从一个汇编文件<code class="language-plaintext highlighter-rouge">strat.s</code>开始。然后执行<code class="language-plaintext highlighter-rouge">lowlevel_init()、board_init_f()、board_init_r()。</code></p>
+
+<h3 id="四uboot的make编译流程">四、Uboot的make编译流程：</h3>
+
+<p>Uboot的程序通过make指令生成一个名为uboot.bin的二进制文件，烧录到板卡的闪存之中。                     </p>
+
+<h4 id="1-若板卡厂商已经提供了u-boot的支持">1. 若板卡厂商已经提供了u-boot的支持：</h4>
+
+<p><strong>STEP1：<code class="language-plaintext highlighter-rouge">make XXX_defconfig</code>：</strong></p>
+
+<p>根据板卡预设的信息_defconfig，生成.config文件。首先建立一个conf工具，使用Kconfig解析_defconfig的配置，如果不存在依赖，直接写入.config，如果存在依赖，从Kconfig中写入_defconfig依赖的配置到.config文件，未设置的配置使用默认值。</p>
+
+<p>.config决定了uboot项目编译的过程中需要对那些目录、哪些文件进行编译，makefile中使用obj-$(CONFIG_XXXX)+= xxx/ 命令实现。还有可能需要编译文件中的某一部分，因此在make的时候会根据.config文件生成一个名为config.h的头文件，其中包含了所有的config的宏定义。在c文件中使用宏指令#if#else#endif判断编译那一部分。</p>
+
+<p>可以使用以下技巧观察make的具体依赖，分析源码。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make xx -p &gt;detail.txt             
+
+Vi  detail.txt          
+
+:g/^#/d
+</code></pre></div></div>
+
+<p><strong>STEP2：<code class="language-plaintext highlighter-rouge">make ARCH=OOO CROSS_COMPILE=XXX*</code></strong></p>
+
+<p>根据.config生成了config.h文件，用于编译c文件的部分。生成auto.conf（auto.conf.cmd、autoconf.h、），生成uboot.cfg，autoconf.mk。最后生成uboot.bin文件。</p>
+
+<h4 id="2-若板卡厂商未提供u-boot的支持">2. 若板卡厂商未提供u-boot的支持：</h4>
+
+<p>需要自己设置.config文件然后make u-boot.bin文件。最后下入板中的是uboot.bin + 设备树文件（DTB）。</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
 
 
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="permalink">Bash脚本win Linux之间的换行符问题
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2025-01-03T00:00:00+00:00">2025-01-03</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约537字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" rel="permalink">Cmake出来的可执行文件找不到库文件
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-31T00:00:00+00:00">2024-12-31</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约199字，预计少于 1 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="permalink">白色相簿2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-19T00:00:00+00:00">2024-12-19</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2024-12-24T00:00:00+00:00">2024-12-24</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约3069字，预计12 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/" rel="permalink">基于jekyll和github page的个人主页搭建经验
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-12T00:00:00+00:00">2024-12-12</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约2264字，预计9 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/GDB/" rel="permalink">Gdb
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-13T00:00:00+00:00">2024-11-13</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约569字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Cmake%E7%AC%94%E8%AE%B0/" rel="permalink">Cmake笔记
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-06T00:00:00+00:00">2024-11-06</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1476字，预计5 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1707字，预计6 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Zero-MQ/" rel="permalink">Zero mq
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-09T00:00:00+00:00">2024-10-09</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约3148字，预计12 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Vim%E4%BD%BF%E7%94%A8/" rel="permalink">Vim使用
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-09-12T00:00:00+00:00">2024-09-12</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约153字，预计少于 1 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E7%BC%96%E8%AF%91%E5%99%A8GCC%E5%92%8C%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE/" rel="permalink">编译器gcc和交叉编译工具链
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-09-05T00:00:00+00:00">2024-09-05</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1280字，预计5 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-</div>
-
-
   
-    <nav class="pagination">
-  <ul>
-    
-    
-      
-        <li><a href="/">上一页</a></li>
-      
-    
 
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
     
+      <a href="/tags/#bootloader" class="page__taxonomy-item p-category" rel="tag">Bootloader</a><span class="sep">, </span>
     
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">Linux</a><span class="sep">, </span>
+    
+      <a href="/tags/#u-boot" class="page__taxonomy-item p-category" rel="tag">U-Boot</a>
+    
+    </span>
+  </p>
 
-    
-    
 
-    
-    
-    
 
-    
-    
-      
-        <li><a href="/">1</a></li>
-      
-    
-      
-        <li><a href="/page/2/" class="disabled current">2</a></li>
-      
-    
-      
-        <li><a href="/page/3/">3</a></li>
-      
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      <li><a href="/page/3/">下一页</a></li>
-    
-  </ul>
-</nav>
 
   
 
 
+  
 
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0" class="page__taxonomy-item p-category" rel="tag">显示的文章</a><span class="sep">, </span>
+    
+      <a href="/categories/#%E7%AC%94%E8%AE%B0" class="page__taxonomy-item p-category" rel="tag">笔记</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-27">2025-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title" style="color: #000000;">分享</h4>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2FUboot%2F&title=Uboot" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
+  </a>
+
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2FUboot%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/MarkDown/" class="pagination--pager" title="Markdown">上一页</a>
+    
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="pagination--pager" title="Linux包管理工具">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/SCA/" rel="permalink">Sca
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-26T00:00:00+00:00">2025-02-26</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约2字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="permalink">在服务器上使用Jekyll和Nginx实现SSL和用户登录
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-25T00:00:00+00:00">2025-02-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约1135字，预计4 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="permalink">Twin Theives
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-24T00:00:00+00:00">2025-02-24</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约43字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="permalink">Jekyll Admin使用的包依赖问题
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-22T00:00:00+00:00">2025-02-22</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约277字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
   </div>
+</div>
+
+  
+  
 </div>
 
       

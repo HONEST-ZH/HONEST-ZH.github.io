@@ -10,19 +10,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>诚的随想和代码 - 第2页 - 页面 2</title>
+<!-- begin _includes/seo.html --><title>多线程编程 - 诚的随想和代码</title>
 <meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
 
 
   <meta name="author" content="HONEST">
   
+  <meta property="article:author" content="HONEST">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="诚的随想和代码">
-<meta property="og:title" content="诚的随想和代码 - 第2页">
-<meta property="og:url" content="www.honest-zh.me/page/2/">
+<meta property="og:title" content="多线程编程">
+<meta property="og:url" content="www.honest-zh.me/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">
 
 
   <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
@@ -33,7 +35,11 @@
 
 
 
+  <meta property="article:published_time" content="2024-09-18T00:00:00+00:00">
 
+
+
+  <meta property="article:modified_time" content="2025-02-27T01:38:46+00:00">
 
 
 
@@ -42,13 +48,9 @@
   
 
 
-<link rel="canonical" href="www.honest-zh.me/page/2/">
+<link rel="canonical" href="www.honest-zh.me/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">
 
 
-  <link rel="prev" href="www.honest-zh.me/">
-
-
-  <link rel="next" href="www.honest-zh.me/page/3/">
 
 
 
@@ -86,7 +88,7 @@
 
   </head>
 
-  <body class="layout--home" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
@@ -164,6 +166,8 @@
 
     <div class="initial-content">
       
+
+
 
 
 
@@ -297,657 +301,399 @@
 
 
 
-  <div class="archive">
-    
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="多线程编程">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-09-18T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-02-27T01:38:46+00:00">
 
-<h3 class="archive__subtitle">最新文章</h3>
+    <div class="page__inner-wrap">
+      
 
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#多线程编程">多线程编程</a><ul><li><a href="#1-线程安全">1. 线程安全</a><ul><li><a href="#11-共享资源管理">1.1 共享资源管理</a></li></ul></li><li><a href="#12-资源回收">1.2 资源回收</a></li><li><a href="#2-进程间通信">2. 进程间通信：</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="多线程编程">多线程编程</h1>
 
+<p>多线程编程一般使用的是基于POSIX标准的系统接口pthread实现的。不同的操作系统可能有不同的接口，但是POSIX（Portable Operating System Interface, 可移植操作系统接口）是一个统一的标准和要求。在所有符合POSIX标准的系统上，（无论是linux、windows-WSL还是其他类unix系统）都可以使用。</p>
 
+<p>多线程编程的核心难点在于<strong>线程安全性</strong>和<strong>进程间通信</strong>。</p>
 
-<div class="entries-list">
+<p>线程安全需要程序员对于共享资源的访问和线程的时序加以更多的考虑，以避免内存泄露和分布式系统的一致性等问题。</p>
+
+<p>进程之下的线程资源是共享的，但是多个进程之间的资源是不共享的，需要使用合适的方法在不同的进程之间进行通信，</p>
+
+<p><strong>pthread_create</strong></p>
+
+<p>最常用的函数是pthread_create，这个函数会根据attr这一属性，向start_routine这一函数入口传递arg结构体作为参数，运行一个新的线程。这个线程的接口是pthread_t结构体。</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="n">pthread_t</span> <span class="o">*</span><span class="kr">thread</span><span class="p">,</span> <span class="k">const</span> <span class="n">pthread_attr_t</span> <span class="o">*</span><span class="n">attr</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">start_routine</span><span class="p">)(</span><span class="kt">void</span><span class="o">*</span><span class="p">),</span> <span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">thread</code>：这是一个输出参数，用于接收新创建线程的标识符。</li>
+  <li><code class="language-plaintext highlighter-rouge">attr</code>：用于指定新线程的属性，如线程的堆栈大小、调度策略等。如果设置为 <code class="language-plaintext highlighter-rouge">NULL</code>，则使用默认属性。</li>
+  <li><code class="language-plaintext highlighter-rouge">start_routine</code>：这是一个函数指针，指向新线程将执行的函数。这个函数必须有一个 <code class="language-plaintext highlighter-rouge">void*</code> 类型的参数，并返回一个 <code class="language-plaintext highlighter-rouge">void*</code> 类型的值。</li>
+  <li><code class="language-plaintext highlighter-rouge">arg</code>：是传递给新线程执行函数的参数，是一个指向存放有函数所需参数的结构体的指针。如果不需要传递参数，可以设置为 <code class="language-plaintext highlighter-rouge">NULL</code>。
+    <blockquote>
+      <p>如果需要使用pthread_create创建多个进程，应该使用不同的结构体变量arg，使用同一个变量会因为进程间存在的不同步往往无法达到想要的执行效果。</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="1-线程安全">1. 线程安全</h2>
+
+<p>线程安全主要需要考虑的是对线程间共享资源（临界区资源）的管理和调度，以及线程资源的回收防止内存泄漏的问题。</p>
+
+<h3 id="11-共享资源管理">1.1 共享资源管理</h3>
+
+<p>对共享资源的管理最主要的方法就是互斥锁。</p>
+
+<h2 id="12-资源回收">1.2 资源回收</h2>
+
+<p>资源回收主要包括：</p>
+
+<ol>
+  <li>
+    <p>回收自由分配的结构体数据（malloc、alloc等等），通过自由分配的数据空间不会在函数结束时自动释放需要手动free防止资源泄露。</p>
+  </li>
+  <li>
+    <p>回收套接字资源。</p>
+  </li>
+  <li>
+    <p>回收线程防止僵尸线程的出现（自然return、主线程设置信号、pthread_cancel + pthread_join、pthread_detach）。</p>
+  </li>
+</ol>
+
+<h2 id="2-进程间通信">2. 进程间通信：</h2>
+
+<p>信号量、共享内存、管道、AF_UNIX族套接字</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
 
 
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="permalink">Bash脚本win Linux之间的换行符问题
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2025-01-03T00:00:00+00:00">2025-01-03</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约537字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Cmake%E5%87%BA%E6%9D%A5%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%93%E6%96%87%E4%BB%B6/" rel="permalink">Cmake出来的可执行文件找不到库文件
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-31T00:00:00+00:00">2024-12-31</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约199字，预计少于 1 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E7%99%BD%E8%89%B2%E7%9B%B8%E7%B0%BF2/" rel="permalink">白色相簿2
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-19T00:00:00+00:00">2024-12-19</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2024-12-24T00:00:00+00:00">2024-12-24</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约3069字，预计12 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/" rel="permalink">基于jekyll和github page的个人主页搭建经验
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-12T00:00:00+00:00">2024-12-12</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约2264字，预计9 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/GDB/" rel="permalink">Gdb
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-13T00:00:00+00:00">2024-11-13</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约569字，预计2 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Cmake%E7%AC%94%E8%AE%B0/" rel="permalink">Cmake笔记
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-11-06T00:00:00+00:00">2024-11-06</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1476字，预计5 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E9%94%90%E5%8D%8E%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="permalink">锐华嵌入式操作系统
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-30T00:00:00+00:00">2024-10-30</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1707字，预计6 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Zero-MQ/" rel="permalink">Zero mq
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-09T00:00:00+00:00">2024-10-09</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约3148字，预计12 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Vim%E4%BD%BF%E7%94%A8/" rel="permalink">Vim使用
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-09-12T00:00:00+00:00">2024-09-12</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约153字，预计少于 1 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E7%BC%96%E8%AF%91%E5%99%A8GCC%E5%92%8C%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E9%93%BE/" rel="permalink">编译器gcc和交叉编译工具链
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-09-05T00:00:00+00:00">2024-09-05</time>
-      </span>
-    
-    
-    <span class="page__meta-sep"></span>
-
-    
-      <span class="page__meta-date">
-        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-      
-      
-      
-      
-      
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          约1280字，预计5 分钟阅读
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-</div>
-
-
-  
-    <nav class="pagination">
-  <ul>
-    
-    
-      
-        <li><a href="/">上一页</a></li>
-      
-    
-
-    
-    
-
-    
-    
-
-    
-    
-    
-
-    
-    
-      
-        <li><a href="/">1</a></li>
-      
-    
-      
-        <li><a href="/page/2/" class="disabled current">2</a></li>
-      
-    
-      
-        <li><a href="/page/3/">3</a></li>
-      
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      <li><a href="/page/3/">下一页</a></li>
-    
-  </ul>
-</nav>
-
   
 
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#%E5%A4%9A%E7%BA%BF%E7%A8%8B" class="page__taxonomy-item p-category" rel="tag">多线程</a><span class="sep">, </span>
+    
+      <a href="/tags/#%E8%BF%9B%E7%A8%8B%E5%AE%89%E5%85%A8" class="page__taxonomy-item p-category" rel="tag">进程安全</a><span class="sep">, </span>
+    
+      <a href="/tags/#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1" class="page__taxonomy-item p-category" rel="tag">进程间通信</a>
+    
+    </span>
+  </p>
 
 
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-27">2025-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title" style="color: #000000;">分享</h4>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.honest-zh.me%2F%25E5%25A4%259A%25E7%25BA%25BF%25E7%25A8%258B%25E7%25BC%2596%25E7%25A8%258B%2F&title=%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
+  </a>
+
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=www.honest-zh.me%2F%25E5%25A4%259A%25E7%25BA%25BF%25E7%25A8%258B%25E7%25BC%2596%25E7%25A8%258B%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Vim%E4%BD%BF%E7%94%A8/" class="pagination--pager" title="Vim使用">上一页</a>
+    
+    
+      <a href="/%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B/" class="pagination--pager" title="套接字编程">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/SCA/" rel="permalink">Sca
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-26T00:00:00+00:00">2025-02-26</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约2字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="permalink">在服务器上使用Jekyll和Nginx实现SSL和用户登录
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-25T00:00:00+00:00">2025-02-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约1135字，预计4 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="permalink">Twin Theives
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-24T00:00:00+00:00">2025-02-24</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约43字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="permalink">Jekyll Admin使用的包依赖问题
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-22T00:00:00+00:00">2025-02-22</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约277字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
   </div>
+</div>
+
+  
+  
 </div>
 
       

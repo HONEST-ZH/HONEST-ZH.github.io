@@ -1,0 +1,1018 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="zh-CN" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>套接字编程 - 诚的随想和代码</title>
+<meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+  <meta name="author" content="HONEST">
+  
+  <meta property="article:author" content="HONEST">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="诚的随想和代码">
+<meta property="og:title" content="套接字编程">
+<meta property="og:url" content="www.honest-zh.me/%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B/">
+
+
+  <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-10-01T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2025-02-27T01:38:46+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="www.honest-zh.me/%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="诚的随想和代码 Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">转到内容</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">转到底部</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/web/logo.png" alt="诚的随想和代码"></a>
+        
+        <a class="site-title" href="/">
+          诚的随想和代码
+          <span class="site-subtitle">βlatu-CodeRealm</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                 title="首页"
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%9A%8F%E7%AC%94"
+                 title="存放日常生活的心得和感悟"
+                
+              >随想随笔</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E7%AC%94%E8%AE%B0"
+                 title="存放学习的笔记资料"
+                
+              >学习笔记</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%97%AE%E9%A2%98"
+                 title="记录我踩过的坑"
+                
+              >踩坑记录</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                 title="按照时间线方式，以存档格式存放文章"
+                
+              >文章存档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/tags/"
+                 title="按照标签分类存放文章"
+                
+              >标签分类</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">切换搜索</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="www.honest-zh.me/">
+        <img src="/assets/author/avatar.jpg" alt="HONEST" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="www.honest-zh.me/" itemprop="url">HONEST</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>TCG/TRPG/ACGN爱好者，并非二次元<br />
+总在捣鼓莫名其妙的东西的技术宅<br />
+一步步迈向社畜生活的深渊的研究牲<br />
+为了毕业和工作忧愁中<br />
+最近正在自学电吉他</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">关注</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">中国-上海</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:2260363172qq.com" rel="me" class="u-email">
+            <meta itemprop="email" content="2260363172qq.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">电子邮箱</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="套接字编程">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-10-01T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-02-27T01:38:46+00:00">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#套接字编程笔记">套接字编程笔记</a><ul><li><a href="#1套接字网络通信">1、套接字网络通信</a></li><li><a href="#2-地址">2、 地址</a></li><li><a href="#3tcp和udp">3、TCP和UDP:</a></li><li><a href="#4套接字函数">4、套接字函数：</a></li><li><a href="#进程间通信socketpair">进程间通信–socketpair</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="套接字编程笔记">套接字编程笔记</h1>
+
+<h2 id="1套接字网络通信">1、套接字网络通信</h2>
+
+<p><a href="https://www.cnblogs.com/liyuanhong/articles/10591069.html">socket函数的domain、type、protocol解析 - 远洪 - 博客园 (cnblogs.com)</a></p>
+
+<p><a href="https://www.jianshu.com/p/01018fcb5fbc">socket编程主要的API函数介绍(某马） - 简书 (jianshu.com)</a></p>
+
+<p><a href="https://blog.csdn.net/m0_56510407/article/details/125351638">套接字编程-CSDN博客</a></p>
+
+<p>套接字本质上是内核借助缓冲区形成的伪文件，用于表示进程间网络通信的特殊文件类型。在Linux环境下，套接字被视为一种特殊的文件描述符，它允许应用程序通过网络与其它计算机上的程序进行通信。一方面为了向上方的应用层屏蔽网络通信的协议的诸多细节，另一方面是为了统一接口。</p>
+
+<p>然而在这屏蔽协议这点套接字做的并不好，甚至说是混乱不堪。封装了但是没有完全封装，而且还没有封装好（当然这和网络通信的复杂性不可分割），导致使用套接字的每个程序员都如坠云里雾里。最后还是要用户好好了解套接字的机制，背离了设计的本意。</p>
+
+<p>但是长期以来在应用领域的巨大影响力早已让socket成为了事实上的标准，我们只能学习并了解它。对套接字的不满和分布式的应用需求催生了一系列的网络中间件（eg RabitMQ、Nginx、gRPC等），用于弥补套接字在功能和易用性上的空白，当然这是后话不谈。</p>
+
+<h2 id="2-地址">2、 地址</h2>
+
+<p>在套接字编程当中，网络的地址五元组（发送方IP地址、端口号、网络协议、接收方端口号、地址）和套接字标识符（句柄）是解耦的。由系统对套接字标识符进行管理。IP地址和端口号构成了一个套接字地址socket，欲建立连接的两方构成了一个套接字对（满足五元组），唯一确定了连接。</p>
+
+<p><strong>2.1 地址转换系列函数：</strong></p>
+
+<p>问题的本质是网络字节序和主机字节序。这来源于历史遗留问题，不同系统的数据存放方式有所不同（大端和小端）。相关内容网上很多就不再赘述。解决方法就是规定统一的网络字节序，然后在不同存放方式的主机上进行字节序的转换。</p>
+
+<p>除此以外就是一些转换字符串、点分十进制转换到地址结构体中实际保存的long int中的函数。</p>
+
+<p><strong>htonl/ntohl:</strong> 本地序转网络序，网络序转本地序（长，32位，四个8bit的点分十进制数）</p>
+
+<p><strong>htons/ntohs:</strong> 本地序转网络序，网络序转本地序（短，16位，）</p>
+
+<p><strong>忘了：</strong></p>
+
+<p><strong>2.2 地址结构体：</strong></p>
+
+<p><img title="" src="https://i-blog.csdnimg.cn/blog_migrate/b3307c85bcc34758930808786ccd3aa7.png" alt="" width="491" data-align="center" /></p>
+
+<p><strong>struct sockaddr / struck sockaddr_in:</strong> 用来存放套接字地址的结构体，保证上层应用仅需知道套接字标识符就能进行通信（如同套接字socket的本意一样，像一个插座)。</p>
+
+<p>设置三个成员：地址族、地址、端口号。例如：</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sockAdd</span><span class="p">.</span><span class="n">sin_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+<span class="n">sockAdd</span><span class="p">.</span><span class="n">sin_addr</span><span class="p">.</span><span class="n">s_addr</span> <span class="o">=</span> <span class="n">INADDR_ANY</span><span class="p">;</span>
+<span class="n">sockAdd</span><span class="p">.</span><span class="n">sin_port</span> <span class="o">=</span> <span class="n">htons</span><span class="p">(</span><span class="mi">8888</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong><em>注意记得加stuct</em></strong></p>
+
+<blockquote>
+  <p>私以为翻译成网络插口之类的名字更好。但是和鲁棒性一样，这一类的莫名的名称误导了了太多人。</p>
+</blockquote>
+
+<h2 id="3tcp和udp">3、TCP和UDP:</h2>
+
+<h2 id="4套接字函数">4、套接字函数：</h2>
+
+<p><strong>socket():</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">socket</span><span class="p">(</span><span class="kt">int</span> <span class="n">domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protocol</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">domain</code>: 协议版本</p>
+
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">AF_INET</code>： IPV4</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">AF_INET6</code>： IPV6</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">AF_UNIX </code>&amp; <code class="language-plaintext highlighter-rouge">AF_LOCAL</code>：本地通信</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">AF_PACKET</code>:链路层通信</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">type</code>:协议类型</p>
+
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">SOCK_STREAM </code>流式, 默认使用的协议是TCP协议</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">SOCK_DGRAM </code>报式, 默认使用的是UDP协议</p>
+      </li>
+    </ul>
+
+    <blockquote>
+      <p>也就是说流式不一定是TCP，报式也不一定是UDP。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">protocal</code>:</p>
+
+    <ul>
+      <li>一般填0, 表示使用对应类型的默认协议.</li>
+    </ul>
+  </li>
+  <li>
+    <p>返回值:</p>
+
+    <ul>
+      <li>
+        <p>成功: 返回一个大于0的文件描述符</p>
+      </li>
+      <li>
+        <p>失败: 返回-1, 并设置errno</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>套接字socket实际上是对内核中网络相关的代码的抽象。套接字的三个参数domain、type、protocol实质上都是用于从抽象的套接字到具体的网络代码的分类。domain参数决定了图中所示的第二层通信域，type决定了第三层的通信模式，protocol决定了第四层真正的通信协议。</p>
+
+<p><img src="/assets/images/blog/2024-08-15-10-06-20-image.png" alt="" /></p>
+
+<p><strong>setsockopt</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">setsockopt</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">level</span><span class="p">,</span> <span class="kt">int</span> <span class="n">optname</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">optval</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">optlen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：套接字描述符。</li>
+  <li><code class="language-plaintext highlighter-rouge">level</code>：选项级别，这里使用<code class="language-plaintext highlighter-rouge">IPPROTO_TCP</code>表示 TCP 协议级别。</li>
+  <li><code class="language-plaintext highlighter-rouge">optname</code>：具体的选项名称。</li>
+  <li><code class="language-plaintext highlighter-rouge">optval</code>：指向包含选项值的缓冲区。</li>
+  <li><code class="language-plaintext highlighter-rouge">optlen</code>：选项值的长度。</li>
+</ul>
+
+<p><strong>bind:</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">bind</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：
+    <ul>
+      <li>参数说明：由 <code class="language-plaintext highlighter-rouge">socket()</code> 函数返回的套接字描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addr</code>：
+    <ul>
+      <li>参数说明：指向一个特定地址结构的指针，该结构包含要绑定的地址和端口信息。具体结构类型取决于 <code class="language-plaintext highlighter-rouge">domain</code> 参数，如 <code class="language-plaintext highlighter-rouge">struct sockaddr_in</code>（IPv4）或 <code class="language-plaintext highlighter-rouge">struct sockaddr_in6</code>（IPv6）。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addrlen</code>：
+    <ul>
+      <li>参数说明：地址结构的长度。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>bind用于把被系统当作文件标识符的套接字标识符和套接字地址绑定起来。上层只需要知道套接字的标识符（当作文件的标识符来使用），不用在意通信中的细节（两端的地址，通信协议等）。</p>
+
+<p><strong>getsockname:</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">getsockname</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">addrlen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：
+    <ul>
+      <li>参数说明：套接字描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addr</code>：
+    <ul>
+      <li>参数说明：指向一个地址结构的指针，用于存储获取到的本地地址信息。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addrlen</code>：
+    <ul>
+      <li>参数说明：一个指向 <code class="language-plaintext highlighter-rouge">socklen_t</code> 类型变量的指针，输入时表示 <code class="language-plaintext highlighter-rouge">addr</code> 所指向的地址结构的长度，输出时被修改为实际存储的地址长度。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>listen</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">listen</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">int</span> <span class="n">backlog</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：
+    <ul>
+      <li>参数说明：由 <code class="language-plaintext highlighter-rouge">socket()</code> 函数返回且已绑定地址的套接字描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">backlog</code>：
+    <ul>
+      <li>参数说明：指定在拒绝连接之前，可以排队等待的最大连接数。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>connnect:</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：
+    <ul>
+      <li>参数说明：由 <code class="language-plaintext highlighter-rouge">socket()</code> 函数返回的套接字描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addr</code>：
+    <ul>
+      <li>参数说明：指向一个地址结构的指针，包含了要连接的服务器的地址和端口信息。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addrlen</code>：
+    <ul>
+      <li>参数说明：地址结构的长度。   </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>accept:</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">accept</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="o">*</span><span class="n">addrlen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sockfd</code>：
+    <ul>
+      <li>参数说明：由 <code class="language-plaintext highlighter-rouge">socket()</code> 和 <code class="language-plaintext highlighter-rouge">listen()</code> 函数设置为监听状态的套接字描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addr</code>：
+    <ul>
+      <li>参数说明：指向一个地址结构的指针，用于存储客户端的地址信息。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">addrlen</code>：
+    <ul>
+      <li>参数说明：一个指向 <code class="language-plaintext highlighter-rouge">socklen_t</code> 类型变量的指针，输入时表示 <code class="language-plaintext highlighter-rouge">addr</code> 所指向的地址结构的长度，输出时被修改为实际存储的地址长度。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>recv</strong></p>
+
+<p><strong>send</strong></p>
+
+<p><strong>select:</strong></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">select</span><span class="p">(</span><span class="kt">int</span> <span class="n">nfds</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">readfds</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">writefds</span><span class="p">,</span> <span class="n">fd_set</span> <span class="o">*</span><span class="n">exceptfds</span><span class="p">,</span> <span class="k">struct</span> <span class="n">timeval</span> <span class="o">*</span><span class="n">timeout</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">nfds</code>：
+    <ul>
+      <li>参数说明：要监视的文件描述符的最大值加 1。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">readfds</code>：
+    <ul>
+      <li>参数说明：指向一个文件描述符集合的指针，用于监视可读的文件描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">writefds</code>：
+    <ul>
+      <li>参数说明：指向一个文件描述符集合的指针，用于监视可写的文件描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">exceptfds</code>：
+    <ul>
+      <li>参数说明：指向一个文件描述符集合的指针，用于监视异常情况的文件描述符。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">timeout</code>：
+    <ul>
+      <li>参数说明：指定等待的时间限制。如果为 <code class="language-plaintext highlighter-rouge">NULL</code>，则表示无限等待。是一个指向 <code class="language-plaintext highlighter-rouge">struct timeval</code> 结构的指针，该结构定义了等待的时间（秒和微秒）。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://blog.csdn.net/zhuxiaoping54532/article/details/51701549">Linux Poll 使用方法和实现_linux poll怎么写-CSDN博客</a></p>
+
+<h2 id="进程间通信socketpair">进程间通信–socketpair</h2>
+
+<p>socketpair 用于在进程之间创建两个套接字使两个线程可以跨进程通信。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;sys/socket.h&gt;</span><span class="cp">
+</span><span class="kt">int</span> <span class="nf">socketpair</span><span class="p">(</span><span class="kt">int</span> <span class="n">domain</span><span class="p">,</span> <span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">protocol</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">domain</code>:协议族。例如，<code class="language-plaintext highlighter-rouge">AF_UNIX</code>用于本地通信，<code class="language-plaintext highlighter-rouge">AF_INET</code>用于IPV4，<code class="language-plaintext highlighter-rouge">AF_INET6</code>于IPV6</p>
+
+<p><code class="language-plaintext highlighter-rouge">type</code>:套接字类型，对应TCP和UDP。例如，<code class="language-plaintext highlighter-rouge">SOCK_STREAM</code>、<code class="language-plaintext highlighter-rouge">SOCK_DGRAM</code>和SOCK_RAW</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">SOCK_CLOEXEC</code>:执行exec时自动关闭,用于多线程使用中避免内存泄漏，避免竞态。socketpair中使用这个类别的套接字保证父子进程的套接字同时关闭。</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">protocol</code>：用于确定协议，一般为0</p>
+
+<p><code class="language-plaintext highlighter-rouge">sv[2]</code>：用于储存套接字的标识符，这两个套接字是socketpair创建出的用于全双工跨进程线程间通信的。</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#socket" class="page__taxonomy-item p-category" rel="tag">socket</a><span class="sep">, </span>
+    
+      <a href="/tags/#%E5%A5%97%E6%8E%A5%E5%AD%97" class="page__taxonomy-item p-category" rel="tag">套接字</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-27">2025-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title" style="color: #000000;">分享</h4>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.honest-zh.me%2F%25E5%25A5%2597%25E6%258E%25A5%25E5%25AD%2597%25E7%25BC%2596%25E7%25A8%258B%2F&title=%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
+  </a>
+
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=www.honest-zh.me%2F%25E5%25A5%2597%25E6%258E%25A5%25E5%25AD%2597%25E7%25BC%2596%25E7%25A8%258B%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="pagination--pager" title="多线程编程">上一页</a>
+    
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Zero-MQ/" class="pagination--pager" title="Zero mq">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/SCA/" rel="permalink">Sca
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-26T00:00:00+00:00">2025-02-26</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约2字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="permalink">在服务器上使用Jekyll和Nginx实现SSL和用户登录
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-25T00:00:00+00:00">2025-02-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约1135字，预计4 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="permalink">Twin Theives
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-24T00:00:00+00:00">2025-02-24</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约43字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="permalink">Jekyll Admin使用的包依赖问题
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-22T00:00:00+00:00">2025-02-22</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约277字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      输入您要搜索的关键词...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="www.honest-zh.me">诚的随想和代码</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

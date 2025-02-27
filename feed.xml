@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://47.95.215.1:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://47.95.215.1:4000/" rel="alternate" type="text/html" /><updated>2025-02-25T06:59:54+00:00</updated><id>http://47.95.215.1:4000/feed.xml</id><title type="html">HONEST的个人主页</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">在服务器上使用Jekyll和Nginx实现SSL和用户登录</title><link href="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="在服务器上使用Jekyll和Nginx实现SSL和用户登录" /><published>2025-02-25T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95</id><content type="html" xml:base="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/"><![CDATA[<h2 id="需求描述">需求描述</h2>
-<p>在jekyll上编译了一个<a href="/%E7%AC%94%E8%AE%B0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/">静态网页</a>用来作为我的个人网页。但是每次编辑网页存在着比较大的问题——我需要先在本地编写MarkDown文本然后push到github上，等待他的自动构建。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="www.honest-zh.me/feed.xml" rel="self" type="application/atom+xml" /><link href="www.honest-zh.me/" rel="alternate" type="text/html" /><updated>2025-02-27T01:39:31+00:00</updated><id>www.honest-zh.me/feed.xml</id><title type="html">诚的随想和代码</title><subtitle>这里是HONEST的个人主页，存放我的想法和学习的笔记</subtitle><author><name>HONEST</name><email>2260363172qq.com</email></author><entry><title type="html">Sca</title><link href="www.honest-zh.me/SCA/" rel="alternate" type="text/html" title="Sca" /><published>2025-02-26T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/SCA</id><content type="html" xml:base="www.honest-zh.me/SCA/"><![CDATA[<h1 id="sca">SCA</h1>
 
-<p>于是我在jekyll上使用了<a href="/%E9%97%AE%E9%A2%98/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">jekyll-admin</a>来进行后台管理我的个人主页的博客，每次更改博客时自动进行增量式的静态页面构建。但是此时我还是遇到了一些问题，使得我需要重构我的个人网页结构。</p>
+<h2 id="概述">概述：</h2>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author></entry><entry><title type="html">在服务器上使用Jekyll和Nginx实现SSL和用户登录</title><link href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="alternate" type="text/html" title="在服务器上使用Jekyll和Nginx实现SSL和用户登录" /><published>2025-02-25T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95</id><content type="html" xml:base="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/"><![CDATA[<h2 id="需求描述">需求描述</h2>
+<p>在jekyll上编译了一个<a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9F%BA%E4%BA%8EJekyll%E5%92%8CGithub-Page%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E7%BB%8F%E9%AA%8C/">静态网页</a>用来作为我的个人网页。但是每次编辑网页存在着比较大的问题——我需要先在本地编写MarkDown文本然后push到github上，等待他的自动构建。</p>
+
+<p>于是我在jekyll上使用了<a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/">jekyll-admin</a>来进行后台管理我的个人主页的博客，每次更改博客时自动进行增量式的静态页面构建。但是此时我还是遇到了一些问题，使得我需要重构我的个人网页结构。</p>
 
 <p>第一点是<strong>拓展性问题</strong>。</p>
 
@@ -18,7 +20,7 @@
 <p><strong>SSL/TLS加密问题</strong>。jekyll编译和提供的服务是没有进行SSL加密的，是以HTTP的方式进行的访问，应该对其添加加密使其以HTTPS方式访问。</p>
 
 <h2 id="解决方案分析">解决方案分析</h2>
-<p>正好我有一个阿里云的ECS<strong>云服务器</strong>（之前用来搭建<a href="/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">FTP server</a>），可以比较容易的把Jekyll的服务器转移到linux的云服务器上运行。这样第一个问题就解决了。</p>
+<p>正好我有一个阿里云的ECS<strong>云服务器</strong>（之前用来搭建<a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">FTP server</a>），可以比较容易的把Jekyll的服务器转移到linux的云服务器上运行。这样第一个问题就解决了。</p>
 
 <p>对于第二和第三个问题，有一个成熟的方案可以同时解决这两个问题——<strong>Web代理服务器</strong>。</p>
 
@@ -159,11 +161,19 @@ server {
 
   <p>查看服务状态
 <code class="language-plaintext highlighter-rouge">sudo systemctl status nginx</code></p>
-</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Jekyll" /><category term="个人主页" /><category term="ECS" /></entry><entry><title type="html">Twin Theives</title><link href="http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/twin-theives/" rel="alternate" type="text/html" title="Twin Theives" /><published>2025-02-24T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/twin-theives</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/twin-theives/"><![CDATA[<p><strong>It is not burdens of today that drive men mad.</strong></p>
+</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="显示的文章" /><category term="Jekyll" /><category term="个人主页" /><category term="ECS" /></entry><entry><title type="html">Twin Theives</title><link href="www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="alternate" type="text/html" title="Twin Theives" /><published>2025-02-24T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives</id><content type="html" xml:base="www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/"><![CDATA[<p><strong>It is not burdens of today that drive men mad.</strong></p>
 
 <p><strong>It is the regrets over yesterday and the fear of tomorrow.</strong></p>
 
-<p><strong>Regret and fear are twin thieves who rob us of today.</strong></p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /></entry><entry><title type="html">Jekyll Admin使用的包依赖问题</title><link href="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Jekyll Admin使用的包依赖问题" /><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p><strong>Regret and fear are twin thieves who rob us of today.</strong></p>
+
+<p><strong>并非当下的重担让人痛苦</strong></p>
+
+<p><strong>而是昨日的悔恨和未来的恐惧</strong></p>
+
+<p><strong>悔恨和恐惧是双子的窃贼</strong></p>
+
+<p><strong>夺走了我们的当下</strong></p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /><category term="显示的文章" /></entry><entry><title type="html">Jekyll Admin使用的包依赖问题</title><link href="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Jekyll Admin使用的包依赖问题" /><published>2025-02-22T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98</id><content type="html" xml:base="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 <p>我希望找到一个在线编辑jekyll的文档的方式，这样我们可以使用不同的设备在网页进行编辑。好消息是jekyll有一个专门用于实现的插件叫做jekyll-admin,可以比较方便的进行管理。</p>
 
 <p>正常来说，在Gemfile和_config里添加jekyll-admin，然后再执行bundle install命令即可使用这个插件。但是这次却在静态网页bulid之后发生了问题。</p>
@@ -185,21 +195,21 @@ server {
 
 <p>只需在 gemfile 中添加此内容将sinatra版本回退到4.0之前即可。</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem "sinatra", "&gt;= 3", "&lt; 4"。
-</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="Jekyll" /></entry><entry><title type="html">Ftp二进制文件传输问题</title><link href="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Ftp二进制文件传输问题" /><published>2025-02-19T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
-<p>使用<a href="/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">在ECS上通过vsftpd建立的FTPserver</a>，出现传输可执行文件时发生段错误的报错。</p>
+</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="显示的文章" /><category term="Jekyll" /></entry><entry><title type="html">Ftp二进制文件传输问题</title><link href="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Ftp二进制文件传输问题" /><published>2025-02-19T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98</id><content type="html" xml:base="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/FTP%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>使用<a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">在ECS上通过vsftpd建立的FTPserver</a>，出现传输可执行文件时发生段错误的报错。</p>
 
 <p>完整的流程是这样：我在ARM64的笔记本上build了一个项目，然后为了方便传输，直接将整个编译结果的文件夹传上了FTP server。在x86架构的Windows的设备上，我从FTP server上下载了编译结果，部署到了rk3588的开发板上（开发板的指令架构和ARM64的笔记本一致，出于嵌入式系统的最小化考虑，裁剪的linux上没有安装构建所需的工具包）。执行可执行文件时报错：segmentation fault ，段错误。</p>
 
 <p>首先想的是不是编译的平台的问题，但是这种情况的报错一般不是这个，而是不适合的架构 Exec format error。
 第二部考虑的就是ftp传输的问题。</p>
 <h1 id="解决方法">解决方法</h1>
-<p>查阅资料以后发现，ftp具有两种文件传输的模式，一种是ASCII 模式、另一种是二进制模式来传输文件。ASCII 模式会对文件进行换行符转换（如将 \n 替换为 \r\n，<a href="/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/">LF和CRLF的问题</a>），这对文本文件的处理有一定好处，但是会损坏二进制文件。<strong>可执行文件应该在二进制模式下传输。</strong></p>
+<p>查阅资料以后发现，ftp具有两种文件传输的模式，一种是ASCII 模式、另一种是二进制模式来传输文件。ASCII 模式会对文件进行换行符转换（如将 \n 替换为 \r\n，<a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/">LF和CRLF的问题</a>），这对文本文件的处理有一定好处，但是会损坏二进制文件。<strong>可执行文件应该在二进制模式下传输。</strong></p>
 
 <p>FTP的server一般会自动的处理文件传输模式，也就是说问题取决于FTP客户端的设置，需要设置为二进制传输模式。</p>
 
 <p>FileZella默认的是自动模式，偶尔会出现问题。
 右上角-编辑-设置，在弹出窗口中选择 传输-FTP类型-二进制模式传输文件
-<img src="/assets/images/blog/2025-02-19%201.png" alt="" /></p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="FTP" /><category term="vsftpd" /></entry><entry><title type="html">Wsl2突然无法使用</title><link href="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Wsl2突然无法使用" /><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<img src="/assets/images/blog/2025-02-19%201.png" alt="" /></p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="显示的文章" /><category term="FTP" /><category term="vsftpd" /></entry><entry><title type="html">Wsl2突然无法使用</title><link href="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Wsl2突然无法使用" /><published>2025-02-06T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/wsl2%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 <p>之前一直可以使用的wsl突然抽风无法使用。powershell运行wsl报错：</p>
 
 <blockquote>
@@ -226,7 +236,7 @@ server {
 
 <blockquote>
   <p>猜想：设置的 hypervisorlaunchtype 属性是 Auto,有时会自动关掉？是的，尤其是在windows对wsl进行了更新的情况下。（沟槽的微软阿三程序员#￥%@。。。以下略）</p>
-</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="wsl" /></entry><entry><title type="html">2024年终总结</title><link href="http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" rel="alternate" type="text/html" title="2024年终总结" /><published>2025-01-20T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%9A%8F%E7%AC%94/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"><![CDATA[<h1 id="序">序</h1>
+</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="显示的文章" /><category term="wsl" /></entry><entry><title type="html">2024年终总结</title><link href="www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" rel="alternate" type="text/html" title="2024年终总结" /><published>2025-01-20T00:00:00+00:00</published><updated>2025-01-28T00:00:00+00:00</updated><id>www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93</id><content type="html" xml:base="www.honest-zh.me/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/2024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"><![CDATA[<h1 id="序">序</h1>
 
 <p>当我缓过神来，望向窗外旧屋屋檐上的皑皑白雪时，时间已经早就到了2025年。在带着弥散的火药味的寒风里，在农历的旧年的最后一天，拖延症晚期的我也不得不升起一定要将这一年迟来的总结终结在甲辰年的决心。“至少是在新年前完成了过去一年的总结——虽然是农历”自欺欺人的想着，我敲起了键盘。</p>
 
@@ -240,7 +250,7 @@ server {
 
 <p>研一的生活说实话和本科相比实际上没有什么区别，重复着上课、笔记、作业、考试的古旧循环。</p>
 
-<p>#</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /><category term="年终总结" /></entry><entry><title type="html">使用ghpage分支配置jekyll网页的自定义域名问题</title><link href="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="使用ghpage分支配置jekyll网页的自定义域名问题" /><published>2025-01-20T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>#</p>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="随笔" /><category term="显示的文章" /><category term="年终总结" /></entry><entry><title type="html">使用ghpage分支配置jekyll网页的自定义域名问题</title><link href="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="使用ghpage分支配置jekyll网页的自定义域名问题" /><published>2025-01-20T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98</id><content type="html" xml:base="www.honest-zh.me/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8ghpage%E5%88%86%E6%94%AF%E9%85%8D%E7%BD%AEjekyll%E7%BD%91%E9%A1%B5%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
 <p>最近在阿里云上为我的个人网页购买了一个域名<code class="language-plaintext highlighter-rouge">honest-zh.me</code>,我将<code class="language-plaintext highlighter-rouge">www.honest-zh.me</code>的链接重定向到了我之前在github page上托管的<a href="/笔记/基于Jekyll和Github-Page的个人主页搭建经验/">个人主页</a>。并在github的设置中的page选项的Custom domain里设置为了我的域名。很顺利的，域名可以跳转到我在github page上托管的个人网页网址<code class="language-plaintext highlighter-rouge">honest-zh.github.io</code>上。但当我更新我的博客，ghpage分支重新部署文件后，域名的重定向就失效了！</p>
 <h1 id="解决方法">解决方法</h1>
 <p>github page使用CNAME的文件管理自定义域名，观察到检测ghpage分支更新并进行部署的Github action工作流里面没有CNAME的设置项，添加<code class="language-plaintext highlighter-rouge">cname: www.honest-zh.me</code>
@@ -251,7 +261,7 @@ server {
         <span class="na">github_token</span><span class="pi">:</span> <span class="s">$</span>
         <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
         <span class="na">cname</span><span class="pi">:</span> <span class="s">www.honest-zh.me</span>  <span class="c1"># 自定义域名www.honest-zh.me</span>
-</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="Git" /><category term="Jekyll" /><category term="个人主页" /></entry><entry><title type="html">Systemd和systemctl</title><link href="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/" rel="alternate" type="text/html" title="Systemd和systemctl" /><published>2025-01-16T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl</id><content type="html" xml:base="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/"><![CDATA[<p>systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与 systemd 进行交互的主要方式，它非常强大且功能丰富。</p>
+</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="显示的文章" /><category term="Git" /><category term="Jekyll" /><category term="个人主页" /></entry><entry><title type="html">Systemd和systemctl</title><link href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/systemd%E5%92%8Csystemctl/" rel="alternate" type="text/html" title="Systemd和systemctl" /><published>2025-01-16T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/systemd%E5%92%8Csystemctl</id><content type="html" xml:base="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/systemd%E5%92%8Csystemctl/"><![CDATA[<p>systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与 systemd 进行交互的主要方式，它非常强大且功能丰富。</p>
 <h1 id="1-管理服务unit">1. 管理服务（Unit）</h1>
 <h2 id="11-启动服务">1.1 启动服务：</h2>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start <span class="o">[</span>服务名称]
@@ -355,7 +365,7 @@ sudo systemctl start httpd
 </code></pre></div></div>
 <p>例如，查看httpd服务的依赖关系，会显示该服务所依赖的其他服务以及依赖它的服务：</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl list - dependencies httpd
-</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="Linux" /><category term="systemd" /></entry><entry><title type="html">使用vsftpd在阿里云ecs上建立一个ftp服务器</title><link href="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="alternate" type="text/html" title="使用vsftpd在阿里云ecs上建立一个ftp服务器" /><published>2025-01-16T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8</id><content type="html" xml:base="http://47.95.215.1:4000/%E7%AC%94%E8%AE%B0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"><![CDATA[<p>首先要做的就是在服务器上运行一个FTP server。现在已经十分的成熟了，可以直接使用apt工具下载一些常用的ftp工具软件包，例如<code class="language-plaintext highlighter-rouge">vsftpd</code>和<code class="language-plaintext highlighter-rouge">ProFTPD</code>等。这里我使用的是<code class="language-plaintext highlighter-rouge">vsftpd</code>。</p>
+</code></pre></div></div>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="显示的文章" /><category term="Linux" /><category term="systemd" /></entry><entry><title type="html">使用vsftpd在阿里云ecs上建立一个ftp服务器</title><link href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="alternate" type="text/html" title="使用vsftpd在阿里云ecs上建立一个ftp服务器" /><published>2025-01-16T00:00:00+00:00</published><updated>2025-02-27T01:38:46+00:00</updated><id>www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8</id><content type="html" xml:base="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E4%BD%BF%E7%94%A8vsftpd%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91ECS%E4%B8%8A%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AAFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"><![CDATA[<p>首先要做的就是在服务器上运行一个FTP server。现在已经十分的成熟了，可以直接使用apt工具下载一些常用的ftp工具软件包，例如<code class="language-plaintext highlighter-rouge">vsftpd</code>和<code class="language-plaintext highlighter-rouge">ProFTPD</code>等。这里我使用的是<code class="language-plaintext highlighter-rouge">vsftpd</code>。</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
 apt <span class="nb">install </span>vsftpd
@@ -363,7 +373,7 @@ systemctl start vsftpd
 </code></pre></div></div>
 <blockquote>
   <p>“vsftpd” 中，最后的 “d” 代表 “daemon”，即守护进程。守护进程是一种在后台持续运行的进程，它独立于控制终端，通常在系统启动时自动启动，并一直运行直至系统关闭，用于执行特定的系统任务或提供某种服务。
-systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与systemd 进行交互的主要方式，具体参见<a href="/%E7%AC%94%E8%AE%B0/systemd%E5%92%8Csystemctl/">systemctl</a>。</p>
+systemctl是一个在基于 systemd 的 Linux 系统中用于控制 systemd 系统和服务管理器的命令行工具。systemd 是一个系统和服务管理器，它提供了系统启动、服务管理、日志记录等一系列功能。systemctl命令是与systemd 进行交互的主要方式，具体参见<a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/systemd%E5%92%8Csystemctl/">systemctl</a>。</p>
 </blockquote>
 
 <p>接下来要做的是对vsftpd的一些配置，最主要的是添加用户和用户组，设置用户的权限和工作目录。</p>
@@ -401,50 +411,4 @@ write_enable=YES
 另一种方法是使用SFTP（SSH FTP），SFTP 是基于 SSH 协议的文件传输协议，使用 SSH 的安全通道来传输文件。SFTP将文件传输作为 SSH 协议的子系统，所以只需要支持ssh的设备就可以使用这种方式传输文件。因为使用 SSH 协议，所以继承了 SSH 的安全性，包括加密和用户认证。</p>
 <blockquote>
   <p>更简单的情况下，我们可以直接使用SCP来复制文件。</p>
-</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="ECS" /><category term="FTP" /><category term="vsftpd" /></entry><entry><title type="html">Bash脚本win Linux之间的换行符问题</title><link href="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/" rel="alternate" type="text/html" title="Bash脚本win Linux之间的换行符问题" /><published>2025-01-03T00:00:00+00:00</published><updated>2025-02-25T06:59:09+00:00</updated><id>http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98</id><content type="html" xml:base="http://47.95.215.1:4000/%E9%97%AE%E9%A2%98/bash%E8%84%9A%E6%9C%ACwin-linux%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8D%A2%E8%A1%8C%E7%AC%A6%E9%97%AE%E9%A2%98/"><![CDATA[<h1 id="问题描述">问题描述</h1>
-
-<p>在嵌入式开发的过程当中，经常需要使用bash脚本进行批量的操作。编写bash脚本时，有时会出现报错，未找到xxx。使用Vi打开bash脚本以后发现在每行命令的行尾出现了<code class="language-plaintext highlighter-rouge">^M</code>这样的符号，导致指令未能被正确的识别和执行。</p>
-
-<p>导致这种问题的原因是Windows和Linux系统下的换行符的不同。这种不同来源于传统电控打字机的兼容性带来的历史遗留问题。</p>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">\r</code>（Carriage Return，ASCII 码值为 13 ）：意思是 “回车”，起源于老式的打字机机械结构。打字机打印头在一行末尾打完字后，需要将整个打印托架移回本行开头的位置，为下一行的打字做准备，这个动作就叫 “回车” 。在电传打字机、早期计算机终端设备等场景下，当接收到\r字符时，设备的光标或者打印头就会回到本行起始坐标处，准备后续输入或者输出。</p>
-</blockquote>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">\n</code>（Line Feed，ASCII 码值为 10）：意思是 “换行”，当电传打字机等设备接收到该字符时，会将纸张向上滚动一行，让打印位置垂直下移一行，这样后续内容就会打印到新的一行。Windows使用的换行符是<code class="language-plaintext highlighter-rouge">\r\n</code>,由两部分组成。</p>
-</blockquote>
-
-<p>windows为了更好的兼容性同时使用了<code class="language-plaintext highlighter-rouge">\r\n</code>一起作为换行符，称为CRLF换行符。</p>
-
-<p>Linux（等类unix系统）则秉持着最小化的哲学仅使用<code class="language-plaintext highlighter-rouge">\n</code>，称为LF换行符。</p>
-
-<p>Windows 风格换行符（CRLF，\r\n ）中的 “回车符（Carriage Return，ASCII 码值 13，对应 Ctrl + M，在文本显示中就呈现为^M ）” 。</p>
-
-<h1 id="解决方法">解决方法</h1>
-<ol>
-  <li>
-    <p>最简单直接的做法就是在IDE中直接设置好文件的换行符格式。例如，在vscode的右下角蓝色底部边框中可以修改文件的编码格式、换行符和缩进方式。</p>
-  </li>
-  <li>
-    <p>在linux系统下,一种方法是使用对应的工具包<code class="language-plaintext highlighter-rouge">unix2dos</code>或<code class="language-plaintext highlighter-rouge">dos2unix</code>,但是需要下载。</p>
-  </li>
-  <li>另一种方法是使用tr命令和管道相结合的方式修改文件中的换行符。
- RF –&gt; CRLF
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\n' '\t' | tr '\t' '\r\n' &gt; output.txt
-</code></pre></div>    </div>
-    <p>CRLF –&gt; LF</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat input.txt | tr '\r\n' '\t' | tr '\t' '\n' &gt; output.txt
-</code></pre></div>    </div>
-  </li>
-  <li>还有一种方法是使用vim的<code class="language-plaintext highlighter-rouge">set fileformat</code>命令进行设置
- RF –&gt; CRLF
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=dos
- :wq
-</code></pre></div>    </div>
-    <p>CRLF –&gt; LF</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> :set fileformat=unix
- :wq
-</code></pre></div>    </div>
-  </li>
-</ol>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="问题" /><category term="Shell" /><category term="Git" /><category term="Vim" /></entry></feed>
+</blockquote>]]></content><author><name>HONEST</name><email>2260363172qq.com</email></author><category term="笔记" /><category term="显示的文章" /><category term="ECS" /><category term="FTP" /><category term="vsftpd" /></entry></feed>

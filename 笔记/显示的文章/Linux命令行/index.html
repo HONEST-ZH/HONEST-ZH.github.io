@@ -1,0 +1,1122 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="zh-CN" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Linux命令行  - 诚的随想和代码</title>
+<meta name="description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+  <meta name="author" content="HONEST">
+  
+  <meta property="article:author" content="HONEST">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="诚的随想和代码">
+<meta property="og:title" content="Linux命令行">
+<meta property="og:url" content="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+
+
+  <meta property="og:description" content="这里是HONEST的个人主页，存放我的想法和学习的笔记">
+
+
+
+  <meta property="og:image" content="www.honest-zh.me/assets/images/blog_header/default_header.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-25T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2025-02-27T01:38:46+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="www.honest-zh.me/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="诚的随想和代码 Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">转到主导航栏</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">转到内容</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">转到底部</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/web/logo.png" alt="诚的随想和代码"></a>
+        
+        <a class="site-title" href="/">
+          诚的随想和代码
+          <span class="site-subtitle">βlatu-CodeRealm</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                 title="首页"
+                
+              >首页</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%9A%8F%E7%AC%94"
+                 title="存放日常生活的心得和感悟"
+                
+              >随想随笔</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E7%AC%94%E8%AE%B0"
+                 title="存放学习的笔记资料"
+                
+              >学习笔记</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/#%E9%97%AE%E9%A2%98"
+                 title="记录我踩过的坑"
+                
+              >踩坑记录</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/posts/"
+                 title="按照时间线方式，以存档格式存放文章"
+                
+              >文章存档</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/tags/"
+                 title="按照标签分类存放文章"
+                
+              >标签分类</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">切换搜索</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: transparent; background-image: url('/assets/images/blog_header/default_header.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Linux命令行
+
+        
+      </h1>
+      
+        <p class="page__lead">
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-25T00:00:00+00:00">2024-08-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          约2604字，预计10 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="www.honest-zh.me/">
+        <img src="/assets/author/avatar.jpg" alt="HONEST" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="www.honest-zh.me/" itemprop="url">HONEST</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>TCG/TRPG/ACGN爱好者，并非二次元<br />
+总在捣鼓莫名其妙的东西的技术宅<br />
+一步步迈向社畜生活的深渊的研究牲<br />
+为了毕业和工作忧愁中<br />
+最近正在自学电吉他</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">关注</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">中国-上海</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:2260363172qq.com" rel="me" class="u-email">
+            <meta itemprop="email" content="2260363172qq.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">电子邮箱</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Linux命令行">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-08-25T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2025-02-27T01:38:46+00:00">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 目录</h4></header>
+              <ul class="toc__menu"><li><a href="#linux命令bash-shell命令">Linux命令(bash Shell命令)：</a><ul><li><a href="#文件夹操作">文件夹操作：</a></li><li><a href="#文件操作">文件操作：</a></li><li><a href="#进程操作">进程操作：</a></li><li><a href="#用户操作">用户操作：</a></li><li><a href="#查看操作">查看操作</a></li></ul></li><li><a href="#linux相关的快捷键">Linux相关的快捷键</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="linux命令bash-shell命令">Linux命令(bash Shell命令)：</h1>
+
+<p><code class="language-plaintext highlighter-rouge">freecodecamp.org/chinese/news/the-linux-commands-handbook/</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">man</code>:查看命令手册的具体内容，帮助了解（很长很长）。建议使用tldr以更快的大致了解一个命令。</p>
+
+<p><code class="language-plaintext highlighter-rouge">man [命令]/tldr [命令]</code></p>
+
+<h2 id="文件夹操作"><strong>文件夹操作：</strong></h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">ls</code>:查看文件夹的内容。
+默认是当前目录。常用的属性是-l,可以查看文件的详细信息（l详细数据，a显示隐藏数据）。
+  <code class="language-plaintext highlighter-rouge">ls [选项] &lt;文件路径&gt;</code></li>
+</ol>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">ls -l</code>将显示文件夹的权限、所有者和用户组</p>
+
+  <p>例如：<code class="language-plaintext highlighter-rouge">-rw-r--r-- 1 user group 1024 Jan  1 00:00 example.txt</code></p>
+
+  <p><strong>文件权限（-rw-r–r–）</strong></p>
+
+  <p>第 1 个字符：表示文件类型。第 2 - 4 个字符：表示文件所有者的权限。分别对应读（r）、写（w）、执行（x）权限。如果没有相应权限，则用 - 表示。第 5 - 7 个字符：表示文件所属用户组的权限。第 8 - 10 个字符：表示其他用户的权限。</p>
+
+  <p><strong>硬链接数（1）</strong>
+该数字表示文件或目录的硬链接数量。对于文件来说，硬链接数表示有多少个文件名指向同一个文件的物理数据；对于目录来说，硬链接数表示该目录下的子目录和 .（当前目录）、..（父目录）的总数。</p>
+
+  <p><strong>文件所有者（user）</strong>
+显示文件或目录的所有者用户名。所有者对文件有特殊的权限控制，可以修改文件权限、删除文件等。</p>
+
+  <p><strong>文件所属用户组（group）</strong>
+显示文件或目录所属的用户组名。用户组是具有相同权限的用户集合，文件所属用户组的成员可以根据用户组的权限对文件进行操作。</p>
+
+  <p><strong>文件大小（1024）</strong>
+以字节为单位显示文件或目录的大小。对于目录，显示的是目录本身的元数据大小，而不是目录下所有文件的总大小。如果要查看目录下所有文件的总大小，可以使用 du -sh 命令。</p>
+
+  <p><strong>文件最后修改时间（Jan 1 00:00）</strong>
+显示文件或目录最后一次被修改的时间，包括月份、日期和具体时间。如果文件是很久以前修改的，可能会显示年份而不是具体时间。</p>
+
+  <p><strong>文件名（example.txt）</strong></p>
+</blockquote>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cd</code>:打开文件夹。
+  <code class="language-plaintext highlighter-rouge">cd [选项] &lt;文件路径&gt;</code>
+  .. :上级文件夹、. :当前文件夹、/：根目录、~：root目录。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">pwd</code>:显示当前的工作文件夹。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">du</code>:显示目录大小。 
+  -h单独计算每个文件大小。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">mkdir</code>:创建新的文件夹。 
+  -p :创建嵌套的文件夹。
+  <code class="language-plaintext highlighter-rouge">mkdir [选项] &lt;文件路径&gt;</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">rm -f</code>:删除文件和其中内容（必须慎重操作）。<code class="language-plaintext highlighter-rouge">-rf</code>:递归的删除文件（也删除文件夹里的）</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">rmdir</code>:删除文件夹（必须为空）。
+  <code class="language-plaintext highlighter-rouge">rmdir [选项] &lt;文件路径&gt;</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">mv</code>:移动文件、文件夹；也可用于重命名文件。 
+  -t 目标目录
+  <code class="language-plaintext highlighter-rouge">mv &lt;当前文件路径&gt; &lt;新的文件路径&gt;</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cp</code>：复制文件，-r复制文件夹。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">find</code>:查找文件,可以限定查找的类型、名称、大小、时间和附加操作。
+  <code class="language-plaintext highlighter-rouge">find  [路径]  -type [类型：f/d]  -name [文件名]  -size [+大于的值/-小于的值]  -mtime [更新时间]  -delete/-exec [命令]</code></p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ln</code>:链接文件,包括硬链接和软链接。保证同步更新？
+  硬链接：ln <源文件路径><链接路径>，复制+同步
+  软链接：ln <源文件路径><链接路径>，指针</链接路径></源文件路径></链接路径></源文件路径></li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">gzip</code>：压缩</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ta</code>：归档</li>
+</ol>
+
+<h2 id="文件操作"><strong>文件操作：</strong></h2>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">touch</code> :创建文件，以写入方式打开。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cat</code>：打印文件的内容到标准输出。</p>
+
+    <p>cat常常与管道运算符，重定向输出符等连用</p>
+
+    <p><code class="language-plaintext highlighter-rouge">cat 文件名</code></p>
+    <blockquote>
+      <p><code class="language-plaintext highlighter-rouge">|</code> 是管道符号，标识把左边的内容的输出作为右边内容的输入。
+<code class="language-plaintext highlighter-rouge">&gt;</code>是重定向输出符号，把内容输出到文件当中，会覆盖
+<code class="language-plaintext highlighter-rouge">&gt;&gt;</code>是追加重定向输出符号，把内容追加在文件的末尾</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tail</code>: 打开并监控文件的末尾。（用于日志监控）
+  <code class="language-plaintext highlighter-rouge">tail -f [文件]</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">grep</code>：全局正则表达式打印。
+在指定的文件里寻找字符串（正则表达式）。
+-n 显示匹配的行行号、- l 打印匹配的文件名、-i 忽略大小写匹配、-v 反向查找（打印不匹配的） 、-r 递归查找文件、-c 只打印匹配的行数、-C x 打印匹配的行前后x行的内容。
+  <code class="language-plaintext highlighter-rouge">grep [选项] 表达式 [文件]</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">echo</code>:打印输出。</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">sort</code>:对文本进行排序 -r倒序 -u移除重复的（对中文不可用）</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">uniq</code>：去除重复的行，-d显示重复行、-u显示不重复行、-c计数</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">diff</code>:比对两个文档。-y逐行对比、-u git式的对比、-r 递归比较、-q显示不同的文件名</p>
+  </li>
+</ol>
+
+<h2 id="进程操作"><strong>进程操作：</strong></h2>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ps</code>:检查进程，（静态）</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">top</code>:动态监控进程
+top 命令是 Linux 系统中用来查看系统当前资源使用情况（如 CPU、内存、进程等）和实时监控的工具。它显示的信息非常丰富，能够帮助管理员和用户了解系统的性能和负载。</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>1.top 命令的输出内容说明
+默认情况下，top 显示的是一个动态更新的界面，内容分为几个主要部分：</p>
+
+  <p>(1) 头部信息
+系统时间：当前时间、系统运行时间、系统负载等。
+运行中的任务数：系统上正在运行的进程数量。
+CPU 使用情况：显示不同 CPU 核心的使用情况。
+内存使用情况：显示物理内存和交换空间（swap）的使用情况。
+示例：</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>top - 15:25:34 up 3 days,  2:45,  2 users,  load average: 0.05, 0.03, 0.01
+Tasks: 196 total,   1 running, 195 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.2 us,  1.8 sy,  0.0 ni, 94.8 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+MiB Mem :   8028.2 total,   1056.4 free,   5562.8 used,   1409.0 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   1569.5 avail Mem
+</code></pre></div>  </div>
+  <p>(2) 进程信息
+接下来是关于正在运行的进程的详细信息：</p>
+
+  <p>PID：进程 ID。
+USER：进程所属的用户。
+PR：进程的优先级。
+NI：进程的 nice 值（调整进程优先级）。
+VIRT：进程使用的虚拟内存总量。
+RES：进程使用的物理内存量。
+SHR：进程共享的内存量。
+S：进程的状态（如 R 为运行中，S 为休眠中，Z 为僵尸进程等）。
+%CPU：该进程占用的 CPU 百分比。
+%MEM：该进程占用的内存百分比。
+TIME+：进程占用的 CPU 时间（累计）。
+COMMAND：进程执行的命令名称。
+示例：</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+1234 root      20   0  164012   9324   5860 S  2.0  0.1   0:09.32 bash
+5678 user      20   0  120400   7204   3200 S  1.0  0.1   0:07.28 python
+</code></pre></div>  </div>
+  <p>2.常用命令选项
+(1) 动态更新间隔
+top 默认每 3 秒更新一次数据，你可以通过按 d 键来修改更新的间隔时间。例如，输入 d 后可以设定每 1 秒更新一次。</p>
+
+  <p>(2) 显示不同的排序方式
+P：按 CPU 使用率排序。
+M：按内存使用量排序。
+T：按运行时间排序。
+N：按进程 PID 排序。</p>
+
+  <p>(3) 切换显示模式
+按 1 键切换显示每个 CPU 核心的使用情况。
+按 c 键可以切换是否显示进程的完整命令行（默认只显示程序名称）。</p>
+
+  <p>(4) 过滤进程
+按下 o 键可以过滤进程（类似 grep 的功能）。例如，输入 COMMAND=python 会只显示所有 python 相关的进程。</p>
+
+  <p>(5) 进程管理
+按 k 键后，输入进程 PID 和信号（如 9 代表终止进程）可以终止某个进程。
+按 r 键后，可以改变进程的优先级（调整 nice 值）。</p>
+
+  <p>(6) 显示内存、CPU 等统计信息
+m：显示内存统计。
+t：显示线程信息。
+d：调整刷新频率（秒）。
+q：退出 top 命令。</p>
+  <ol>
+    <li>命令行选项
+top -d <seconds>：指定更新的间隔时间（单位：秒），例如 top -d 1 每秒刷新一次。
+top -n <count>：指定 top 刷新多少次后退出，例如 top -n 5 刷新 5 次后退出。
+top -u <user>：显示某个用户的进程信息。
+top -p <pid>：只显示指定进程的状态。</pid></user></count></seconds></li>
+  </ol>
+</blockquote>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">kill</code>：向进程发送信号（KILL和STOP先向内核发送，由内核操纵进程）。信号包括：HUP(1)挂起、INT(2)干扰、KILL(9)强制终结、TERM(15)正常终结、CONT(18)继续、STOP(19)停止</li>
+</ol>
+
+<h2 id="用户操作"><strong>用户操作：</strong></h2>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">users</code>:命令会显示当前登录到系统的所有用户
+    <blockquote>
+      <p>查看当前系统内的所有用户，使用文本编辑器打开文件</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/passwd
+</code></pre></div>      </div>
+      <p>/etc/passwd 文件是一个重要的系统文件，它存储了系统中所有用户的基本信息。使用 vi /etc/passwd 命令打开该文件后，每一行代表一个用户的信息，各字段之间用冒号 : 分隔。</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>username:x:1001:1001:User Description:/home/username:/bin/bash
+</code></pre></div>      </div>
+
+      <p><strong>用户名（username）</strong>：这是用户登录系统时使用的名称，是用户在系统中的唯一标识，通常由字母、数字、下划线等字符组成，且不能包含冒号 :。</p>
+
+      <p><strong>加密密码占位符（x）</strong>:在早期的 Linux 系统中，该字段存储用户的加密密码。但由于 /etc/passwd 文件的权限通常设置为所有用户可读，为了提高安全性，现在密码通常存储在 /etc/shadow 文件中，而 /etc/passwd 文件中的该字段统一显示为 x，表示密码被存储在其他地方。</p>
+
+      <p><strong>用户 ID（UID，1001）</strong>:用户 ID 是一个唯一的整数，用于系统内部标识用户。系统通过 UID 来管理用户的权限和资源。在大多数 Linux 系统中，root 用户的 UID 为 0，系统保留用户（如 daemon、bin 等）的 UID 通常小于 1000，而普通用户的 UID 通常从 1000 或 1001 开始分配。</p>
+
+      <p><strong>组 ID（GID，1001）</strong>:组 ID 是用户所属主要用户组的唯一标识。用户可以属于多个用户组，但每个用户都有一个主要用户组，记录在 /etc/passwd 文件中。与 UID 类似，系统通过 GID 来管理用户组的权限和资源。用户组的详细信息存储在 /etc/group 文件中。</p>
+
+      <p><strong>用户描述信息（User Description）</strong>
+该字段用于存储用户的描述信息，通常是用户的全名或其他相关说明。</p>
+
+      <p><strong>用户主目录（/home/username）</strong>:用户主目录是用户登录系统后默认进入的目录，通常以 /home 为根目录，后面跟上用户名。</p>
+
+      <p><strong>用户默认 shell（/bin/bash）</strong>:该字段指定用户登录系统后默认使用的 shell 程序。如果该字段设置为 /sbin/nologin，则表示该用户不能登录系统，通常用于系统服务账户。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">groups</code>:查看当前用户所属的用户组</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">chown</code>:改变所有者</p>
+
+    <p><code class="language-plaintext highlighter-rouge">chown newuser:newgroup example.txt</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">chmod</code>:改变权限。</p>
+
+    <p>rwx分别对应了读4写2执行1,不操作的使用-替代。一个文件有三组rwx的值，对应所有者、关联的用户组和其他人的权限。</p>
+
+    <p>-R递归的改变文件夹下的所有文件的权限</p>
+
+    <p><code class="language-plaintext highlighter-rouge">chmod  owner/group/world  +/-  rwx</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">df</code>:获取磁盘使用情况。-h</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">su -l</code> :切换设备权限到root</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">alias</code>:为命令创造别名。</p>
+
+    <p>’’ 变量在调用时解析, ””变量在定义时解析。
+<code class="language-plaintext highlighter-rouge">alias [new_cmd]=’cmd’/”cmd”</code></p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ldconfig</code>：更新系统共享库缓存</li>
+</ol>
+
+<h2 id="查看操作">查看操作</h2>
+
+<p><code class="language-plaintext highlighter-rouge">sudo netstat -tulpn | grep &lt;port_number&gt;</code></p>
+
+<h1 id="linux相关的快捷键">Linux相关的快捷键</h1>
+
+<ul>
+  <li>
+    <p>常用：</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl L</code> ：清屏</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl C</code> : 中断正在当前正在执行的程序</li>
+      <li><code class="language-plaintext highlighter-rouge">ctrl+alt+t</code>：打开终端</li>
+    </ul>
+  </li>
+  <li>
+    <p>历史命令：</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl P</code> : 上一条命令，可以一直按表示一直往前翻</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl N</code> : 下一条命令</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl R</code>，再按历史命令中出现过的字符串：按字符串寻找历史命令（重度推荐）</li>
+    </ul>
+  </li>
+  <li>
+    <p>命令行编辑：</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Tab</code> : 自动补齐（重度推荐）</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl ]</code> : 从当前光标往后搜索字符串，用于快速移动到该字符串</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl Alt ]</code> : 从当前光标往前搜索字符串，用于快速移动到该字符串</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl U</code> : 清空当前键入的命令</li>
+    </ul>
+  </li>
+  <li>
+    <p>其他：</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl Z</code> : 把当前进程放到后台（之后可用’‘fg’‘命令回到前台）</li>
+      <li><code class="language-plaintext highlighter-rouge">Shift Insert</code> : 粘贴（相当于Windows的<strong>Ctrl V</strong>）</li>
+      <li>在命令行窗口选中即复制</li>
+      <li>在命令行窗口中键即粘贴，可用<strong>Shift Insert</strong>代替</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 标签: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">Linux</a><span class="sep">, </span>
+    
+      <a href="/tags/#shell" class="page__taxonomy-item p-category" rel="tag">Shell</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0" class="page__taxonomy-item p-category" rel="tag">显示的文章</a><span class="sep">, </span>
+    
+      <a href="/categories/#%E7%AC%94%E8%AE%B0" class="page__taxonomy-item p-category" rel="tag">笔记</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time class="dt-published" datetime="2025-02-27">2025-02-27</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title" style="color: #000000;">分享</h4>
+
+  <a href="https://connect.qq.com/widget/shareqq/index.html?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2FLinux%25E5%2591%25BD%25E4%25BB%25A4%25E8%25A1%258C%2F&title=Linux%E5%91%BD%E4%BB%A4%E8%A1%8C+" class="btn btn--qq" style="background-color: #1DA1F2; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到QQ">
+    <i class="fab fa-fw fa-qq" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到QQ</span>
+  </a>
+
+  <a href="https://share.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxcheckurl?url=www.honest-zh.me%2F%25E7%25AC%2594%25E8%25AE%25B0%2F%25E6%2598%25BE%25E7%25A4%25BA%25E7%259A%2584%25E6%2596%2587%25E7%25AB%25A0%2FLinux%25E5%2591%25BD%25E4%25BB%25A4%25E8%25A1%258C%2F" class="btn btn--wechat" style="background-color: #25D366; color: #FFFFFF;" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享到微信">
+    <i class="fab fa-fw fa-weixin" aria-hidden="true" style="color: #FFFFFF;"></i><span> 分享到微信</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="pagination--pager" title="Linux包管理工具">上一页</a>
+    
+    
+      <a href="/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="pagination--pager" title="Linux操作系统">下一页</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">猜您还喜欢</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/SCA/" rel="permalink">Sca
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-26T00:00:00+00:00">2025-02-26</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约2字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E7%AC%94%E8%AE%B0/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%BD%BF%E7%94%A8Jekyll%E5%92%8CNginx%E5%AE%9E%E7%8E%B0SSL%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/" rel="permalink">在服务器上使用Jekyll和Nginx实现SSL和用户登录
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-25T00:00:00+00:00">2025-02-25</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约1135字，预计4 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%9A%8F%E7%AC%94/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/twin-theives/" rel="permalink">Twin Theives
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-24T00:00:00+00:00">2025-02-24</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约43字，预计少于 1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%E9%97%AE%E9%A2%98/%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0/jekyll-admin%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98/" rel="permalink">Jekyll Admin使用的包依赖问题
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2025-02-22T00:00:00+00:00">2025-02-22</time>
+      </span>
+    
+    
+    <span class="page__meta-sep"></span>
+
+    
+      <span class="page__meta-date">
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+        <time datetime="2025-02-27T01:38:46+00:00">2025-02-27</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+      
+      
+      
+      
+      
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          约277字，预计1 分钟阅读
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      输入您要搜索的关键词...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/HONEST-ZH" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="www.honest-zh.me">诚的随想和代码</a>. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
